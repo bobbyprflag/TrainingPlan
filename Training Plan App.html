@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Summit">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#EDF0F3">
+<meta name="robots" content="noindex, nofollow">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<title>Summit Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF0F3; --surface:#FFFFFF; --ink:#18212B; --muted:#5A6573; --line:#D6DCE3;
+  --heat:#C9381F; --heat-soft:#FBE4DF; --pine:#2E6A4E; --pine-soft:#E0EEE6; --field:#F5F7F9;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --cond:"Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Barlow",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151B; --surface:#19212A; --ink:#E7EBEF; --muted:#9AA5B1; --line:#2B3541;
+    --heat:#FF6B55; --heat-soft:#3A201C; --pine:#62C493; --pine-soft:#183126; --field:#141B22;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10151B; --surface:#19212A; --ink:#E7EBEF; --muted:#9AA5B1; --line:#2B3541;
+  --heat:#FF6B55; --heat-soft:#3A201C; --pine:#62C493; --pine-soft:#183126; --field:#141B22;
+  color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+main{max-width:560px;margin:0 auto;padding:12px 16px 120px}
+h1,h2,h3{font-family:var(--cond);font-weight:600;letter-spacing:.005em;margin:0;line-height:1.05}
+h2{font-size:26px;margin:28px 0 10px}
+h3{font-size:21px}
+p{margin:0 0 10px}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+a{color:var(--pine)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--pine);outline-offset:2px;border-radius:6px}
+
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:6px 0 4px}
+.top .date{font-family:var(--cond);font-size:20px;font-weight:600}
+.sync{font-size:13px;color:var(--muted);text-align:right}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+.panel.flat{background:transparent;border:none;padding:0}
+
+/* Session hero: the one loud element */
+.hero{position:relative;background:var(--surface);border-radius:18px;padding:18px 18px 16px;margin:10px 0 14px;border:1px solid var(--line);overflow:hidden}
+.hero.heat{border-color:transparent;box-shadow:inset 0 0 0 2px var(--heat)}
+.hero .when{font-size:15px;color:var(--muted);margin-bottom:2px}
+.hero .name{font-family:var(--cond);font-weight:700;font-size:clamp(40px,12vw,60px);line-height:.92;letter-spacing:-.01em;margin:4px 0 10px}
+.hero.heat .name{color:var(--heat)}
+.hero .where{font-weight:500}
+.hero .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+
+.btn{appearance:none;border:1px solid var(--line);background:var(--field);border-radius:999px;padding:10px 16px;min-height:44px;font-weight:600;cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.done{background:var(--pine);border-color:var(--pine);color:#fff}
+.btn.heat{background:var(--heat);border-color:var(--heat);color:#fff}
+.btn.ghost{background:transparent}
+.btn:disabled{opacity:.5}
+.btn.sm{min-height:36px;padding:6px 12px;font-size:15px}
+
+.note{border-left:3px solid var(--heat);background:var(--heat-soft);padding:10px 12px;border-radius:0 10px 10px 0;margin:10px 0;font-size:15px}
+.note.good{border-color:var(--pine);background:var(--pine-soft)}
+
+.field{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.field:first-of-type{border-top:none}
+.field label,.field .lbl{font-weight:600}
+.field .sub{display:block;font-weight:400;font-size:13px;color:var(--muted)}
+input[type=number],input[type=text],input[type=date],input[type=time],select,textarea{background:var(--field);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-height:44px;font-size:17px}
+input[type=number]{width:110px;text-align:right}
+textarea{width:100%;min-height:70px}
+
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{appearance:none;border:1px solid var(--line);background:var(--field);border-radius:10px;min-width:44px;min-height:40px;padding:6px 10px;font-weight:600;cursor:pointer;font-size:15px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+.meter{height:12px;background:var(--field);border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:6px 0 4px}
+.meter>span{display:block;height:100%;background:var(--pine);border-radius:999px;transition:width .3s}
+.big{font-family:var(--cond);font-weight:700;font-size:34px;line-height:1}
+
+.meal{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.meal:first-child{border-top:none}
+.check{appearance:none;width:30px;height:30px;flex:0 0 30px;border-radius:9px;border:2px solid var(--line);background:var(--field);cursor:pointer;display:grid;place-items:center}
+.check[aria-pressed="true"]{background:var(--pine);border-color:var(--pine)}
+.check[aria-pressed="true"]::after{content:"";width:8px;height:14px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-2px)}
+.meal .info{flex:1;min-width:0}
+.meal .slot{font-size:13px;color:var(--muted)}
+.meal .mname{font-weight:600}
+.meal .mac{font-size:13px;color:var(--muted);white-space:nowrap;text-align:right}
+
+details{border-top:1px solid var(--line)}
+details:first-child{border-top:none}
+summary{list-style:none;cursor:pointer;padding:12px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";width:9px;height:9px;border:solid var(--muted);border-width:0 2px 2px 0;transform:rotate(45deg);margin-right:4px;flex:0 0 auto;transition:transform .2s}
+details[open]>summary::after{transform:rotate(-135deg)}
+.dbody{padding:0 0 14px}
+.dbody ul,.dbody ol{margin:6px 0 10px;padding-left:20px}
+.dbody li{margin:3px 0}
+
+.ex{padding:10px 0;border-top:1px dashed var(--line)}
+.ex:first-child{border-top:none}
+.ex .exn{font-weight:600}
+.ex .rx{font-family:var(--cond);font-size:19px;font-weight:600}
+.ex .loginp{display:flex;gap:8px;align-items:center;margin-top:6px;flex-wrap:wrap}
+.ex .loginp input{width:150px;text-align:left}
+
+.daygrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:8px 0}
+.daygrid .chip{min-width:0;padding:6px 0}
+
+.tot{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.tot div{background:var(--field);border-radius:10px;padding:8px;text-align:center}
+.tot b{display:block;font-family:var(--cond);font-size:22px}
+.tot span{font-size:12px;color:var(--muted)}
+
+.gitem{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+.gitem:first-child{border-top:none}
+.gitem .gname{flex:1;min-width:0;font-size:15px}
+.gitem .gname.got{text-decoration:line-through;color:var(--muted)}
+.gitem input{width:84px;min-height:38px;padding:6px 8px;font-size:15px}
+.tag{display:inline-block;font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:0 5px;margin-left:4px}
+
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:6px 4px;border-top:1px solid var(--line)}
+th{font-weight:600;color:var(--muted);font-size:13px}
+.scroll{overflow-x:auto}
+
+.chart{width:100%;height:auto;display:block}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .dot{fill:var(--muted)}
+.chart .avg{fill:none;stroke:var(--heat);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.chart text{fill:var(--muted);font-size:11px;font-family:var(--body)}
+
+ol.steps{padding-left:22px}
+ol.steps li{margin:6px 0}
+
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav.tabs .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+nav.tabs a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 0 8px;color:var(--muted);text-decoration:none;font-size:13px;font-weight:600}
+nav.tabs a svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+nav.tabs a[aria-current="page"]{color:var(--ink)}
+nav.tabs a[aria-current="page"] svg{stroke:var(--heat)}
+
+.gen-out{margin-top:12px}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--heat);border-radius:50%;animation:sp 1s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<main id="app" aria-live="polite"></main>
+<nav class="tabs" aria-label="Sections"><div class="in" id="tabs"></div></nav>
+
+<script>
+/* ---------------- Plan content ---------------- */
+const DEFAULTS = {
+  kcal: 2450, p: 200, f: 70, c: 255,
+  heightIn: 76, startWeight: 230, startBf: 24, goalBf: 15,
+  startDate: "2026-11-16", crunchEnd: "2027-03-01", phase: "auto", budget: 70,
+  fastOn: true, fastOpen: "12:00", fastHours: 8
+};
+
+const WARMUP = [
+  "Cat-cow × 8",
+  "90/90 hip switches × 6 each side",
+  "Glute bridge × 12",
+  "Band pull-apart × 15",
+  "Bodyweight squat × 8, slow",
+  "Start easy and build — it gives your lungs time to open up, especially on cold nights."
+];
+
+const SESSIONS = {
+  A: { name: "Lower strength", where: { crunch: "Crunch", fx: "Hotworx FX Zone" }, min: 50, heat: false,
+    blurb: "Your heaviest leg and hip day. Big muscles burn the most energy, and a strong hinge protects your back.",
+    parts: [
+      { title: "Warm-up, 6 minutes", warm: true },
+      { title: "Main lifts", items: [
+        { id: "dl", name: "Trap-bar deadlift", rx: "4 × 5–6, rest 2–3 min", fx: { name: "Dumbbell Romanian deadlift", rx: "4 × 8–10, rest 2 min" }, log: true, note: "Brace before every rep. Stop with 1–2 reps left in the tank." },
+        { id: "sq", name: "Back squat or safety-bar squat", rx: "3 × 6–8", fx: { name: "Goblet squat, 3-second lowering", rx: "3 × 10–12" }, log: true, note: "Back cranky? Do goblet squats instead." },
+        { id: "bss", name: "Bulgarian split squat", rx: "3 × 8–10 each leg", log: true },
+        { id: "ht", name: "Barbell or machine hip thrust", rx: "3 × 10–12", fx: { name: "Single-leg hip thrust", rx: "3 × 12 each leg" }, log: true }
+      ]},
+      { title: "Finish", items: [
+        { id: "sc", name: "Suitcase carry", rx: "3 × 40 yards each side", log: true, note: "One heavy dumbbell, walk tall. Same job as carrying a car seat." },
+        { id: "sp", name: "Side plank", rx: "2 × 20–30 seconds each side" }
+      ]}
+    ]},
+  B: { name: "Upper strength", where: { crunch: "Crunch", fx: "Hotworx FX Zone" }, min: 45, heat: false,
+    blurb: "Push, pull and carry. Rows and face pulls balance desk posture and toddler-lifting.",
+    parts: [
+      { title: "Warm-up, 6 minutes", warm: true },
+      { title: "Main lifts", items: [
+        { id: "bp", name: "Dumbbell bench press", rx: "4 × 6–8, rest 2 min", fx: { name: "Dumbbell floor or bench press", rx: "4 × 8–10" }, log: true },
+        { id: "row", name: "One-arm dumbbell row", rx: "4 × 8–10 each side", log: true },
+        { id: "ohp", name: "Half-kneeling dumbbell press", rx: "3 × 8–10 each side", log: true, note: "Kneeling keeps your lower back out of it." },
+        { id: "lat", name: "Lat pulldown or pull-ups", rx: "3 × 8–12", fx: { name: "Band lat pulldown or band row", rx: "3 × 12–15" }, log: true }
+      ]},
+      { title: "Finish", items: [
+        { id: "fp", name: "Cable face pull", rx: "2 × 15", fx: { name: "Band face pull", rx: "2 × 20" } },
+        { id: "fc", name: "Farmer carry", rx: "3 × 40 yards", log: true }
+      ]}
+    ]},
+  C: { name: "Hot Blast + full body", where: { crunch: "Hotworx", fx: "Hotworx" }, min: 45, heat: true,
+    blurb: "Conditioning in the heat, then a fast full-body circuit. Good for your heart and your work capacity.",
+    parts: [
+      { title: "Infrared session", items: [
+        { id: "blast", name: "Hot Blast", rx: "15 minutes", note: "Push the work intervals; recover fully between them." }
+      ]},
+      { title: "FX Zone circuit, 3 rounds, 60–90 s rest", items: [
+        { id: "gs", name: "Dumbbell goblet squat", rx: "× 10", log: true },
+        { id: "pu", name: "Push-ups", rx: "× 10–15" },
+        { id: "rl", name: "Dumbbell reverse lunge", rx: "× 8 each leg" },
+        { id: "br", name: "Band row", rx: "× 12" },
+        { id: "pp", name: "Band Pallof press", rx: "× 10 each side", note: "Resisting rotation is what a strong back actually needs." },
+        { id: "ropes", name: "Battle ropes", rx: "30 seconds" }
+      ]}
+    ]},
+  D: { name: "Mobility + back care", where: { crunch: "Hotworx", fx: "Hotworx" }, min: 40, heat: true,
+    blurb: "Your flexibility day. Calmer, and a good one to do before bed.",
+    parts: [
+      { title: "Infrared session", items: [
+        { id: "yoga", name: "Hot Yoga or Hot Stretch", rx: "30 minutes" }
+      ]},
+      { title: "Back care, 10 minutes", items: [
+        { id: "cu", name: "Curl-up (head and shoulders only)", rx: "3 × 5, 10-second holds" },
+        { id: "sp2", name: "Side plank", rx: "3 × 15–20 seconds each side" },
+        { id: "bd", name: "Bird dog", rx: "3 × 6 each side, 10-second holds" },
+        { id: "ob", name: "Open books (upper-back rotation)", rx: "× 8 each side" }
+      ]}
+    ]},
+  E: { name: "Bonus session", where: { crunch: "Your choice", fx: "Your choice" }, min: 45, heat: true, optional: true,
+    blurb: "Optional. Do it if the week has gone well; skip it guilt-free if not.",
+    parts: [
+      { title: "Pick one", items: [
+        { id: "e1", name: "Hot Cycle or Hot Thunder, then Hot Stretch", rx: "15 + 30 minutes" },
+        { id: "e2", name: "Family hike or walk with the baby in a carrier", rx: "45–60 minutes", note: "A loaded carry and cardio in one, with everyone outside." },
+        { id: "e3", name: "Hot Bands or Hot Barre None", rx: "30 minutes", note: "For variety and fun." }
+      ]}
+    ]},
+  R: { name: "Recovery swap", where: { crunch: "Hotworx", fx: "Hotworx" }, min: 40, heat: true,
+    blurb: "For rough nights. Training hard on very little sleep costs muscle; this keeps the habit without the cost.",
+    parts: [
+      { title: "Do this instead", items: [
+        { id: "r1", name: "Hot Stretch", rx: "30 minutes" },
+        { id: "r2", name: "Back care: curl-up, side plank, bird dog", rx: "2 rounds" }
+      ]}
+    ]},
+  H: { name: "Home backup", where: { crunch: "Living room", fx: "Living room" }, min: 15, heat: false,
+    blurb: "For sick kids or late bedtimes. Bands and your 15 lb ball. Quiet enough for a sleeping house.",
+    parts: [
+      { title: "3 rounds, minimal rest", items: [
+        { id: "h1", name: "Ball goblet squat", rx: "× 15" },
+        { id: "h2", name: "Push-ups", rx: "× 10–15" },
+        { id: "h3", name: "Band row", rx: "× 15" },
+        { id: "h4", name: "Ball wood-chop, controlled", rx: "× 10 each side" },
+        { id: "h5", name: "Band pull-apart", rx: "× 20" },
+        { id: "h6", name: "Dead bug", rx: "× 8 each side" }
+      ]}
+    ]}
+};
+// index = Date.getDay(): 0 Sun ... 6 Sat
+const WEEK = ["E", null, "A", "D", "B", null, "C"];
+const WHEN = { E: "Sunday, 11:30 am–1:30 pm", A: "Tuesday, 9:00 pm", D: "Wednesday, 9:00 pm", B: "Thursday, 9:00 pm", C: "Saturday, 5:30 am" };
+const REST = { 1: "Rest day. A walk counts if you get one.", 5: "Rest day. Family night." };
+const DAYNAMES = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const DAYSHORT = ["Su","Mo","Tu","We","Th","Fr","Sa"];
+
+const MEALS = {
+  oats: { name: "Protein overnight oats", slot: "Breakfast", kcal: 660, p: 41, f: 16, c: 90,
+    ing: ["⅔ cup (65 g) old-fashioned oats","1 cup plain nonfat Greek yogurt","½ cup 2% milk","Cinnamon and a pinch of salt","In the morning: 1 banana and 1 tbsp peanut butter"],
+    steps: ["Sunday: stir oats, yogurt, milk, cinnamon and salt in 5 jars.","Refrigerate. They keep 5 days.","Top with banana and peanut butter. Eat cold or microwave 60–90 seconds."],
+    family: "The boys can have plain oats with banana from the same tub." },
+  scramble: { name: "Egg, potato and cottage cheese scramble", slot: "Breakfast", kcal: 577, p: 35, f: 21, c: 61,
+    ing: ["3 large eggs","½ cup cottage cheese","1 cup diced potato (about 150 g)","1 tsp oil","Salsa","1 banana on the side"],
+    steps: ["Microwave the diced potato 3 minutes, then crisp it in the oiled pan 4–5 minutes.","Whisk eggs with cottage cheese and pour over the potatoes. Stir over medium-low until just set.","Top with salsa."],
+    family: "Make one big pan; pull the kids’ eggs and potatoes out before the salsa." },
+  bowl: { name: "Chicken, rice and veggie bowl", slot: "Lunch", kcal: 577, p: 59, f: 11, c: 57,
+    ing: ["8 oz raw chicken breast, cooked Sunday","1 cup cooked white rice","1½ cups frozen broccoli or mixed vegetables","1 tsp oil or butter","2 tbsp salsa or hot sauce","Garlic-herb seasoning"],
+    steps: ["Sunday: season chicken and bake at 425°F for 18–22 minutes, to 165°F inside. Slice.","Pack chicken, rice and frozen vegetables together. The veg thaws by lunch.","Microwave 2–3 minutes and add salsa."],
+    family: "Plain chicken and rice is an easy kid dinner from the same batch." },
+  burrito: { name: "Chicken burrito bowl", slot: "Lunch", kcal: 574, p: 60, f: 6, c: 66,
+    ing: ["7 oz raw chicken breast with taco seasoning, cooked Sunday","¾ cup cooked rice","½ cup black beans, rinsed","1 cup frozen vegetables","¼ cup salsa","2 tbsp Greek yogurt instead of sour cream"],
+    steps: ["Sunday: toss half the chicken in taco seasoning before baking.","Pack chicken, rice, beans and vegetables.","Microwave 2–3 minutes; top with salsa and yogurt."],
+    family: "Same chicken, different flavor. No extra cooking." },
+  tuna: { name: "Spicy tuna rice bowl", slot: "Lunch", kcal: 480, p: 50, f: 6, c: 53,
+    ing: ["2 cans (5 oz) light tuna in water, drained","1 cup cooked rice","1 tbsp light mayo with sriracha to taste","1 cup frozen vegetables, microwaved","Splash of soy sauce"],
+    steps: ["Mix tuna with mayo, sriracha and soy sauce.","Serve over warm rice with the vegetables."],
+    family: "Light tuna is a low-mercury fish. Two cans a week fits FDA guidance." },
+  pasta: { name: "Turkey marinara pasta", slot: "Dinner", kcal: 645, p: 47, f: 17, c: 76,
+    ing: ["6 oz 93% lean ground turkey","3 oz dry pasta (weigh it)","½ cup marinara","1 cup frozen spinach or broccoli","Garlic powder and Italian seasoning"],
+    steps: ["Boil the whole box of pasta for the family.","Brown the turkey 6–8 minutes, add marinara and vegetables, simmer 5 minutes.","Your portion: 3 oz dry, about 1½ cups cooked, with the sauce on top."],
+    family: "Kids get pasta with butter or plain turkey; you get the sauce and vegetables." },
+  sheetpan: { name: "Sheet-pan chicken thighs and potatoes", slot: "Dinner", kcal: 600, p: 48, f: 17, c: 62,
+    ing: ["7 oz boneless skinless chicken thighs","300 g potatoes (2 small), cubed","1½ cups frozen broccoli","2 tsp oil","Garlic powder, paprika, salt, pepper"],
+    steps: ["Heat oven to 425°F. Toss potatoes with 1 tsp oil and seasoning; roast 15 minutes.","Add thighs and broccoli with the rest of the oil; roast 20 minutes more, to 175°F inside.","One pan, one cleanup."],
+    family: "Kid-friendly. If the boys are eating too, grab a bigger pack." },
+  chili: { name: "Turkey and bean chili", slot: "Dinner", kcal: 600, p: 44, f: 12, c: 75,
+    ing: ["Makes 2 servings (Wednesday + Thursday):","10 oz 93% lean ground turkey","1 can black or kidney beans, rinsed","1 can (14.5 oz) diced tomatoes","½ onion and 2 garlic cloves","1 tbsp chili powder, 1 tsp cumin","1½ cups cooked rice (¾ cup per serving)","Greek yogurt on top"],
+    steps: ["Brown turkey and onion 6–8 minutes. Add garlic and spices for 1 minute.","Add beans and tomatoes; simmer 15 minutes.","Serve over rice. Refrigerate the second serving for Thursday."],
+    family: "Mild enough for kids if you go easy on the chili powder." },
+  tilapia: { name: "Lemon-pepper tilapia, rice and green beans", slot: "Dinner", kcal: 573, p: 54, f: 15, c: 55,
+    ing: ["8 oz frozen tilapia (2 fillets)","1 cup cooked rice","1½ cups frozen green beans or broccoli","1 tbsp butter","Lemon pepper and garlic powder"],
+    steps: ["Bake tilapia from frozen at 425°F for 15–18 minutes, seasoned, with the butter on top.","Microwave the vegetables; serve with rice."],
+    family: "Tilapia is a fish, not a shellfish. Check that the bag doesn’t carry a shellfish cross-contact warning." },
+  rotisserie: { name: "Rotisserie chicken plate", slot: "Dinner", kcal: 565, p: 55, f: 11, c: 62,
+    ing: ["6 oz rotisserie chicken, skin removed","2 small potatoes, microwaved","1½ cups vegetables","Salsa or hot sauce"],
+    steps: ["Pick up a rotisserie chicken; the whole family eats.","Microwave potatoes 6–8 minutes; serve with vegetables."],
+    family: "Built for everyone. The no-cook night." },
+  cottage: { name: "Cottage cheese and honey", slot: "Snack", kcal: 247, p: 24, f: 5, c: 26,
+    ing: ["1 cup low-fat cottage cheese","1 tbsp honey or ½ banana","Cinnamon"], steps: ["Stir and eat."], family: "" },
+  eggs: { name: "Hard-boiled eggs and milk", slot: "Evening snack", kcal: 265, p: 21, f: 14, c: 13,
+    ing: ["2 hard-boiled eggs, boiled Sunday","1 cup 2% milk"], steps: ["Good after a late workout."], family: "" }
+};
+const SHORT = { oats: "Overnight oats", scramble: "Egg scramble", bowl: "Chicken bowl", burrito: "Burrito bowl", tuna: "Tuna bowl",
+  pasta: "Turkey pasta", sheetpan: "Sheet-pan thighs", chili: "Turkey chili", tilapia: "Tilapia", rotisserie: "Rotisserie chicken" };
+const isSnack = id => /snack/i.test(MEALS[id].slot);
+const DAYPLAN = {
+  0: ["scramble","bowl","cottage","sheetpan","eggs"],
+  1: ["oats","bowl","cottage","pasta","eggs"],
+  2: ["oats","burrito","cottage","sheetpan","eggs"],
+  3: ["oats","bowl","cottage","chili","eggs"],
+  4: ["oats","burrito","cottage","chili","eggs"],
+  5: ["oats","bowl","cottage","tilapia","eggs"],
+  6: ["scramble","tuna","cottage","rotisserie","eggs"]
+};
+
+const PREP = [
+  "Shop Saturday or Sunday morning using the list below.",
+  "Start the rice: about 3 cups dry in a rice cooker or pot.",
+  "Bake the 3 lb of chicken at 425°F, 18–22 minutes. Season half garlic-herb and half taco.",
+  "While it bakes, make 5 jars of overnight oats and hard-boil 10 eggs.",
+  "Pack 5 lunches: 3 chicken bowls and 2 burrito bowls, with frozen vegetables on top.",
+  "Clean up. Dinners are cooked on the night, 20–30 minutes each."
+];
+
+const GROCERY = [
+  { id: "chx", sec: "Protein", name: "Chicken breast, 3 lb (frozen bag or fresh family pack)", price: 10.84, lasts: 1 },
+  { id: "thigh", sec: "Protein", name: "Boneless skinless chicken thighs, about 1¼ lb", price: 4.50, lasts: 1 },
+  { id: "turkey", sec: "Protein", name: "93% lean ground turkey, 1 lb", price: 5.00, lasts: 1 },
+  { id: "eggs", sec: "Protein", name: "Large eggs, 2 dozen", price: 6.00, lasts: 1 },
+  { id: "yog", sec: "Protein", name: "Plain nonfat Greek yogurt, 2 × 32 oz", price: 9.00, lasts: 1 },
+  { id: "cott", sec: "Protein", name: "Low-fat cottage cheese, 3 × 24 oz", price: 9.00, lasts: 1 },
+  { id: "tuna", sec: "Protein", name: "Light tuna in water, 2 cans", price: 2.20, lasts: 1 },
+  { id: "tilapia", sec: "Protein", name: "Frozen tilapia fillets, 2 lb bag", price: 8.00, lasts: 4 },
+  { id: "rot", sec: "Protein", name: "Rotisserie chicken for Saturday dinner", price: 5.97, lasts: 1, shared: true },
+  { id: "oats", sec: "Carbs and produce", name: "Old-fashioned oats, 42 oz", price: 4.00, lasts: 3 },
+  { id: "rice", sec: "Carbs and produce", name: "Long-grain white rice, 5 lb", price: 4.50, lasts: 3 },
+  { id: "pasta", sec: "Carbs and produce", name: "Pasta, 1 lb box", price: 1.25, lasts: 1, shared: true },
+  { id: "pot", sec: "Carbs and produce", name: "Potatoes, 5 lb bag", price: 3.50, lasts: 2 },
+  { id: "ban", sec: "Carbs and produce", name: "Bananas, 7", price: 1.60, lasts: 1 },
+  { id: "veg", sec: "Carbs and produce", name: "Frozen broccoli or mixed vegetables, 5 × 12 oz", price: 6.25, lasts: 1 },
+  { id: "onion", sec: "Carbs and produce", name: "Onion and garlic", price: 1.50, lasts: 1, shared: true },
+  { id: "beans", sec: "Pantry", name: "Black or kidney beans, 2 cans", price: 1.80, lasts: 1 },
+  { id: "tom", sec: "Pantry", name: "Diced tomatoes, 14.5 oz can", price: 0.95, lasts: 1 },
+  { id: "mar", sec: "Pantry", name: "Marinara, 24 oz jar", price: 1.80, lasts: 3 },
+  { id: "salsa", sec: "Pantry", name: "Salsa, 16 oz", price: 2.25, lasts: 2 },
+  { id: "pb", sec: "Pantry", name: "Peanut butter, 16 oz", price: 2.10, lasts: 5 },
+  { id: "milk", sec: "Pantry", name: "2% milk, 1 gallon", price: 3.40, lasts: 1, shared: true },
+  { id: "season", sec: "Pantry", name: "Taco seasoning, lemon pepper, chili powder", price: 3.00, lasts: 6, shared: true },
+  { id: "oil", sec: "Pantry", name: "Olive oil or butter", price: 4.00, lasts: 6, shared: true },
+  { id: "honey", sec: "Pantry", name: "Honey", price: 3.50, lasts: 8, shared: true }
+];
+
+const SUPPS = [
+  { name: "Creatine monohydrate", dose: "5 g a day, any time, every day", why: "The best-studied supplement for strength and muscle. Plain monohydrate is all you need; skip blends. Roughly $20–30 for a 3–4 month supply." },
+  { name: "Whey protein", dose: "1 scoop on days you’re short on protein", why: "Optional. A convenience tool, not a requirement. Look for a third-party tested label (NSF Certified for Sport or Informed Sport)." },
+  { name: "Electrolytes on Hotworx days", dose: "Sodium-based, during or after heat sessions", why: "Altitude plus infrared heat means big sweat losses. Blood pressure medications like yours can raise potassium, so choose a sodium-forward mix rather than a high-potassium one, and skip salt substitutes. Run the product past your pharmacist." },
+  { name: "Vitamin D", dose: "Only after a blood test", why: "Ask your doctor to check your level at your next physical; dose depends on the result." },
+  { name: "Fish oil", dose: "Optional", why: "Fish is safe for you, and two fish meals a week covers most of the benefit. If you buy one, make sure it’s fish oil, not krill oil." }
+];
+const AVOID = [
+  "Krill oil (krill are crustaceans)",
+  "Glucosamine and chondroitin — most are made from shellfish shells",
+  "Chitosan, often sold as a fat blocker",
+  "Calcium labeled “oyster shell”",
+  "Oyster sauce and shrimp paste in recipes",
+  "“Fat burners” and anything that raises heart rate or blood pressure, given your blood pressure medication"
+];
+
+/* ---------------- Utilities ---------------- */
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const pad = n => String(n).padStart(2, "0");
+const ds = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const parseDs = s => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+const addDays = (s, n) => { const d = parseDs(s); d.setDate(d.getDate() + n); return ds(d); };
+const today = () => ds(new Date());
+const monthOf = s => s.slice(0, 7);
+const money = n => "$" + (Math.round(n * 100) / 100).toFixed(2);
+const fmtDate = s => parseDs(s).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+const clone = o => JSON.parse(JSON.stringify(o));
+const round1 = n => Math.round(n * 10) / 10;
+
+/* ---------------- State and storage ---------------- */
+const LS = "summit-plan-v1";
+function normSettings(x) {
+  const o = { ...DEFAULTS, ...(x || {}) };
+  if (!o.v2) { if (o.budget === 50) o.budget = 70; o.v2 = true; }
+  return o;
+}
+let S = { settings: { ...DEFAULTS }, grocery: {}, measures: [], tests: [], saved: [], logs: {} };
+try {
+  const raw = localStorage.getItem(LS);
+  if (raw) { const o = JSON.parse(raw); S = { ...S, ...o, settings: normSettings(o.settings) }; }
+} catch (e) {}
+
+let col = null, dbReady = false, firstSnap = false, migrated = false;
+const dirty = new Set(), writing = {}, again = {}, timers = {};
+let syncState = "local";
+
+function saveLocal() { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) {} }
+function profileData() { return { settings: S.settings, grocery: S.grocery, measures: S.measures, tests: S.tests, saved: S.saved }; }
+function docData(id) { return id === "profile" ? clone(profileData()) : clone(S.logs[id.slice(4)] || { days: {} }); }
+
+function persist(id) {
+  saveLocal();
+  if (!dbReady) return;
+  dirty.add(id);
+  clearTimeout(timers[id]);
+  timers[id] = setTimeout(() => { timers[id] = null; if (firstSnap) flush(id); }, 700);
+}
+async function flush(id) {
+  if (writing[id]) { again[id] = true; return; }
+  writing[id] = true; setSync("saving");
+  try { await col.doc(id).set(docData(id)); setSync("cloud"); }
+  catch (e) { setSync("error"); }
+  finally {
+    writing[id] = false;
+    if (again[id]) { again[id] = false; flush(id); return; }
+    if (!timers[id]) dirty.delete(id);
+  }
+}
+function setSync(s) {
+  syncState = s;
+  const el = $("#sync"); if (el) el.textContent = syncLabel();
+}
+function syncLabel() {
+  return { local: "Saved on this device", cloud: "Saved to your account", saving: "Saving…", error: "Couldn’t reach your account. Saved on this device.", slow: "Connecting to your account…" }[syncState] || "";
+}
+
+function getDay(date) { return (S.logs[monthOf(date)] && S.logs[monthOf(date)].days[date]) || {}; }
+function setDay(date, patch) {
+  const m = monthOf(date);
+  if (!S.logs[m]) S.logs[m] = { days: {} };
+  const cur = S.logs[m].days[date] || {};
+  S.logs[m].days[date] = { ...cur, ...patch };
+  persist("log-" + m);
+}
+function allDays() {
+  const out = [];
+  for (const m of Object.keys(S.logs)) for (const [d, v] of Object.entries(S.logs[m].days || {})) out.push([d, v]);
+  return out.sort((a, b) => a[0] < b[0] ? -1 : 1);
+}
+
+/* ---------------- Derived values ---------------- */
+function phase() {
+  if (S.settings.phase && S.settings.phase !== "auto") return S.settings.phase;
+  return today() < S.settings.crunchEnd ? "crunch" : "fx";
+}
+function itemView(it) { return phase() === "fx" && it.fx ? { ...it, ...it.fx } : it; }
+function sessionFor(date) { const d = getDay(date); return d.swap || WEEK[parseDs(date).getDay()]; }
+function isHeatDay(date) { const s = sessionFor(date); return !!(s && SESSIONS[s] && SESSIONS[s].heat); }
+function mealsFor(date) { return DAYPLAN[parseDs(date).getDay()]; }
+function dayTotals(date) {
+  const d = getDay(date), eaten = d.meals || {};
+  let p = 0, k = 0;
+  mealsFor(date).forEach(id => { if (eaten[id]) { p += MEALS[id].p; k += MEALS[id].kcal; } });
+  p += d.extraP || 0; k += (d.extraP || 0) * 5;
+  return { p, k };
+}
+function avgWeight(endDate, days = 7) {
+  const ws = [];
+  for (let i = 0; i < days; i++) { const w = getDay(addDays(endDate, -i)).w; if (w) ws.push(+w); }
+  return ws.length ? { avg: ws.reduce((a, b) => a + b, 0) / ws.length, n: ws.length } : null;
+}
+function navyBf(waist, neck, h) {
+  if (!waist || !neck || waist <= neck) return null;
+  return 86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(h) + 36.76;
+}
+function lastLift(id) {
+  const t = today(); const days = allDays().reverse();
+  for (const [d, v] of days) if (d !== t && v.lifts && v.lifts[id]) return { d, val: v.lifts[id] };
+  return null;
+}
+function weekNumber() {
+  const diff = Math.floor((parseDs(today()) - parseDs(S.settings.startDate)) / 86400000);
+  return diff < 0 ? 0 : Math.floor(diff / 7) + 1;
+}
+function mondayOf(date) { const d = parseDs(date); const off = (d.getDay() + 6) % 7; return addDays(date, -off); }
+
+/* ---------------- Fasting ---------------- */
+const toMin = hhmm => { const [h, m] = String(hhmm || "12:00").split(":").map(Number); return h * 60 + (m || 0); };
+function fmtMin(min) { min = ((min % 1440) + 1440) % 1440; const h = Math.floor(min / 60), m = min % 60; return `${h % 12 || 12}:${pad(m)} ${h >= 12 ? "pm" : "am"}`; }
+function fastWindow() { const open = toMin(S.settings.fastOpen), len = (S.settings.fastHours || 8) * 60; return { open, close: open + len, len }; }
+function mealTime(id) {
+  const { open, close } = fastWindow(), slot = MEALS[id].slot;
+  if (slot === "Breakfast") return open;
+  if (slot === "Lunch") return open + 180;
+  if (slot === "Dinner") return close - 150;
+  return close - 30;
+}
+function slotLabel(id) { const m = MEALS[id]; if (!S.settings.fastOn) return m.slot; return `${fmtMin(mealTime(id))}, ${m.slot === "Breakfast" ? "first meal" : m.slot.toLowerCase()}`; }
+function orderedMeals(date) { const ms = mealsFor(date).slice(); return S.settings.fastOn ? ms.sort((a, b) => mealTime(a) - mealTime(b)) : ms; }
+const dur = m => { const h = Math.floor(m / 60), mm = m % 60; return h ? `${h} h ${mm} min` : `${mm} min`; };
+function fastStatus() {
+  const now = new Date(), n = now.getHours() * 60 + now.getMinutes();
+  const { open, close, len } = fastWindow();
+  if (n >= open && n < close) return { eating: true, left: close - n, pct: (n - open) / len };
+  const since = n >= close ? n - close : n + 1440 - close;
+  const until = n < open ? open - n : open + 1440 - n;
+  return { eating: false, since, until, pct: since / (1440 - len) };
+}
+const nowHHMM = () => { const n = new Date(); return `${pad(n.getHours())}:${pad(n.getMinutes())}`; };
+function windowLen(d) { if (!d.eatStart || !d.eatEnd) return null; const l = toMin(d.eatEnd) - toMin(d.eatStart); return l > 0 ? l : null; }
+function windowKept(date) { const d = getDay(date); if (d.fastKept) return true; const l = windowLen(d); return l == null ? null : l <= (S.settings.fastHours || 8) * 60 + 15; }
+function overnightFast(date) { const y = getDay(addDays(date, -1)), d = getDay(date); if (!y.eatEnd || !d.eatStart) return null; return 1440 - toMin(y.eatEnd) + toMin(d.eatStart); }
+const bar = (pct, color) => `<div class="meter"><span style="width:${Math.round(Math.max(0, Math.min(1, pct)) * 100)}%${color ? `;background:${color}` : ""}"></span></div>`;
+function fastCardInner() {
+  const t = today(), d = getDay(t), y = getDay(addDays(t, -1));
+  const L = (S.settings.fastHours || 8) * 60, F = 1440 - L;
+  const n = new Date(), now = n.getHours() * 60 + n.getMinutes();
+  const tip = "Water, black coffee, plain tea and zero-calorie electrolytes are fine.";
+  if (d.eatStart && !d.eatEnd) {
+    const s = toMin(d.eatStart), close = s + L, left = close - now;
+    return `<div style="font-weight:600">Eating since ${fmtMin(s)}</div><div class="small muted">${left >= 0 ? `Close your window by ${fmtMin(close)}, ${dur(left)} left.` : `${dur(-left)} past your ${L / 60}-hour window.`} Tap “Now” on last bite when you’re done.</div>${bar((now - s) / L)}`;
+  }
+  if (d.eatEnd || (!d.eatStart && y.eatEnd)) {
+    const end = d.eatEnd ? toMin(d.eatEnd) : toMin(y.eatEnd) - 1440;
+    const since = now - end, ready = end + F;
+    return `<div style="font-weight:600">Fasting, ${dur(Math.max(0, since))} in</div><div class="small muted">${since >= F ? `You’ve passed ${F / 60} hours. Eat whenever you’re ready.` : `${F / 60} hours at ${fmtMin(ready)}${ready >= 1440 ? " tomorrow" : ""}. ${tip}`}</div>${bar(since / F, "var(--heat)")}`;
+  }
+  const st = fastStatus(), w = fastWindow();
+  return st.eating
+    ? `<div style="font-weight:600">Planned window is open</div><div class="small muted">${fmtMin(w.open)} to ${fmtMin(w.close)}. Tap “Now” at your first bite to start your own timer.</div>${bar(st.pct)}`
+    : `<div style="font-weight:600">Planned window opens at ${fmtMin(w.open)}</div><div class="small muted">In ${dur(st.until)}. ${tip}</div>${bar(st.pct, "var(--heat)")}`;
+}
+setInterval(() => { const el = document.getElementById("fastcard"); if (el) el.innerHTML = fastCardInner(); }, 60000);
+
+/* ---------------- Rendering ---------------- */
+let tab = "today", eatDay = new Date().getDay(), GEN = null;
+const openSet = new Set(["prep"]);
+const TABS = [
+  ["today", "Today", '<path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.3 6.3 4.9 4.9M19.1 19.1l-1.4-1.4M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/><circle cx="12" cy="12" r="4"/>'],
+  ["train", "Train", '<path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/>'],
+  ["eat", "Eat", '<path d="M7 3v8a2 2 0 0 0 4 0V3M9 11v10M17 3c-2 1-3 4-3 7h3v11"/>'],
+  ["progress", "Progress", '<path d="M3 20h18M5 16l5-5 4 3 6-7"/>'],
+  ["more", "More", '<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>']
+];
+
+let pendingRender = false;
+function safeRender() {
+  const a = document.activeElement;
+  if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)) { pendingRender = true; return; }
+  render();
+}
+document.addEventListener("focusout", () => { if (pendingRender) { pendingRender = false; setTimeout(render, 0); } });
+
+function render() {
+  $("#tabs").innerHTML = TABS.map(([id, label, icon]) =>
+    `<a href="#${id}" ${tab === id ? 'aria-current="page"' : ""}><svg viewBox="0 0 24 24" aria-hidden="true">${icon}</svg>${label}</a>`).join("");
+  const head = `<div class="top"><div class="date">${parseDs(today()).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })}</div></div>`;
+  const views = { today: vToday, train: vTrain, eat: vEat, progress: vProgress, more: vMore };
+  $("#app").innerHTML = head + views[tab]();
+  document.querySelectorAll("details[data-key]").forEach(d => { if (openSet.has(d.dataset.key)) d.open = true; });
+}
+
+function sessionBody(sid) {
+  const s = SESSIONS[sid];
+  return s.parts.map(part => {
+    if (part.warm) return `<h3 style="margin:14px 0 6px">${esc(part.title)}</h3><ul>${WARMUP.map(w => `<li>${esc(w)}</li>`).join("")}</ul>`;
+    return `<h3 style="margin:14px 0 2px">${esc(part.title)}</h3>` + part.items.map(raw => {
+      const it = itemView(raw);
+      const cur = (getDay(today()).lifts || {})[it.id] || "";
+      const last = it.log ? lastLift(it.id) : null;
+      return `<div class="ex"><div class="exn">${esc(it.name)}</div><div class="rx">${esc(it.rx)}</div>
+        ${it.note ? `<div class="small muted">${esc(it.note)}</div>` : ""}
+        ${it.log ? `<div class="loginp"><label class="sr" for="l-${it.id}">Weight and reps for ${esc(it.name)}</label>
+          <input type="text" id="l-${it.id}" data-lift="${it.id}" placeholder="e.g. 185 × 6" value="${esc(cur)}" inputmode="text" autocomplete="off">
+          <span class="small muted">${last ? `Last: ${esc(last.val)} (${fmtDate(last.d)})` : "First time: pick a weight you could lift 2–3 more times"}</span></div>` : ""}
+      </div>`;
+    }).join("");
+  }).join("");
+}
+
+function vToday() {
+  const t = today(), d = getDay(t), wd = parseDs(t).getDay();
+  const planned = WEEK[wd], sid = d.swap || planned;
+  const low = (d.sleep != null && d.sleep < 5) || (d.energy != null && d.energy <= 2);
+  let hero;
+  if (sid) {
+    const s = SESSIONS[sid], done = d.done === sid;
+    const where = s.where[phase()];
+    hero = `<section class="hero ${s.heat ? "heat" : ""}">
+      <div class="when">${d.swap ? "Swapped for today" : esc(WHEN[sid] || "")}${s.optional ? " (optional)" : ""}</div>
+      <div class="name">${esc(s.name)}</div>
+      <div class="where">${esc(where)}, about ${s.min} minutes</div>
+      <p class="muted small" style="margin-top:6px">${esc(s.blurb)}</p>
+      <div class="row">
+        <button class="btn ${done ? "done" : "primary"}" data-action="done" data-sid="${sid}">${done ? "Done ✓" : "Mark done"}</button>
+        <a class="btn ghost" href="#train" data-action="opensession" data-sid="${sid}" style="text-decoration:none;display:inline-flex;align-items:center">See the workout</a>
+        ${d.swap ? `<button class="btn ghost" data-action="unswap">Undo swap</button>` : ""}
+      </div>
+    </section>`;
+    if (low && !d.swap && ["A", "B", "C"].includes(planned)) {
+      hero += `<div class="note">Short sleep or low energy today. Heavy training on a rough night costs more than it builds. <button class="btn sm heat" data-action="swap" data-sid="R" style="margin-top:8px">Swap to Hot Stretch + back care</button></div>`;
+    }
+    if (s.heat) hero += `<div class="note small">Heat day: drink 16–24 oz before, use a sodium-based electrolyte, and stand up slowly when the session ends.</div>`;
+  } else {
+    const done = d.done === "H";
+    hero = `<section class="hero"><div class="when">${DAYNAMES[wd]}</div><div class="name">Rest day</div>
+      <p class="muted small">${esc(REST[wd] || "Recovery is where the muscle gets built.")}</p>
+      <div class="row"><button class="btn ${done ? "done" : "ghost"}" data-action="done" data-sid="H">${done ? "Home workout done ✓" : "I did the 15-minute home workout"}</button></div></section>`;
+  }
+
+  const sleepOpts = [[4.5, "Under 5"], [5.5, "5–6"], [6.5, "6–7"], [7.5, "7+"]];
+  const avg = avgWeight(t);
+  const waterGoal = isHeatDay(t) ? 128 : 100, water = d.water || 0;
+  const checkin = `<section class="panel"><h3 style="margin-bottom:6px">Check-in</h3>
+    <div class="field"><label for="w-in">Morning weight<span class="sub">${avg ? `7-day average ${round1(avg.avg)} lb` : "After the bathroom, before eating"}</span></label>
+      <input type="number" id="w-in" inputmode="decimal" step="0.1" min="100" max="400" placeholder="lb" value="${d.w ?? ""}" data-field="w"></div>
+    <div class="field" style="display:block"><div class="lbl">Sleep last night</div>
+      <div class="chips" style="margin-top:6px">${sleepOpts.map(([v, l]) => `<button class="chip" aria-pressed="${d.sleep === v}" data-set="sleep" data-val="${v}">${l}</button>`).join("")}</div></div>
+    <div class="field" style="display:block"><div class="lbl">Energy <span class="sub" style="display:inline">1 drained, 5 great</span></div>
+      <div class="chips" style="margin-top:6px">${[1, 2, 3, 4, 5].map(v => `<button class="chip" aria-pressed="${d.energy === v}" data-set="energy" data-val="${v}">${v}</button>`).join("")}</div></div>
+    <div class="field"><div class="lbl">Water<span class="sub">${water} of ${waterGoal} oz${isHeatDay(t) ? ", extra for heat" : ""}</span></div>
+      <div class="chips"><button class="chip" data-action="water" data-val="-16" aria-label="Remove 16 ounces">−</button><button class="chip" data-action="water" data-val="16">+16 oz</button></div></div>
+  </section>`;
+
+  const tot = dayTotals(t), P = S.settings.p;
+  const fuel = `<section class="panel"><div style="display:flex;justify-content:space-between;align-items:baseline">
+      <h3>Fuel</h3><div><span class="big">${tot.p}</span><span class="muted"> / ${P} g protein</span></div></div>
+    <div class="meter" role="progressbar" aria-valuenow="${tot.p}" aria-valuemin="0" aria-valuemax="${P}"><span style="width:${Math.min(100, tot.p / P * 100)}%"></span></div>
+    <div class="small muted" style="margin-bottom:6px">About ${tot.k.toLocaleString()} of ${S.settings.kcal.toLocaleString()} calories. Tap each meal as you eat it.</div>
+    ${orderedMeals(t).map(id => { const m = MEALS[id], on = !!(d.meals || {})[id];
+      return `<div class="meal"><button class="check" aria-pressed="${on}" aria-label="Ate ${esc(m.name)}" data-action="meal" data-id="${id}"></button>
+        <div class="info"><div class="slot">${esc(slotLabel(id))}</div><div class="mname">${esc(m.name)}</div></div>
+        <div class="mac">${m.p} g protein<br><a href="#eat" data-action="openrecipe" data-id="${id}">Recipe</a></div></div>`; }).join("")}
+    <div class="field" style="border-top:1px solid var(--line);margin-top:4px"><div class="lbl">Other protein<span class="sub">${d.extraP ? `${d.extraP} g added` : "A shake, extra eggs, a protein bar"}</span></div>
+      <div class="chips"><button class="chip" data-action="extra" data-val="10">+10 g</button><button class="chip" data-action="extra" data-val="25">+25 g</button>${d.extraP ? `<button class="chip" data-action="extra" data-val="0">Clear</button>` : ""}</div></div>
+  </section>`;
+  const fh = S.settings.fastHours || 8;
+  const kept = windowKept(t), wl = windowLen(d), of = overnightFast(t);
+  const timeRow = (k, label) => `<div class="field"><label for="ft-${k}">${label}</label><div class="chips" style="align-items:center;flex-wrap:nowrap"><input type="time" id="ft-${k}" data-ftime="${k}" value="${d[k] || ""}" style="width:130px"><button class="chip" data-action="stamp" data-k="${k}">Now</button></div></div>`;
+  const fast = S.settings.fastOn ? `<section class="panel"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><h3>${24 - fh}:${fh} fasting</h3>
+      ${kept === true ? `<span class="small" style="color:var(--pine);font-weight:600">Window kept ✓</span>` : kept === false ? `<span class="small" style="color:var(--heat);font-weight:600">Window ran ${dur(wl)}</span>` : ""}</div>
+      <div id="fastcard" style="margin:8px 0 4px">${fastCardInner()}</div>
+      ${timeRow("eatStart", "First bite")}${timeRow("eatEnd", "Last bite")}
+      ${of != null || wl != null ? `<p class="small muted" style="margin:6px 0 0">${of != null ? `Overnight fast: ${dur(of)}. ` : ""}${wl != null ? `Eating window: ${dur(wl)}.` : ""}</p>` : ""}</section>` : "";
+  const logged = allDays().length, lb = S.settings.lastBackup;
+  const remind = logged >= 7 && (!lb || (parseDs(t) - parseDs(lb)) / 86400000 >= 14)
+    ? `<div class="note small">Your data lives only on this phone. <a href="#more">Back it up</a> so you don’t lose it.</div>` : "";
+  return hero + fast + checkin + fuel + remind;
+}
+
+function vTrain() {
+  const ph = phase();
+  const banner = ph === "crunch"
+    ? `<div class="note good">Crunch phase, through ${fmtDate(addDays(S.settings.crunchEnd, -1))}. Lift heavy at Crunch (open 24 hours Tuesday–Thursday). On ${fmtDate(S.settings.crunchEnd)} your lifting moves to the Hotworx FX Zone and the exercises below switch automatically.</div>`
+    : `<div class="note good">FX Zone phase. Lifting is set up for the dumbbells and bands at Hotworx.</div>`;
+  const order = [1, 2, 3, 4, 5, 6, 0];
+  const week = order.map(wd => {
+    const sid = WEEK[wd];
+    if (!sid) return `<details><summary><span><b>${DAYNAMES[wd]}</b><br><span class="muted small">${esc(REST[wd])}</span></span></summary><div class="dbody"><p class="small muted">No session. If you want movement, the home backup below takes 15 minutes.</p></div></details>`;
+    const s = SESSIONS[sid];
+    return `<details data-key="s-${sid}" id="s-${sid}"><summary><span><b>${DAYNAMES[wd]}</b>: ${esc(s.name)}${s.optional ? " (optional)" : ""}<br><span class="muted small">${esc(WHEN[sid])}, ${esc(s.where[ph])}</span></span></summary>
+      <div class="dbody"><p class="small muted">${esc(s.blurb)}</p>${sessionBody(sid)}</div></details>`;
+  }).join("");
+  const backups = ["R", "H"].map(sid => { const s = SESSIONS[sid];
+    return `<details data-key="s-${sid}" id="s-${sid}"><summary><span><b>${esc(s.name)}</b><br><span class="muted small">${esc(s.where[ph])}, ${s.min} minutes</span></span></summary><div class="dbody"><p class="small muted">${esc(s.blurb)}</p>${sessionBody(sid)}</div></details>`; }).join("");
+  return `<h2>Your week</h2>${banner}
+    <section class="panel">${week}</section>
+    <h2>When plans fall apart</h2><section class="panel">${backups}</section>
+    <h2>How to progress</h2><section class="panel small">
+      <p><b>Add weight when you earn it.</b> When you hit the top of the rep range on every set with 1–2 reps to spare, go up next time: about 5 lb for upper body, 10 lb for lower body.</p>
+      <p><b>Every 6th week is lighter.</b> Same exercises, half the sets. You’ll come back stronger.</p>
+      <p><b>Log one number per lift.</b> Type the weight and reps of your best set, like “185 × 6”. The app shows it next time.</p>
+      <p><b>Heat and blood pressure.</b> Hydrate before Hotworx, use sodium-based electrolytes, and stand up slowly afterward. Lightheaded or unusually short of breath: stop, cool down, and keep your rescue inhaler in your bag.</p>
+      <p style="margin:0"><b>Late sessions and sleep.</b> Start by 9:15, finish by 10, skip caffeine, and take a cool shower after.</p>
+    </section>`;
+}
+
+function vEat() {
+  const st = S.settings;
+  const targets = `<section class="panel"><h3>Daily targets</h3>
+    <div class="tot"><div><b>${st.kcal.toLocaleString()}</b><span>calories</span></div><div><b>${st.p} g</b><span>protein</span></div><div><b>${st.f} g</b><span>fat</span></div><div><b>${st.c} g</b><span>carbs</span></div></div>
+    <p class="small muted" style="margin:10px 0 0">The planned meals land about 100–300 calories under target on purpose. That covers coffee, cooking oil, and the bites of mac and cheese you finish off the kids’ plates.</p></section>`;
+  const order = [1, 2, 3, 4, 5, 6, 0];
+  const dayPick = `<h2>Your rotation</h2><p class="small muted">The same week, every week. Tap a meal for the recipe.${S.settings.fastOn ? ` Eating window ${fmtMin(fastWindow().open)} to ${fmtMin(fastWindow().close)}; meal times are on the Today tab.` : ""}</p>
+    <section class="panel"><div class="scroll"><table><thead><tr><th>Day</th><th>${S.settings.fastOn ? "First meal" : "Breakfast"}</th><th>Lunch</th><th>Dinner</th><th>Total</th></tr></thead><tbody>
+    ${order.map(wd => { const pl = DAYPLAN[wd]; const k = pl.reduce((a, id) => a + MEALS[id].kcal, 0), p = pl.reduce((a, id) => a + MEALS[id].p, 0);
+      return `<tr><th scope="row">${DAYNAMES[wd].slice(0, 3)}</th>${pl.filter(id => !isSnack(id)).map(id => `<td><a href="#eat" data-action="openrecipe" data-id="${id}">${esc(SHORT[id])}</a></td>`).join("")}<td>${k.toLocaleString()}<br><span class="muted">${p} g</span></td></tr>`; }).join("")}
+    </tbody></table></div>
+    <p class="small muted" style="margin:10px 0 0">Every day also includes two snacks: cottage cheese with honey, and eggs with milk. Totals include them.</p></section>`;
+
+  const card = id => { const m = MEALS[id]; return `<details data-key="r-${id}" id="r-${id}"><summary><span><b>${esc(m.name)}</b><br><span class="small muted">${m.kcal} cal, ${m.p} g protein, ${m.f} g fat, ${m.c} g carbs</span></span></summary>
+      <div class="dbody"><ul>${m.ing.map(i => `<li>${esc(i)}</li>`).join("")}</ul><ol class="steps">${m.steps.map(x => `<li>${esc(x)}</li>`).join("")}</ol>${m.family ? `<p class="small muted">${esc(m.family)}</p>` : ""}</div></details>`; };
+  const ids = Object.keys(MEALS);
+  const recipes = `<h2>Your 10 meals</h2>` + [["Breakfast", "Breakfasts"], ["Lunch", "Lunches"], ["Dinner", "Dinners"]].map(([slot, label]) =>
+      `<section class="panel"><h3 style="margin-bottom:4px">${label}</h3>${ids.filter(id => MEALS[id].slot === slot).map(card).join("")}</section>`).join("")
+    + `<section class="panel"><h3 style="margin-bottom:4px">Daily snacks</h3>${ids.filter(isSnack).map(card).join("")}</section>`;
+  const prep = `<h2>Sunday prep, about 75 minutes</h2><section class="panel"><ol class="steps" style="margin:0">${PREP.map(p => `<li>${esc(p)}</li>`).join("")}</ol></section>`;
+
+  // Grocery
+  const g = S.grocery;
+  let trip = 0, weekly = 0, mine = 0;
+  GROCERY.forEach(it => { const p = g[it.id] && g[it.id].price != null ? +g[it.id].price : it.price; trip += p; weekly += p / it.lasts; if (!it.shared) mine += p / it.lasts; });
+  const secs = [...new Set(GROCERY.map(i => i.sec))];
+  const groc = `<h2>Walmart list</h2><section class="panel">
+    <div class="tot" style="grid-template-columns:repeat(3,1fr);margin-top:0"><div><b>${money(mine)}</b><span>your share per week</span></div><div><b>${money(weekly)}</b><span>household items included</span></div><div><b>${money(S.settings.budget)}</b><span>your budget</span></div></div>
+    <p class="small muted" style="margin:10px 0">Prices are estimates. Tap a price to change it to what you paid. Items marked “lasts” are only bought every few weeks, so they count partly toward each week. Items marked “household” are things the family shares.</p>
+    ${secs.map(sec => `<h3 style="margin:12px 0 2px">${esc(sec)}</h3>` + GROCERY.filter(i => i.sec === sec).map(it => {
+      const got = !!(g[it.id] && g[it.id].got), price = g[it.id] && g[it.id].price != null ? g[it.id].price : it.price;
+      return `<div class="gitem"><button class="check" aria-pressed="${got}" aria-label="Got ${esc(it.name)}" data-action="got" data-id="${it.id}"></button>
+        <div class="gname ${got ? "got" : ""}">${esc(it.name)}${it.lasts > 1 ? `<span class="tag">lasts ${it.lasts} wk</span>` : ""}${it.shared ? `<span class="tag">household</span>` : ""}</div>
+        <label class="sr" for="p-${it.id}">Price for ${esc(it.name)}</label><input type="number" id="p-${it.id}" inputmode="decimal" step="0.01" min="0" value="${(+price).toFixed(2)}" data-price="${it.id}"></div>`; }).join("")).join("")}
+    <div class="row" style="margin-top:12px"><button class="btn sm" data-action="clearlist">Uncheck everything for a new week</button></div>
+    <p class="small muted" style="margin:10px 0 0">One full trip, buying everything once: ${money(trip)}.</p></section>`;
+
+  const rules = `<h2>Eating out or eating with the family</h2><section class="panel small">
+    <p>Build the plate by hand: 2 palms of protein, 1–2 cupped hands of carbs, 2 fists of vegetables, 1 thumb of fat.</p>
+    <p style="margin:0">Always ask about shellfish in sauces, stocks, and shared fryers. Fish is fine for you, but some restaurants cook fish and shellfish together.</p></section>`;
+  return targets + dayPick + recipes + prep + groc + rules;
+}
+
+function vProgress() {
+  const t = today();
+  const days = allDays().filter(([, v]) => v.w);
+  const start = addDays(t, -55);
+  const pts = days.filter(([d]) => d >= start);
+  let chart;
+  if (pts.length < 2) {
+    chart = `<p class="muted">Log your morning weight on the Today tab. Your trend line appears after a few days.</p>`;
+  } else {
+    const W = 340, H = 170, L = 34, R = 8, T = 10, B = 22;
+    const ws = pts.map(([, v]) => +v.w);
+    const lo = Math.floor(Math.min(...ws) - 1), hi = Math.ceil(Math.max(...ws) + 1);
+    const t0 = parseDs(pts[0][0]).getTime(), t1 = Math.max(parseDs(pts[pts.length - 1][0]).getTime(), t0 + 86400000);
+    const x = d => L + (parseDs(d).getTime() - t0) / (t1 - t0) * (W - L - R);
+    const y = w => T + (hi - w) / (hi - lo) * (H - T - B);
+    const avgPts = pts.map(([d]) => { const a = avgWeight(d); return a ? `${x(d).toFixed(1)},${y(a.avg).toFixed(1)}` : null; }).filter(Boolean).join(" ");
+    const grid = [lo, (lo + hi) / 2, hi].map(v => `<line class="grid" x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 4}" y="${y(v) + 4}" text-anchor="end">${Math.round(v)}</text>`).join("");
+    chart = `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Weight trend over the last 8 weeks">${grid}
+      ${pts.map(([d, v]) => `<circle class="dot" cx="${x(d).toFixed(1)}" cy="${y(+v.w).toFixed(1)}" r="2.6"/>`).join("")}
+      <polyline class="avg" points="${avgPts}"/>
+      <text x="${L}" y="${H - 4}">${fmtDate(pts[0][0])}</text><text x="${W - R}" y="${H - 4}" text-anchor="end">${fmtDate(pts[pts.length - 1][0])}</text></svg>
+      <p class="small muted" style="margin:6px 0 0">Dots are daily weigh-ins. The line is your 7-day average, the number that matters. Heat sessions and salty meals move the dots; ignore them.</p>`;
+  }
+
+  // Weekly review
+  const a1 = avgWeight(t), a0 = avgWeight(addDays(t, -7)), am1 = avgWeight(addDays(t, -14));
+  let review;
+  if (!a1 || !a0 || a1.n < 3 || a0.n < 3) {
+    review = `<p class="muted">Weigh in at least 3 mornings a week for two weeks to unlock your weekly review.</p>`;
+  } else {
+    const delta = a1.avg - a0.avg, prev = am1 && am1.n >= 3 ? a0.avg - am1.avg : null;
+    const ms = S.measures.slice().sort((p, q) => p.d < q.d ? -1 : 1);
+    const waistDown = ms.length >= 2 && (ms[ms.length - 2].waist - ms[ms.length - 1].waist) >= 0.5;
+    let msg, act = "";
+    if (delta <= -1.75) { msg = `Down ${Math.abs(round1(delta))} lb this week, faster than planned. Losing this fast risks muscle.`; act = `<button class="btn sm heat" data-action="adjust" data-val="150">Add 150 calories (to ${(S.settings.kcal + 150).toLocaleString()})</button>`; }
+    else if (delta <= -0.4) { msg = `Down ${Math.abs(round1(delta))} lb this week. Right on track. Change nothing.`; }
+    else if (waistDown) { msg = `Weight is flat but your waist is down. That’s recomposition: losing fat while gaining muscle. Hold steady.`; }
+    else if (prev != null && prev > -0.4) { msg = `Two flat weeks in a row. Time for a small change.`; act = `<button class="btn sm heat" data-action="adjust" data-val="-150">Drop 150 calories (to ${(S.settings.kcal - 150).toLocaleString()})</button>`; }
+    else { msg = `Flat this week (${delta > 0 ? "+" : ""}${round1(delta)} lb). One flat week is usually water from heat, salt, or poor sleep. Hold steady and check next week.`; }
+    review = `<p>${msg}</p>${act}`;
+  }
+  const mon = mondayOf(t);
+  let sessions = 0, protDays = 0, daysSoFar = 0, fastDays = 0;
+  for (let i = 0; i < 7; i++) { const d = addDays(mon, i); if (d > t) break; daysSoFar++; const v = getDay(d); if (v.done) sessions++; if (dayTotals(d).p >= S.settings.p - 10) protDays++; if (windowKept(d)) fastDays++; }
+
+  // Measurements
+  const h = S.settings.heightIn;
+  const ms = S.measures.slice().sort((p, q) => p.d < q.d ? 1 : -1);
+  const latest = ms[0];
+  const lbf = latest ? navyBf(latest.waist, latest.neck, h) : null;
+  const lw = latest ? (latest.w || (avgWeight(latest.d) || {}).avg) : null;
+  const meas = `<section class="panel"><h3>Body fat estimate</h3>
+    <p class="small muted">Every 2 weeks, same time of day. Tape around your waist at the belly button, relaxed, and around your neck just below the Adam’s apple. This uses the U.S. Navy formula: not perfect, but consistent, which is what matters.</p>
+    <div class="field"><label for="m-waist">Waist, inches</label><input type="number" id="m-waist" inputmode="decimal" step="0.25"></div>
+    <div class="field"><label for="m-neck">Neck, inches</label><input type="number" id="m-neck" inputmode="decimal" step="0.25"></div>
+    <div class="row" style="margin:8px 0 12px"><button class="btn sm primary" data-action="addmeasure">Save measurement</button></div>
+    ${lbf != null ? `<p><span class="big">${round1(lbf)}%</span> <span class="muted">estimated body fat, goal ${S.settings.goalBf}%${lw ? `. About ${Math.round(lw * (1 - lbf / 100))} lb lean mass` : ""}.</span></p>` : ""}
+    ${ms.length ? `<div class="scroll"><table><thead><tr><th>Date</th><th>Waist</th><th>Neck</th><th>Body fat</th><th></th></tr></thead><tbody>${ms.map(m => { const bf = navyBf(m.waist, m.neck, h); return `<tr><td>${fmtDate(m.d)}</td><td>${m.waist}"</td><td>${m.neck}"</td><td>${bf != null ? round1(bf) + "%" : "—"}</td><td><button class="btn sm ghost" data-action="delmeasure" data-d="${m.d}" aria-label="Delete measurement from ${fmtDate(m.d)}">×</button></td></tr>`; }).join("")}</tbody></table></div>` : ""}
+  </section>`;
+
+  const tests = S.tests.slice().sort((p, q) => p.d < q.d ? 1 : -1);
+  const testsPanel = `<section class="panel"><h3>Fitness check, every 6 weeks</h3>
+    <p class="small muted">Do these fresh, at the start of a session.</p>
+    <div class="field"><label for="t-pu">Push-ups<span class="sub">Max with good form</span></label><input type="number" id="t-pu" inputmode="numeric"></div>
+    <div class="field"><label for="t-pl">Plank<span class="sub">Seconds</span></label><input type="number" id="t-pl" inputmode="numeric"></div>
+    <div class="field"><label for="t-sq">Deep squat hold<span class="sub">Seconds, heels down</span></label><input type="number" id="t-sq" inputmode="numeric"></div>
+    <div class="field"><label for="t-sr">Toe touch<span class="sub">Inches past toes (negative if short)</span></label><input type="number" id="t-sr" inputmode="decimal" step="0.5"></div>
+    <div class="row" style="margin:8px 0"><button class="btn sm primary" data-action="addtest">Save results</button></div>
+    ${tests.length ? `<div class="scroll"><table><thead><tr><th>Date</th><th>Push-ups</th><th>Plank</th><th>Squat</th><th>Toe touch</th></tr></thead><tbody>${tests.map(x => `<tr><td>${fmtDate(x.d)}</td><td>${x.pu ?? "—"}</td><td>${x.pl != null ? x.pl + "s" : "—"}</td><td>${x.sq != null ? x.sq + "s" : "—"}</td><td>${x.sr != null ? x.sr + '"' : "—"}</td></tr>`).join("")}</tbody></table></div>` : ""}
+  </section>`;
+
+  return `<h2>Weight trend</h2><section class="panel">${chart}</section>
+    <h2>This week</h2><section class="panel"><div class="tot" style="grid-template-columns:repeat(${S.settings.fastOn ? 3 : 2},1fr);margin-top:0"><div><b>${sessions} of 4</b><span>sessions done</span></div><div><b>${protDays} of ${daysSoFar}</b><span>days protein hit</span></div>${S.settings.fastOn ? `<div><b>${fastDays} of ${daysSoFar}</b><span>windows kept</span></div>` : ""}</div>
+      <div style="margin-top:12px">${review}</div></section>
+    <h2>Measurements</h2>${meas}${testsPanel}`;
+}
+
+function vMore() {
+  const st = S.settings;
+  const num = (id, label, sub, val, step = 1) => `<div class="field"><label for="${id}">${label}${sub ? `<span class="sub">${sub}</span>` : ""}</label><input type="number" id="${id}" inputmode="decimal" step="${step}" value="${val}"></div>`;
+  const fw = fastWindow(), fh = st.fastHours || 8;
+  const fastGuide = `<h2>Fasting plan</h2><section class="panel small">
+      ${st.fastOn ? `<p><b>${24 - fh}:${fh}, ${fmtMin(fw.open)} to ${fmtMin(fw.close)}, every day.</b> Weekends too. One window you never have to think about.</p>
+      <p><b>Your day:</b> ${fmtMin(fw.open)} first meal (overnight oats, or the scramble on weekends), ${fmtMin(fw.open + 180)} lunch bowl, ${fmtMin(fw.close - 150)} dinner with the family, ${fmtMin(fw.close - 30)} both snacks. You’re done eating about 90 minutes before a 9 pm workout, which also helps you sleep.</p>` : `<p><b>Fasting is off.</b> Turn it on in your numbers below.</p>`}
+      <p><b>Fasting decides when you eat, not how much.</b> Still hit your protein and get close to your calories. A short window makes it easy to under-eat, and under-eating is the fastest way to lose muscle along with fat.</p>
+      <p><b>During the fast:</b> water, black coffee, plain tea and zero-calorie sodium electrolytes.</p>
+      <p><b>Saturday’s 5:30 am session is fasted.</b> Drink water and an electrolyte first. If you feel lightheaded, eat something. You can open the window early that day and close it early.</p>
+      <p><b>Medications:</b> keep taking them as prescribed. Ask your pharmacist whether any of them need to be taken with food, and mention the fasting to your doctor at your next visit.</p>
+      <p style="margin:0"><b>When to loosen it:</b> if your lifts stall for 2 weeks or hunger is wrecking your sleep, switch to 14:10 below.</p></section>`;
+  return `${fastGuide}<h2>Supplements</h2><section class="panel">${SUPPS.map(s => `<details data-key="sup-${esc(s.name)}"><summary><span><b>${esc(s.name)}</b><br><span class="small muted">${esc(s.dose)}</span></span></summary><div class="dbody small">${esc(s.why)}</div></details>`).join("")}</section>
+    <section class="panel"><h3>Skip these: shellfish allergy and blood pressure</h3><ul class="small" style="margin-bottom:0">${AVOID.map(a => `<li>${esc(a)}</li>`).join("")}</ul></section>
+
+    <h2>Your numbers</h2><section class="panel">
+      ${num("s-kcal", "Calories", "Daily target", st.kcal, 50)}
+      ${num("s-p", "Protein, g", "", st.p, 5)}
+      ${num("s-f", "Fat, g", "", st.f, 5)}
+      ${num("s-c", "Carbs, g", "", st.c, 5)}
+      ${num("s-budget", "Food budget, $ per week", "Your share", st.budget, 1)}
+      ${num("s-height", "Height, inches", "Used for body fat", st.heightIn, 0.5)}
+      ${num("s-goal", "Goal body fat, %", "", st.goalBf, 0.5)}
+      <div class="field"><label for="s-fast">Intermittent fasting</label><select id="s-fast">
+        <option value="8" ${st.fastOn && st.fastHours == 8 ? "selected" : ""}>16:8, 8-hour window</option>
+        <option value="10" ${st.fastOn && st.fastHours == 10 ? "selected" : ""}>14:10, 10-hour window</option>
+        <option value="0" ${!st.fastOn ? "selected" : ""}>Off</option></select></div>
+      <div class="field"><label for="s-open">Window opens<span class="sub">Same time every day</span></label><input type="time" id="s-open" value="${st.fastOpen}"></div>
+      <div class="field"><label for="s-crunch">Crunch membership ends<span class="sub">Lifting switches to the FX Zone</span></label><input type="date" id="s-crunch" value="${st.crunchEnd}"></div>
+      <div class="field"><label for="s-phase">Lifting location</label><select id="s-phase">
+        <option value="auto" ${st.phase === "auto" ? "selected" : ""}>Automatic by date</option>
+        <option value="crunch" ${st.phase === "crunch" ? "selected" : ""}>Crunch</option>
+        <option value="fx" ${st.phase === "fx" ? "selected" : ""}>Hotworx FX Zone</option></select></div>
+      <div class="row" style="margin-top:10px"><button class="btn primary" data-action="savesettings">Save numbers</button></div>
+    </section>
+
+    <h2>Why these numbers</h2><section class="panel small">
+      <p>At 6′4″, 230 lb and about 24% body fat, you carry roughly 175 lb of lean mass. Your estimated maintenance is about 2,900–3,000 calories with 4–5 sessions a week, so 2,450 creates a steady deficit of about 1 lb a week.</p>
+      <p>Protein at 200 g (about 1 g per pound of goal weight) is high enough to build muscle while losing fat. Keeping all your lean mass, 15% lands near 205 lb; with the muscle you’ll add, expect to finish around 208–212 lb.</p>
+      <p style="margin:0">The weekly review on the Progress tab adjusts calories in small steps based on your 7-day average, not single weigh-ins.</p>
+    </section>
+
+    <h2>Your data</h2><section class="panel small">
+      <p>Everything you log stays on this phone. Nothing is sent anywhere.</p>
+      <p>Because of that, back up every couple of weeks: tap the button, then “Save to Files.” If you ever get a new phone, open the app there and restore the file.</p>
+      <p class="muted">${S.settings.lastBackup ? `Last backup: ${fmtDate(S.settings.lastBackup)}.` : "No backup yet."}</p>
+      <div class="row" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm primary" data-action="export">Back up my data</button><button class="btn sm" data-action="restore">Restore from a backup</button></div>
+      <input type="file" id="restore-file" accept="application/json,.json" hidden>
+      <p class="muted" style="margin-top:10px">This plan is general fitness and nutrition guidance, not medical advice. Check with your doctor or a registered dietitian about anything specific to your health and medications.</p>
+    </section>`;
+}
+
+/* ---------------- Events ---------------- */
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-action],[data-set]");
+  if (!b) return;
+  const t = today();
+  if (b.dataset.set) { const k = b.dataset.set, v = +b.dataset.val; const d = getDay(t); setDay(t, { [k]: d[k] === v ? null : v }); render(); return; }
+  const a = b.dataset.action;
+  switch (a) {
+    case "done": { const d = getDay(t); setDay(t, { done: d.done === b.dataset.sid ? null : b.dataset.sid }); render(); break; }
+    case "swap": setDay(t, { swap: b.dataset.sid }); render(); break;
+    case "unswap": setDay(t, { swap: null }); render(); break;
+    case "stamp": setDay(t, { [b.dataset.k]: nowHHMM() }); render(); break;
+    case "water": { const d = getDay(t); setDay(t, { water: Math.max(0, (d.water || 0) + +b.dataset.val) }); render(); break; }
+    case "meal": { const d = getDay(t); const m = { ...(d.meals || {}) }; m[b.dataset.id] = !m[b.dataset.id]; const patch = { meals: m }; if (m[b.dataset.id] && S.settings.fastOn && !d.eatStart) patch.eatStart = nowHHMM(); setDay(t, patch); render(); break; }
+    case "extra": { const d = getDay(t); const v = +b.dataset.val; setDay(t, { extraP: v === 0 ? 0 : (d.extraP || 0) + v }); render(); break; }
+    case "opensession": e.preventDefault(); openSet.add("s-" + b.dataset.sid); go("train", "s-" + b.dataset.sid); break;
+    case "openrecipe": e.preventDefault(); openSet.add("r-" + b.dataset.id); go("eat", "r-" + b.dataset.id); break;
+    case "eatday": eatDay = +b.dataset.val; render(); break;
+    case "got": { const id = b.dataset.id; S.grocery[id] = { ...(S.grocery[id] || {}), got: !(S.grocery[id] && S.grocery[id].got) }; persist("profile"); render(); break; }
+    case "clearlist": Object.keys(S.grocery).forEach(id => { S.grocery[id] = { ...S.grocery[id], got: false }; }); persist("profile"); render(); break;
+    case "adjust": { const v = +b.dataset.val; S.settings.kcal += v; S.settings.c = Math.max(100, S.settings.c + Math.round(v / 4)); persist("profile"); render(); break; }
+    case "addmeasure": {
+      const waist = parseFloat($("#m-waist").value), neck = parseFloat($("#m-neck").value);
+      if (!(waist > 20 && neck > 10)) { alert("Enter both waist and neck in inches."); return; }
+      const w = getDay(t).w || null;
+      S.measures = S.measures.filter(m => m.d !== t).concat([{ d: t, waist, neck, w }]);
+      persist("profile"); render(); break;
+    }
+    case "delmeasure": S.measures = S.measures.filter(m => m.d !== b.dataset.d); persist("profile"); render(); break;
+    case "addtest": {
+      const val = id => { const v = $(id).value; return v === "" ? null : +v; };
+      const rec = { d: t, pu: val("#t-pu"), pl: val("#t-pl"), sq: val("#t-sq"), sr: val("#t-sr") };
+      if ([rec.pu, rec.pl, rec.sq, rec.sr].every(v => v == null)) return;
+      S.tests = S.tests.filter(x => x.d !== t).concat([rec]); persist("profile"); render(); break;
+    }
+    case "savesettings": {
+      const n = (id, k) => { const v = parseFloat($(id).value); if (!isNaN(v) && v > 0) S.settings[k] = v; };
+      n("#s-kcal", "kcal"); n("#s-p", "p"); n("#s-f", "f"); n("#s-c", "c"); n("#s-budget", "budget"); n("#s-height", "heightIn"); n("#s-goal", "goalBf");
+      const ce = $("#s-crunch").value; if (ce) S.settings.crunchEnd = ce;
+      S.settings.phase = $("#s-phase").value;
+      const fv = +$("#s-fast").value; S.settings.fastOn = fv > 0; if (fv > 0) S.settings.fastHours = fv;
+      const op = $("#s-open").value;
+      if (op) { if (toMin(op) + (S.settings.fastHours || 8) * 60 <= 1440) S.settings.fastOpen = op; else alert("Your eating window has to close by midnight. Pick an earlier opening time."); }
+      persist("profile"); render();
+      b.textContent = "Saved"; break;
+    }
+    case "export": {
+      const name = `summit-backup-${t}.json`;
+      const file = new File([JSON.stringify(S, null, 2)], name, { type: "application/json" });
+      S.settings.lastBackup = t; saveLocal();
+      if (navigator.canShare && navigator.canShare({ files: [file] })) navigator.share({ files: [file], title: "Summit backup" }).catch(() => {});
+      else { const a = document.createElement("a"); a.href = URL.createObjectURL(file); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000); }
+      render(); break;
+    }
+    case "restore": { const f = document.getElementById("restore-file"); if (f) f.click(); break; }
+  }
+});
+
+document.addEventListener("change", e => {
+  const el = e.target, t = today();
+  if (el.id === "restore-file") {
+    const f = el.files && el.files[0]; if (!f) return;
+    f.text().then(txt => {
+      const o = JSON.parse(txt);
+      if (!o || typeof o !== "object" || !(o.settings || o.logs)) throw new Error("bad");
+      if (!confirm("Replace the data on this phone with this backup?")) return;
+      S = { settings: normSettings(o.settings), grocery: o.grocery || {}, measures: o.measures || [], tests: o.tests || [], saved: o.saved || [], logs: o.logs || {} };
+      saveLocal(); render(); alert("Backup restored.");
+    }).catch(() => alert("That file isn’t a Summit backup. Choose the .json file you saved from this app."));
+    el.value = ""; return;
+  }
+  if (el.dataset.ftime) { setDay(t, { [el.dataset.ftime]: el.value || null }); pendingRender = true; return; }
+  if (el.dataset.field === "w") { const v = parseFloat(el.value); setDay(t, { w: isNaN(v) ? null : round1(v) }); }
+  else if (el.dataset.lift) { const d = getDay(t); const l = { ...(d.lifts || {}) }; const v = el.value.trim().slice(0, 40); if (v) l[el.dataset.lift] = v; else delete l[el.dataset.lift]; setDay(t, { lifts: l }); }
+  else if (el.dataset.price) { const v = parseFloat(el.value); const id = el.dataset.price; S.grocery[id] = { ...(S.grocery[id] || {}), price: isNaN(v) ? null : v }; persist("profile"); pendingRender = true; }
+});
+
+document.addEventListener("toggle", e => {
+  const d = e.target;
+  if (d.tagName === "DETAILS" && d.dataset.key) { if (d.open) openSet.add(d.dataset.key); else openSet.delete(d.dataset.key); }
+}, true);
+
+/* ---------------- Routing ---------------- */
+const VALID = TABS.map(x => x[0]);
+function go(name, anchor) {
+  tab = name;
+  if (location.hash !== "#" + name) history.replaceState(null, "", "#" + name);
+  render();
+  if (anchor) { const el = document.getElementById(anchor); if (el) el.scrollIntoView({ block: "start", behavior: "smooth" }); }
+  else window.scrollTo(0, 0);
+}
+function fromHash() { const h = location.hash.slice(1); tab = VALID.includes(h) ? h : "today"; render(); window.scrollTo(0, 0); }
+window.addEventListener("hashchange", fromHash);
+fromHash();
+try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch (e) {}
+</script>
+</body>
+</html>
