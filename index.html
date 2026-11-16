@@ -284,105 +284,263 @@ const REST = { 1: "Rest day. A walk counts if you get one.", 5: "Rest day. Famil
 const DAYNAMES = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const DAYSHORT = ["Su","Mo","Tu","We","Th","Fr","Sa"];
 
-const MEALS = {
-  oats: { name: "Protein overnight oats", slot: "Breakfast", kcal: 660, p: 41, f: 16, c: 90,
-    ing: ["⅔ cup (65 g) old-fashioned oats","1 cup plain nonfat Greek yogurt","½ cup 2% milk","Cinnamon and a pinch of salt","In the morning: 1 banana and 1 tbsp peanut butter"],
-    steps: ["Sunday: stir oats, yogurt, milk, cinnamon and salt in 5 jars.","Refrigerate. They keep 5 days.","Top with banana and peanut butter. Eat cold or microwave 60–90 seconds."],
-    family: "The boys can have plain oats with banana from the same tub." },
-  scramble: { name: "Egg, potato and cottage cheese scramble", slot: "Breakfast", kcal: 577, p: 35, f: 21, c: 61,
-    ing: ["3 large eggs","½ cup cottage cheese","1 cup diced potato (about 150 g)","1 tsp oil","Salsa","1 banana on the side"],
-    steps: ["Microwave the diced potato 3 minutes, then crisp it in the oiled pan 4–5 minutes.","Whisk eggs with cottage cheese and pour over the potatoes. Stir over medium-low until just set.","Top with salsa."],
-    family: "Make one big pan; pull the kids’ eggs and potatoes out before the salsa." },
-  bowl: { name: "Chicken, rice and veggie bowl", slot: "Lunch", kcal: 577, p: 59, f: 11, c: 57,
-    ing: ["8 oz raw chicken breast, cooked Sunday","1 cup cooked white rice","1½ cups frozen broccoli or mixed vegetables","1 tsp oil or butter","2 tbsp salsa or hot sauce","Garlic-herb seasoning"],
-    steps: ["Sunday: season chicken and bake at 425°F for 18–22 minutes, to 165°F inside. Slice.","Pack chicken, rice and frozen vegetables together. The veg thaws by lunch.","Microwave 2–3 minutes and add salsa."],
-    family: "Plain chicken and rice is an easy kid dinner from the same batch." },
-  burrito: { name: "Chicken burrito bowl", slot: "Lunch", kcal: 574, p: 60, f: 6, c: 66,
-    ing: ["7 oz raw chicken breast with taco seasoning, cooked Sunday","¾ cup cooked rice","½ cup black beans, rinsed","1 cup frozen vegetables","¼ cup salsa","2 tbsp Greek yogurt instead of sour cream"],
-    steps: ["Sunday: toss half the chicken in taco seasoning before baking.","Pack chicken, rice, beans and vegetables.","Microwave 2–3 minutes; top with salsa and yogurt."],
-    family: "Same chicken, different flavor. No extra cooking." },
-  tuna: { name: "Spicy tuna rice bowl", slot: "Lunch", kcal: 480, p: 50, f: 6, c: 53,
-    ing: ["2 cans (5 oz) light tuna in water, drained","1 cup cooked rice","1 tbsp light mayo with sriracha to taste","1 cup frozen vegetables, microwaved","Splash of soy sauce"],
-    steps: ["Mix tuna with mayo, sriracha and soy sauce.","Serve over warm rice with the vegetables."],
-    family: "Light tuna is a low-mercury fish. Two cans a week fits FDA guidance." },
-  pasta: { name: "Turkey marinara pasta", slot: "Dinner", kcal: 645, p: 47, f: 17, c: 76,
-    ing: ["6 oz 93% lean ground turkey","3 oz dry pasta (weigh it)","½ cup marinara","1 cup frozen spinach or broccoli","Garlic powder and Italian seasoning"],
-    steps: ["Boil the whole box of pasta for the family.","Brown the turkey 6–8 minutes, add marinara and vegetables, simmer 5 minutes.","Your portion: 3 oz dry, about 1½ cups cooked, with the sauce on top."],
-    family: "Kids get pasta with butter or plain turkey; you get the sauce and vegetables." },
-  sheetpan: { name: "Sheet-pan chicken thighs and potatoes", slot: "Dinner", kcal: 600, p: 48, f: 17, c: 62,
-    ing: ["7 oz boneless skinless chicken thighs","300 g potatoes (2 small), cubed","1½ cups frozen broccoli","2 tsp oil","Garlic powder, paprika, salt, pepper"],
-    steps: ["Heat oven to 425°F. Toss potatoes with 1 tsp oil and seasoning; roast 15 minutes.","Add thighs and broccoli with the rest of the oil; roast 20 minutes more, to 175°F inside.","One pan, one cleanup."],
-    family: "Kid-friendly. If the boys are eating too, grab a bigger pack." },
-  chili: { name: "Turkey and bean chili", slot: "Dinner", kcal: 600, p: 44, f: 12, c: 75,
-    ing: ["Makes 2 servings (Wednesday + Thursday):","10 oz 93% lean ground turkey","1 can black or kidney beans, rinsed","1 can (14.5 oz) diced tomatoes","½ onion and 2 garlic cloves","1 tbsp chili powder, 1 tsp cumin","1½ cups cooked rice (¾ cup per serving)","Greek yogurt on top"],
-    steps: ["Brown turkey and onion 6–8 minutes. Add garlic and spices for 1 minute.","Add beans and tomatoes; simmer 15 minutes.","Serve over rice. Refrigerate the second serving for Thursday."],
-    family: "Mild enough for kids if you go easy on the chili powder." },
-  tilapia: { name: "Lemon-pepper tilapia, rice and green beans", slot: "Dinner", kcal: 573, p: 54, f: 15, c: 55,
-    ing: ["8 oz frozen tilapia (2 fillets)","1 cup cooked rice","1½ cups frozen green beans or broccoli","1 tbsp butter","Lemon pepper and garlic powder"],
-    steps: ["Bake tilapia from frozen at 425°F for 15–18 minutes, seasoned, with the butter on top.","Microwave the vegetables; serve with rice."],
-    family: "Tilapia is a fish, not a shellfish. Check that the bag doesn’t carry a shellfish cross-contact warning." },
-  rotisserie: { name: "Rotisserie chicken plate", slot: "Dinner", kcal: 565, p: 55, f: 11, c: 62,
-    ing: ["6 oz rotisserie chicken, skin removed","2 small potatoes, microwaved","1½ cups vegetables","Salsa or hot sauce"],
-    steps: ["Pick up a rotisserie chicken; the whole family eats.","Microwave potatoes 6–8 minutes; serve with vegetables."],
-    family: "Built for everyone. The no-cook night." },
-  cottage: { name: "Cottage cheese and honey", slot: "Snack", kcal: 247, p: 24, f: 5, c: 26,
-    ing: ["1 cup low-fat cottage cheese","1 tbsp honey or ½ banana","Cinnamon"], steps: ["Stir and eat."], family: "" },
-  eggs: { name: "Hard-boiled eggs and milk", slot: "Evening snack", kcal: 265, p: 21, f: 14, c: 13,
-    ing: ["2 hard-boiled eggs, boiled Sunday","1 cup 2% milk"], steps: ["Good after a late workout."], family: "" }
-};
-const SHORT = { oats: "Overnight oats", scramble: "Egg scramble", bowl: "Chicken bowl", burrito: "Burrito bowl", tuna: "Tuna bowl",
-  pasta: "Turkey pasta", sheetpan: "Sheet-pan thighs", chili: "Turkey chili", tilapia: "Tilapia", rotisserie: "Rotisserie chicken" };
-const isSnack = id => /snack/i.test(MEALS[id].slot);
-const DAYPLAN = {
-  0: ["scramble","bowl","cottage","sheetpan","eggs"],
-  1: ["oats","bowl","cottage","pasta","eggs"],
-  2: ["oats","burrito","cottage","sheetpan","eggs"],
-  3: ["oats","bowl","cottage","chili","eggs"],
-  4: ["oats","burrito","cottage","chili","eggs"],
-  5: ["oats","bowl","cottage","tilapia","eggs"],
-  6: ["scramble","tuna","cottage","rotisserie","eggs"]
+/* ---------------- Food: ingredients, recipes, planning ---------------- */
+// n = [calories, protein, fat, carbs] per unit; pkg = units per package
+const ING = {
+  chx:    { g: "protein", name: "Chicken breast", u: "oz", say: "raw chicken breast", n: [34, 6.4, 0.75, 0], pkg: 48, pkgName: "3 lb bag or family pack", price: 10.84 },
+  thigh:  { g: "protein", name: "Boneless skinless chicken thighs", u: "oz", say: "raw boneless chicken thighs", n: [34, 5.6, 1.2, 0], pkg: 24, pkgName: "1½ lb pack", price: 5.00 },
+  rot:    { g: "protein", name: "Rotisserie chicken", u: "oz", say: "rotisserie chicken, skin off", n: [47, 7, 2, 0], pkg: 24, pkgName: "whole chicken, shared with family", price: 5.97 },
+  turkey: { g: "protein", name: "93% lean ground turkey", u: "oz", say: "93% lean ground turkey", n: [42.5, 5.25, 2.25, 0], pkg: 16, pkgName: "1 lb pack", price: 5.00 },
+  beef:   { g: "protein", name: "93% lean ground beef", u: "oz", say: "93% lean ground beef", n: [42.5, 5.75, 2, 0], pkg: 16, pkgName: "1 lb pack", price: 6.50 },
+  salmon: { g: "protein", name: "Frozen salmon fillets", u: "oz", say: "salmon", n: [52, 5.7, 3.1, 0], pkg: 32, pkgName: "2 lb bag", price: 13.98 },
+  tilapia:{ g: "protein", name: "Frozen tilapia fillets", u: "oz", say: "tilapia", n: [27, 5.7, 0.5, 0], pkg: 32, pkgName: "2 lb bag", price: 8.00 },
+  tuna:   { g: "protein", name: "Light tuna in water", u: "", say: ["can light tuna, drained", "cans light tuna, drained"], n: [110, 25, 1, 0], pkg: 1, pkgName: "5 oz can", price: 1.10 },
+  whey:   { g: "protein", name: "Protein powder", u: "", say: ["scoop whey protein powder", "scoops whey protein powder"], n: [120, 24, 1.5, 3], pkg: 28, pkgName: "2 lb tub (lasts weeks)", price: 30.00, pantry: true },
+  deli:   { g: "protein", name: "Deli turkey", u: "oz", say: "deli turkey", n: [30, 5, 0.5, 1], pkg: 9, pkgName: "9 oz pack", price: 3.50 },
+  egg:    { g: "dairy", name: "Eggs", u: "", say: ["large egg", "large eggs"], n: [72, 6.3, 4.8, 0.4], pkg: 24, pkgName: "2 dozen", price: 6.00 },
+  yog:    { g: "dairy", name: "Greek yogurt", u: ["cup", "cups"], say: "plain nonfat Greek yogurt", n: [133, 23, 0.9, 8], pkg: 4, pkgName: "32 oz tub", price: 4.50 },
+  cott:   { g: "dairy", name: "Cottage cheese", u: ["cup", "cups"], say: "low-fat cottage cheese", n: [183, 24, 5, 9.5], pkg: 3, pkgName: "24 oz tub", price: 3.00 },
+  milk:   { g: "dairy", name: "Milk", u: ["cup", "cups"], say: "2% milk", n: [122, 8, 4.8, 12], pkg: 16, pkgName: "gallon, shared", price: 3.40 },
+  mozz:   { g: "dairy", name: "Mozzarella", u: ["cup", "cups"], say: "shredded part-skim mozzarella", n: [320, 28, 20, 4], pkg: 2, pkgName: "8 oz bag", price: 2.50 },
+  cheddar:{ g: "dairy", name: "Cheddar", u: ["cup", "cups"], say: "shredded 2% milk cheddar", n: [360, 28, 24, 4], pkg: 2, pkgName: "8 oz bag", price: 2.50 },
+  string: { g: "dairy", name: "String cheese", u: "", say: ["string cheese stick", "string cheese sticks"], n: [80, 7, 6, 1], pkg: 12, pkgName: "12-count", price: 3.50 },
+  rice:   { g: "carb", name: "Rice", u: ["cup", "cups"], say: "cooked white rice", n: [205, 4.3, 0.4, 45], pkg: 34, pkgName: "5 lb bag (lasts weeks)", price: 4.50, pantry: true },
+  pasta:  { g: "carb", name: "Pasta", u: "oz", say: "dry pasta", n: [100, 3.6, 0.4, 20.5], pkg: 16, pkgName: "1 lb box", price: 1.25 },
+  taco:   { g: "carb", name: "Small tortillas", u: "", say: ["6-inch flour tortilla", "6-inch flour tortillas"], n: [90, 2.5, 2.5, 15], pkg: 10, pkgName: "10-count", price: 1.75 },
+  tort:   { g: "carb", name: "Large tortillas", u: "", say: ["burrito-size flour tortilla", "burrito-size flour tortillas"], n: [210, 6, 5, 35], pkg: 8, pkgName: "8-count", price: 2.50 },
+  bread:  { g: "carb", name: "Bread", u: "", say: ["slice whole wheat bread", "slices whole wheat bread"], n: [90, 4, 1, 16], pkg: 20, pkgName: "loaf", price: 1.80 },
+  bun:    { g: "carb", name: "Burger buns", u: "", say: ["hamburger bun", "hamburger buns"], n: [120, 4, 2, 22], pkg: 8, pkgName: "8-count", price: 1.50 },
+  hoagie: { g: "carb", name: "Hoagie rolls", u: "", say: ["hoagie roll", "hoagie rolls"], n: [200, 7, 3, 38], pkg: 6, pkgName: "6-count", price: 2.50 },
+  oats:   { g: "carb", name: "Oats", u: ["cup", "cups"], say: "old-fashioned oats", n: [300, 10, 6, 54], pkg: 15, pkgName: "42 oz canister (lasts weeks)", price: 4.00, pantry: true },
+  plant:  { g: "carb", name: "Plantains", u: "", say: ["ripe plantain (yellow with black spots)", "ripe plantains"], n: [218, 2.3, 0.7, 57], pkg: 1, pkgName: "each", price: 0.69 },
+  beans:  { g: "carb", name: "Beans (habichuelas)", u: ["cup", "cups"], say: "pink or red beans, canned", n: [220, 14, 1, 40], pkg: 1.5, pkgName: "15.5 oz can", price: 0.90 },
+  wbeans: { g: "carb", name: "White beans", u: ["cup", "cups"], say: "cannellini or great northern beans, canned", n: [220, 15, 0.5, 40], pkg: 1.5, pkgName: "15.5 oz can", price: 0.95 },
+  carrot: { g: "veg", name: "Carrots", u: ["cup", "cups"], say: "chopped carrots", n: [52, 1.2, 0.3, 12], pkg: 6, pkgName: "2 lb bag", price: 1.50 },
+  broc:   { g: "veg", name: "Broccoli", u: ["cup", "cups"], say: "frozen broccoli", n: [30, 2.5, 0.3, 5], pkg: 3.5, pkgName: "12 oz frozen bag", price: 1.25 },
+  gbean:  { g: "veg", name: "Green beans", u: ["cup", "cups"], say: "frozen green beans", n: [35, 2, 0, 8], pkg: 3, pkgName: "12 oz frozen bag", price: 1.25 },
+  spin:   { g: "veg", name: "Spinach", u: ["cup", "cups"], say: "frozen spinach", n: [30, 3, 0.5, 4], pkg: 3, pkgName: "12 oz frozen bag", price: 1.25 },
+  mixveg: { g: "veg", name: "Mixed vegetables", u: ["cup", "cups"], say: "frozen mixed vegetables", n: [70, 3, 0.5, 14], pkg: 3, pkgName: "12 oz frozen bag", price: 1.25 },
+  pepper: { g: "veg", name: "Peppers and onions", u: ["cup", "cups"], say: "frozen pepper and onion strips", n: [25, 1, 0, 5], pkg: 4, pkgName: "12 oz frozen bag", price: 1.50 },
+  salad:  { g: "veg", name: "Lettuce", u: ["cup", "cups"], say: "romaine or bagged salad", n: [10, 1, 0, 2], pkg: 6, pkgName: "bag or head", price: 2.50 },
+  tomato: { g: "veg", name: "Tomatoes", u: "", say: ["Roma tomato", "Roma tomatoes"], n: [22, 1, 0.2, 5], pkg: 1, pkgName: "each", price: 0.35 },
+  banana: { g: "veg", name: "Bananas", u: "", say: ["banana", "bananas"], n: [105, 1.3, 0.4, 27], pkg: 1, pkgName: "each", price: 0.25 },
+  berry:  { g: "veg", name: "Berries", u: ["cup", "cups"], say: "frozen mixed berries", n: [70, 1, 0.5, 17], pkg: 3.5, pkgName: "16 oz frozen bag", price: 3.00 },
+  lemon:  { g: "veg", name: "Lemons", u: "", say: ["lemon", "lemons"], n: [17, 0.6, 0.2, 5], pkg: 1, pkgName: "each", price: 0.60, minor: true },
+  onion:  { g: "veg", name: "Onions", u: "", say: ["onion", "onions"], n: [44, 1.2, 0.1, 10], pkg: 1, pkgName: "each", price: 0.80, minor: true },
+  garlic: { g: "veg", name: "Garlic", u: "", say: ["garlic clove", "garlic cloves"], n: [4, 0.2, 0, 1], pkg: 10, pkgName: "head", price: 0.50, minor: true },
+  marin:  { g: "pantry", name: "Marinara sauce", u: ["cup", "cups"], say: "marinara sauce", n: [140, 4, 4, 22], pkg: 2.75, pkgName: "24 oz jar", price: 1.80 },
+  dtom:   { g: "pantry", name: "Diced tomatoes", u: ["cup", "cups"], say: "canned diced tomatoes", n: [50, 2, 0, 10], pkg: 1.75, pkgName: "14.5 oz can", price: 0.95 },
+  broth:  { g: "pantry", name: "Chicken broth", u: ["cup", "cups"], say: "low-sodium chicken broth", n: [10, 1.5, 0, 1], pkg: 4, pkgName: "32 oz carton", price: 1.50 },
+  tsauce: { g: "pantry", name: "Tomato sauce", u: ["cup", "cups"], say: "tomato sauce", n: [80, 4, 0, 16], pkg: 1, pkgName: "8 oz can", price: 0.50 },
+  sofrito:{ g: "pantry", name: "Sofrito", u: "tbsp", say: "sofrito (jar or homemade)", n: [15, 0, 1, 1], pkg: 24, pkgName: "12 oz jar", price: 2.98, pantry: true },
+  sazon:  { g: "pantry", name: "Sazón", u: "", say: ["packet sazón", "packets sazón"], n: [0, 0, 0, 0], pkg: 8, pkgName: "box of 8", price: 1.50, pantry: true },
+  adobo:  { g: "pantry", name: "Adobo seasoning", u: "tsp", say: "adobo seasoning", n: [0, 0, 0, 0], pkg: 90, pkgName: "jar", price: 2.50, pantry: true },
+  olives: { g: "pantry", name: "Spanish olives", u: "tbsp", say: "sliced Spanish olives or alcaparrado", n: [10, 0, 1, 0], pkg: 30, pkgName: "jar", price: 2.50, pantry: true },
+  bbq:    { g: "pantry", name: "BBQ sauce", u: "tbsp", say: "BBQ sauce", n: [30, 0, 0, 7.5], pkg: 30, pkgName: "18 oz bottle", price: 1.50, pantry: true },
+  pesto:  { g: "pantry", name: "Pesto", u: "tbsp", say: "basil pesto", n: [80, 1, 8, 1], pkg: 11, pkgName: "6 oz jar", price: 2.50, pantry: true },
+  parm:   { g: "pantry", name: "Parmesan", u: "tbsp", say: "grated parmesan", n: [22, 1.4, 1.4, 0.2], pkg: 45, pkgName: "8 oz", price: 3.50, pantry: true },
+  panko:  { g: "pantry", name: "Panko", u: ["cup", "cups"], say: "panko breadcrumbs", n: [220, 8, 2, 44], pkg: 3.5, pkgName: "8 oz", price: 1.80, pantry: true },
+  hot:    { g: "pantry", name: "Hot sauce", u: "tbsp", say: "hot or buffalo sauce", n: [0, 0, 0, 0], pkg: 24, pkgName: "bottle", price: 1.50, pantry: true },
+  mayo:   { g: "pantry", name: "Light mayo", u: "tbsp", say: "light mayo", n: [35, 0, 3.5, 1], pkg: 60, pkgName: "30 oz jar", price: 3.50, pantry: true },
+  pb:     { g: "pantry", name: "Peanut butter", u: "tbsp", say: "peanut butter", n: [95, 3.5, 8, 3.5], pkg: 28, pkgName: "16 oz jar", price: 2.10, pantry: true },
+  honey:  { g: "pantry", name: "Honey", u: "tbsp", say: "honey", n: [64, 0, 0, 17], pkg: 16, pkgName: "12 oz bottle", price: 3.50, pantry: true },
+  granola:{ g: "pantry", name: "Granola", u: ["cup", "cups"], say: "granola", n: [480, 12, 16, 76], pkg: 4.25, pkgName: "18 oz bag", price: 3.24, pantry: true },
+  oil:    { g: "pantry", name: "Olive oil", u: "tsp", say: "olive oil", n: [40, 0, 4.5, 0], pkg: 100, pkgName: "17 oz bottle", price: 5.00, pantry: true },
+  butter: { g: "pantry", name: "Butter", u: "tbsp", say: "butter", n: [100, 0, 11, 0], pkg: 32, pkgName: "1 lb", price: 4.00, pantry: true }
 };
 
-const PREP = [
-  "Shop Saturday or Sunday morning using the list below.",
-  "Start the rice: about 3 cups dry in a rice cooker or pot.",
-  "Bake the 3 lb of chicken at 425°F, 18–22 minutes. Season half garlic-herb and half taco.",
-  "While it bakes, make 5 jars of overnight oats and hard-boil 10 eggs.",
-  "Pack 5 lunches: 3 chicken bowls and 2 burrito bowls, with frozen vegetables on top.",
-  "Clean up. Dinners are cooked on the night, 20–30 minutes each."
-];
+const RECIPES = {
+  /* First meals */
+  oats: { name: "Protein oatmeal", short: "Protein oatmeal", slots: ["first"], flavor: "any",
+    ing: [["oats", 0.67], ["whey", 1], ["milk", 0.5], ["banana", 1], ["pb", 1]],
+    steps: ["Microwave oats with 1¼ cups water and a pinch of salt for 2–2½ minutes (or 5 minutes on the stove).", "Let it sit a minute, then stir in the protein powder with the milk. Adding it off the heat keeps it from clumping.", "Top with sliced banana and peanut butter. Cinnamon if you like."],
+    family: "Make a bigger pot without the protein powder and the boys can share." },
+  bwrap: { name: "Egg and turkey breakfast wrap", short: "Breakfast wrap", slots: ["first"], flavor: "american",
+    ing: [["egg", 2], ["deli", 3], ["tort", 1], ["mozz", 0.25], ["pepper", 0.5]],
+    steps: ["Warm the peppers in a pan for 2–3 minutes; add chopped turkey.", "Add whisked eggs and scramble until just set.", "Fill the tortilla, top with cheese and roll it up. Hot sauce if you like."],
+    family: "Kids usually like a plain egg-and-cheese version." },
+  revolt: { name: "Revoltillo with toast", short: "Revoltillo", slots: ["first"], flavor: "pr",
+    ing: [["egg", 3], ["sofrito", 1], ["pepper", 0.5], ["tomato", 0.5], ["bread", 2], ["cott", 0.5]],
+    steps: ["Cook sofrito, peppers and diced tomato for 3 minutes.", "Add whisked eggs, season with adobo and scramble until just set.", "Serve with toast, and cottage cheese on the side."],
+    family: "Puerto Rican-style scrambled eggs. Pull the kids’ eggs before adding the peppers." },
+  parfait: { name: "Greek yogurt parfait", short: "Yogurt parfait", slots: ["first"], flavor: "any",
+    ing: [["yog", 1.5], ["berry", 1], ["granola", 0.25], ["honey", 1]],
+    steps: ["Thaw berries overnight, or microwave 45 seconds.", "Layer yogurt, berries and granola; drizzle with honey."], family: "" },
+  eggsand: { name: "Egg, turkey and cheese sandwich", short: "Egg sandwich", slots: ["first"], flavor: "american",
+    ing: [["egg", 2], ["deli", 2], ["mozz", 0.25], ["bread", 2], ["milk", 1]],
+    steps: ["Fry or scramble the eggs.", "Toast the bread; stack eggs, turkey and cheese.", "Glass of milk on the side."], family: "Easy to make four at once." },
 
-const GROCERY = [
-  { id: "chx", sec: "Protein", name: "Chicken breast, 3 lb (frozen bag or fresh family pack)", price: 10.84, lasts: 1 },
-  { id: "thigh", sec: "Protein", name: "Boneless skinless chicken thighs, about 1¼ lb", price: 4.50, lasts: 1 },
-  { id: "turkey", sec: "Protein", name: "93% lean ground turkey, 1 lb", price: 5.00, lasts: 1 },
-  { id: "eggs", sec: "Protein", name: "Large eggs, 2 dozen", price: 6.00, lasts: 1 },
-  { id: "yog", sec: "Protein", name: "Plain nonfat Greek yogurt, 2 × 32 oz", price: 9.00, lasts: 1 },
-  { id: "cott", sec: "Protein", name: "Low-fat cottage cheese, 3 × 24 oz", price: 9.00, lasts: 1 },
-  { id: "tuna", sec: "Protein", name: "Light tuna in water, 2 cans", price: 2.20, lasts: 1 },
-  { id: "tilapia", sec: "Protein", name: "Frozen tilapia fillets, 2 lb bag", price: 8.00, lasts: 4 },
-  { id: "rot", sec: "Protein", name: "Rotisserie chicken for Saturday dinner", price: 5.97, lasts: 1, shared: true },
-  { id: "oats", sec: "Carbs and produce", name: "Old-fashioned oats, 42 oz", price: 4.00, lasts: 3 },
-  { id: "rice", sec: "Carbs and produce", name: "Long-grain white rice, 5 lb", price: 4.50, lasts: 3 },
-  { id: "pasta", sec: "Carbs and produce", name: "Pasta, 1 lb box", price: 1.25, lasts: 1, shared: true },
-  { id: "pot", sec: "Carbs and produce", name: "Potatoes, 5 lb bag", price: 3.50, lasts: 2 },
-  { id: "ban", sec: "Carbs and produce", name: "Bananas, 7", price: 1.60, lasts: 1 },
-  { id: "veg", sec: "Carbs and produce", name: "Frozen broccoli or mixed vegetables, 5 × 12 oz", price: 6.25, lasts: 1 },
-  { id: "onion", sec: "Carbs and produce", name: "Onion and garlic", price: 1.50, lasts: 1, shared: true },
-  { id: "beans", sec: "Pantry", name: "Black or kidney beans, 2 cans", price: 1.80, lasts: 1 },
-  { id: "tom", sec: "Pantry", name: "Diced tomatoes, 14.5 oz can", price: 0.95, lasts: 1 },
-  { id: "mar", sec: "Pantry", name: "Marinara, 24 oz jar", price: 1.80, lasts: 3 },
-  { id: "salsa", sec: "Pantry", name: "Salsa, 16 oz", price: 2.25, lasts: 2 },
-  { id: "pb", sec: "Pantry", name: "Peanut butter, 16 oz", price: 2.10, lasts: 5 },
-  { id: "milk", sec: "Pantry", name: "2% milk, 1 gallon", price: 3.40, lasts: 1, shared: true },
-  { id: "season", sec: "Pantry", name: "Taco seasoning, lemon pepper, chili powder", price: 3.00, lasts: 6, shared: true },
-  { id: "oil", sec: "Pantry", name: "Olive oil or butter", price: 4.00, lasts: 6, shared: true },
-  { id: "honey", sec: "Pantry", name: "Honey", price: 3.50, lasts: 8, shared: true }
-];
+  /* Italian */
+  tpasta: { name: "Turkey marinara pasta", short: "Turkey pasta", slots: ["lunch", "dinner"], flavor: "italian",
+    ing: [["turkey", 6], ["pasta", 3], ["marin", 0.5], ["spin", 1], ["parm", 1], ["garlic", 1]],
+    steps: ["Boil the whole box of pasta for the family.", "Brown turkey and garlic 6–8 minutes; add marinara and spinach and simmer 5 minutes.", "Your portion: 3 oz dry pasta (about 1½ cups cooked), sauce on top, parmesan."],
+    family: "Kids get pasta with butter or plain turkey." },
+  cparm: { name: "Baked chicken parmesan with pasta", short: "Chicken parm", slots: ["lunch", "dinner"], flavor: "italian",
+    ing: [["chx", 6], ["panko", 0.25], ["parm", 1], ["mozz", 0.25], ["marin", 0.5], ["pasta", 2], ["broc", 1]],
+    steps: ["Heat oven to 425°F. Coat chicken in panko and parmesan; bake 18 minutes.", "Top with marinara and mozzarella; bake 5 more minutes.", "Serve over pasta with broccoli."],
+    family: "Breaded chicken is a reliable kid dinner." },
+  pesto: { name: "Chicken pesto pasta", short: "Pesto pasta", slots: ["lunch", "dinner"], flavor: "italian", prepChicken: true,
+    ing: [["chx", 6], ["pasta", 2.5], ["pesto", 1], ["broc", 1.5], ["parm", 1]],
+    steps: ["Cook pasta, adding broccoli for the last 3 minutes.", "Drain, toss with pesto and sliced cooked chicken.", "Top with parmesan. Good hot or cold."], family: "" },
+  msub: { name: "Turkey meatball sub", short: "Meatball sub", slots: ["lunch", "dinner"], flavor: "italian", batch: "Roll and bake a batch of meatballs (4 servings): 425°F for 15 minutes.",
+    ing: [["turkey", 6], ["panko", 0.125], ["egg", 0.25], ["marin", 0.5], ["mozz", 0.25], ["hoagie", 1], ["salad", 2]],
+    steps: ["Mix turkey, panko, egg, garlic powder and Italian seasoning; roll into 1½-inch balls.", "Bake at 425°F for 15 minutes; simmer in marinara.", "Fill the roll, top with mozzarella and toast until melted. Side salad."],
+    family: "Meatballs with pasta for the kids." },
+  salmonit: { name: "Italian herb salmon, rice and green beans", short: "Herb salmon", slots: ["lunch", "dinner"], flavor: "italian",
+    ing: [["salmon", 6], ["rice", 1], ["gbean", 1.5], ["lemon", 0.5], ["oil", 1]],
+    steps: ["Bake salmon at 425°F for 12–15 minutes with oil, Italian seasoning and lemon.", "Serve with rice and microwaved green beans."], family: "" },
+  piccata: { name: "Tilapia piccata with pasta", short: "Tilapia piccata", slots: ["lunch", "dinner"], flavor: "italian",
+    ing: [["tilapia", 8], ["pasta", 2.5], ["butter", 0.5], ["lemon", 0.5], ["spin", 1], ["garlic", 2]],
+    steps: ["Bake tilapia from frozen at 425°F for 15–18 minutes.", "Melt butter with garlic and lemon juice; stir in spinach until wilted.", "Serve tilapia over pasta with the lemon-garlic spinach."], family: "" },
+
+  /* American */
+  bbqbowl: { name: "BBQ chicken rice bowl", short: "BBQ bowl", slots: ["lunch", "dinner"], flavor: "american", prepChicken: true,
+    ing: [["chx", 8], ["bbq", 2], ["rice", 1], ["broc", 1.5], ["oil", 1]],
+    steps: ["Sunday: bake the chicken and slice it.", "Pack chicken, rice and broccoli.", "Microwave 2–3 minutes and top with BBQ sauce."], family: "Plain chicken and rice works for the kids." },
+  bbqwrap: { name: "BBQ chicken wrap", short: "BBQ wrap", slots: ["lunch", "dinner"], flavor: "american", prepChicken: true,
+    ing: [["chx", 6], ["bbq", 2], ["tort", 1], ["mozz", 0.25], ["salad", 1]],
+    steps: ["Warm sliced cooked chicken with BBQ sauce.", "Fill the tortilla with chicken, lettuce and cheese; roll it up."], family: "" },
+  burger: { name: "Turkey burger with green beans", short: "Turkey burger", slots: ["lunch", "dinner"], flavor: "american",
+    ing: [["turkey", 6], ["bun", 1], ["mozz", 0.25], ["tomato", 0.5], ["salad", 0.5], ["mayo", 1], ["gbean", 1.5]],
+    steps: ["Shape a 6 oz patty, season with salt, pepper and garlic powder.", "Cook 5 minutes a side, to 165°F; melt cheese on top.", "Serve on the bun with lettuce, tomato and mayo; green beans on the side."],
+    family: "Make extra patties for the boys. Swap in 93% lean beef any time." },
+  beeftort: { name: "Ground beef and cheese tortillas", short: "Beef and cheese tortillas", slots: ["lunch", "dinner"], flavor: "american",
+    ing: [["beef", 6], ["taco", 3], ["cheddar", 0.25], ["pepper", 0.5], ["salad", 0.5]],
+    steps: ["Brown the beef with the peppers and onions; season with salt, pepper, garlic powder and a little adobo or chili powder.", "Warm the tortillas in a dry pan.", "Fill with beef, cheese and lettuce. Fold them like soft tacos, or crisp them in the pan like quesadillas."],
+    family: "Cook the whole pound; the boys get theirs with just beef and cheese." },
+  sheetpan: { name: "Sheet-pan chicken thighs, broccoli and rice", short: "Sheet-pan thighs", slots: ["lunch", "dinner"], flavor: "american",
+    ing: [["thigh", 7], ["rice", 1], ["broc", 1.5], ["oil", 2]],
+    steps: ["Heat oven to 425°F. Toss thighs and broccoli in oil, garlic powder, paprika, salt and pepper.", "Roast 20–25 minutes, to 175°F inside.", "Serve over rice."], family: "Very kid-friendly." },
+  buffalo: { name: "Buffalo chicken wrap", short: "Buffalo wrap", slots: ["lunch", "dinner"], flavor: "american", prepChicken: true,
+    ing: [["chx", 6], ["hot", 1], ["yog", 0.125], ["tort", 1], ["mozz", 0.25], ["salad", 1]],
+    steps: ["Toss sliced cooked chicken in buffalo sauce.", "Spread Greek yogurt on the tortilla (a ranch swap); add chicken, lettuce and cheese and roll."], family: "" },
+  rotplate: { name: "Rotisserie chicken plate", short: "Rotisserie chicken", slots: ["lunch", "dinner"], flavor: "american",
+    ing: [["rot", 6], ["rice", 1], ["mixveg", 1.5]],
+    steps: ["Pick up a rotisserie chicken; the whole family eats.", "Serve with rice and microwaved vegetables."], family: "The no-cook night." },
+  tunamelt: { name: "Tuna melt with fruit", short: "Tuna melt", slots: ["lunch", "dinner"], flavor: "american",
+    ing: [["tuna", 1.5], ["mayo", 1], ["mozz", 0.25], ["bread", 2], ["salad", 1], ["banana", 1]],
+    steps: ["Mix tuna and mayo.", "Pile on bread, top with cheese and toast in a pan or toaster oven until melted.", "Banana on the side."], family: "Light tuna is a low-mercury fish." },
+  chsalad: { name: "Chicken salad sandwich", short: "Chicken salad", slots: ["lunch", "dinner"], flavor: "american", prepChicken: true,
+    ing: [["chx", 6], ["yog", 0.25], ["mayo", 1], ["bread", 2], ["salad", 1], ["banana", 1]],
+    steps: ["Dice cooked chicken; mix with Greek yogurt, mayo, salt, pepper and a squeeze of lemon if you have one.", "Serve on bread with lettuce. Banana on the side."], family: "" },
+  bowl: { name: "Chicken, rice and veggie bowl", short: "Chicken bowl", slots: ["lunch", "dinner"], flavor: "any", prepChicken: true,
+    ing: [["chx", 8], ["rice", 1], ["broc", 1.5], ["oil", 1], ["hot", 1]],
+    steps: ["Sunday: bake the chicken and slice it.", "Pack chicken, rice and broccoli.", "Microwave 2–3 minutes; add hot sauce."], family: "Plain chicken and rice for the kids." },
+
+  /* Puerto Rican */
+  arroz: { name: "Arroz con pollo", short: "Arroz con pollo", slots: ["lunch", "dinner"], flavor: "pr", batch: "Make a pot of arroz con pollo (4 servings).",
+    ing: [["thigh", 7], ["rice", 1], ["sofrito", 2], ["sazon", 0.25], ["tsauce", 0.25], ["olives", 1], ["mixveg", 0.5], ["oil", 1]],
+    steps: ["Brown bite-size thighs in oil, then stir in sofrito, sazón, tomato sauce and olives.", "Add 2 cups rice and 3 cups water (for 4 servings); boil, then cover and cook on low 20 minutes.", "Stir in peas and carrots for the last 5 minutes."],
+    family: "A family pot. Kids love it." },
+  guisado: { name: "Pollo guisado with white rice", short: "Pollo guisado", slots: ["lunch", "dinner"], flavor: "pr",
+    ing: [["chx", 7], ["sofrito", 2], ["tsauce", 0.25], ["olives", 1], ["sazon", 0.25], ["mixveg", 0.5], ["rice", 1], ["oil", 1]],
+    steps: ["Brown chicken pieces in oil; add sofrito and sazón for 1 minute.", "Add tomato sauce, olives, carrots and ½ cup water; simmer covered 20 minutes.", "Serve over white rice."], family: "Stewed chicken and rice; easy for kids." },
+  habich: { name: "Arroz, habichuelas y pollo", short: "Rice, beans and chicken", slots: ["lunch", "dinner"], flavor: "pr", prepChicken: true,
+    ing: [["chx", 6], ["beans", 0.75], ["sofrito", 1], ["tsauce", 0.25], ["sazon", 0.25], ["rice", 0.75]],
+    steps: ["Simmer beans with sofrito, tomato sauce, sazón and a splash of water for 10 minutes (habichuelas guisadas).", "Serve with rice and sliced cooked chicken."], family: "Classic plate; kids eat the rice and beans." },
+  criolla: { name: "Tilapia a la criolla with rice", short: "Tilapia criolla", slots: ["lunch", "dinner"], flavor: "pr",
+    ing: [["tilapia", 8], ["sofrito", 2], ["tsauce", 0.5], ["pepper", 0.5], ["olives", 1], ["rice", 1], ["oil", 1]],
+    steps: ["Cook peppers and sofrito in oil 3 minutes; add tomato sauce and olives.", "Nestle in the tilapia, cover and simmer 10–12 minutes until it flakes.", "Serve over rice."], family: "" },
+  pastelon: { name: "Pastelón (plantain and picadillo bake)", short: "Pastelón", slots: ["lunch", "dinner"], flavor: "pr", batch: "Bake a pastelón (4 servings).",
+    ing: [["plant", 1], ["turkey", 6], ["sofrito", 1], ["tsauce", 0.25], ["olives", 1], ["mozz", 0.25], ["egg", 0.5]],
+    steps: ["Slice ripe plantains lengthwise; bake at 400°F for 15 minutes instead of frying.", "Make picadillo: brown turkey with sofrito, tomato sauce and olives.", "Layer plantains, picadillo and cheese in a dish; pour beaten eggs over and bake 20 minutes."],
+    family: "Sweet plantains make this a kid favorite." },
+  plancha: { name: "Pechuga a la plancha with rice and beans", short: "Pechuga a la plancha", slots: ["lunch", "dinner"], flavor: "pr",
+    ing: [["chx", 7], ["adobo", 1], ["onion", 0.5], ["oil", 1], ["rice", 0.75], ["beans", 0.5]],
+    steps: ["Pound chicken thin and season with adobo.", "Sear in a hot pan 3–4 minutes a side; add sliced onions for the last 2 minutes.", "Serve with rice and beans."], family: "" },
+
+  /* Soups: each makes a pot of 4 servings and freezes well */
+  minestrone: { name: "Turkey and white bean minestrone", short: "Minestrone", slots: ["lunch", "dinner"], flavor: "italian", batch: "Make a pot of minestrone (4 servings). It freezes well.",
+    ing: [["turkey", 6], ["wbeans", 0.5], ["dtom", 0.5], ["broth", 1.5], ["carrot", 0.5], ["onion", 0.25], ["garlic", 1], ["spin", 1], ["pasta", 1], ["parm", 1]],
+    steps: ["Brown turkey with onion, carrot and garlic, 8 minutes. Add Italian seasoning.", "Add broth, diced tomatoes and beans; simmer 15 minutes.", "Add small pasta for the last 8–10 minutes and the spinach for the last 2. Top with parmesan."],
+    family: "Kids usually like it with extra pasta." },
+  beefsoup: { name: "Beef, bean and vegetable soup", short: "Beef and bean soup", slots: ["lunch", "dinner"], flavor: "american", batch: "Make a pot of beef and bean soup (4 servings). It freezes well.",
+    ing: [["beef", 6], ["beans", 0.5], ["dtom", 0.5], ["broth", 1.5], ["mixveg", 1], ["onion", 0.25], ["bread", 1]],
+    steps: ["Brown the beef with onion; season with salt, pepper and garlic powder.", "Add broth, diced tomatoes, beans and mixed vegetables; simmer 20 minutes.", "Serve with a slice of toast."],
+    family: "Classic hamburger soup; easy for kids." },
+  sopon: { name: "Sopón de pollo con habichuelas", short: "Sopón de pollo", slots: ["lunch", "dinner"], flavor: "pr", batch: "Make a pot of sopón (4 servings). It freezes well.",
+    ing: [["thigh", 7], ["beans", 0.5], ["sofrito", 2], ["sazon", 0.25], ["tsauce", 0.25], ["broth", 1.5], ["carrot", 0.5], ["rice", 0.5]],
+    steps: ["Brown bite-size thighs, then stir in sofrito and sazón for 1 minute.", "Add broth, tomato sauce, beans and carrots; simmer 25 minutes.", "Spoon over a little rice in the bowl."],
+    family: "Puerto Rican chicken and bean soup. Kids love it over rice." },
+  wbsoup: { name: "Chicken, white bean and spinach soup", short: "Chicken and white bean soup", slots: ["lunch", "dinner"], flavor: "any", batch: "Make a pot of chicken and white bean soup (4 servings). It freezes well.",
+    ing: [["chx", 6], ["wbeans", 0.75], ["broth", 2], ["carrot", 0.5], ["onion", 0.25], ["garlic", 1], ["spin", 1], ["oil", 1], ["bread", 1]],
+    steps: ["Cook onion, carrot and garlic in oil 5 minutes.", "Add broth, beans and diced raw chicken; simmer 15–20 minutes until the chicken is cooked.", "Stir in spinach; season with salt, pepper and a squeeze of lemon. Toast on the side."],
+    family: "" },
+
+  /* Snacks */
+  scott: { name: "Cottage cheese and honey", short: "Cottage cheese", slots: ["snack"], flavor: "any", ing: [["cott", 1], ["honey", 1]], steps: ["Stir in honey and cinnamon."], family: "" },
+  seggs: { name: "Hard-boiled eggs and milk", short: "Eggs and milk", slots: ["snack"], flavor: "any", ing: [["egg", 2], ["milk", 1]], steps: ["Boil a batch on Sunday."], family: "" },
+  syog: { name: "Greek yogurt and berries", short: "Yogurt and berries", slots: ["snack"], flavor: "any", ing: [["yog", 1], ["berry", 0.5]], steps: ["Stir together."], family: "" },
+  sroll: { name: "Turkey and cheese roll-ups", short: "Roll-ups", slots: ["snack"], flavor: "any", ing: [["deli", 3], ["string", 1]], steps: ["Wrap turkey slices around the cheese."], family: "" }
+};
+for (const r of Object.values(RECIPES)) {
+  const m = [0, 0, 0, 0];
+  r.ing.forEach(([id, a]) => ING[id].n.forEach((v, k) => { m[k] += v * a; }));
+  r.kcal = Math.round(m[0] / 5) * 5; r.p = Math.round(m[1]); r.f = Math.round(m[2]); r.c = Math.round(m[3]);
+}
+
+const SLOTS = [["first", "First meals", 2], ["lunch", "Lunches", 3], ["dinner", "Dinners", 4], ["snack", "Snacks", 2]];
+const SLOTNAME = { first: "First meal", lunch: "Lunch", dinner: "Dinner", snack1: "Snack", snack2: "Snack" };
+const FLAVORS = { italian: "Italian", american: "American", pr: "Puerto Rican" };
+const GROUPS = [["protein", "Proteins"], ["dairy", "Eggs and dairy"], ["carb", "Carbs"], ["veg", "Vegetables and fruit"]];
+const DEFAULT_PLAN = { off: {}, flav: { italian: true, american: true, pr: true }, over: {},
+  picks: { first: ["oats", "revolt"], lunch: ["bbqbowl", "chsalad"], dinner: ["tpasta", "arroz", "sheetpan", "criolla"], snack: ["scott", "seggs"] } };
+function plan() {
+  if (!S.plan || typeof S.plan !== "object") S.plan = JSON.parse(JSON.stringify(DEFAULT_PLAN));
+  const P = S.plan;
+  P.off = P.off || {}; P.flav = P.flav || { ...DEFAULT_PLAN.flav }; P.over = P.over || {};
+  P.picks = P.picks || JSON.parse(JSON.stringify(DEFAULT_PLAN.picks));
+  for (const [s] of SLOTS) P.picks[s] = (P.picks[s] || []).filter(id => RECIPES[id] && RECIPES[id].slots.includes(s));
+  return P;
+}
+const ingOn = id => !plan().off[id];
+function matches(rid) {
+  const r = RECIPES[rid], P = plan();
+  if (r.flavor !== "any" && !P.flav[r.flavor]) return false;
+  return r.ing.every(([id]) => ["protein", "carb", "dairy"].includes(ING[id].g) ? ingOn(id) : true);
+}
+function vegScore(rid) { let s = 0; RECIPES[rid].ing.forEach(([id]) => { if (ING[id].g === "veg" && !ING[id].minor) s += ingOn(id) ? 1 : -3; }); return s; }
+function slotPick(wd, slot) {
+  const P = plan(), arr = P.picks[slot], o = (P.over[wd] || {})[slot];
+  if (o && arr.includes(o)) return o;
+  return arr.length ? arr[((wd + 6) % 7) % arr.length] : null;
+}
+function planFor(wd) {
+  const out = [];
+  for (const slot of ["first", "lunch", "dinner"]) { const id = slotPick(wd, slot); if (id) out.push([slot, id]); }
+  plan().picks.snack.slice(0, 2).forEach((id, k) => out.push(["snack" + (k + 1), id]));
+  return out;
+}
+function weekNeeds() {
+  const tot = {};
+  for (let wd = 0; wd < 7; wd++) planFor(wd).forEach(([, rid]) => RECIPES[rid].ing.forEach(([id, a]) => { tot[id] = (tot[id] || 0) + a; }));
+  return tot;
+}
+function fmtAmt(a) {
+  const w = Math.floor(a + 1e-6), f = a - w;
+  if (f < 0.04) return String(w);
+  const fr = [[0.125, "⅛"], [0.25, "¼"], [0.33, "⅓"], [0.5, "½"], [0.67, "⅔"], [0.75, "¾"]].find(([v]) => Math.abs(f - v) < 0.04);
+  return fr ? (w ? w : "") + fr[1] : String(Math.round(a * 10) / 10);
+}
+function ingLine(id, a) {
+  const g = ING[id], many = a > 1.01;
+  const u = Array.isArray(g.u) ? g.u[many ? 1 : 0] : g.u;
+  const say = Array.isArray(g.say) ? g.say[many ? 1 : 0] : g.say;
+  return `${fmtAmt(a)}${u ? " " + u : ""} ${say}`;
+}
+const flavName = r => r.flavor === "any" ? "Goes with anything" : FLAVORS[r.flavor];
+const priceOf = id => { const o = S.groc2 && S.groc2[id]; return o && o.price != null ? +o.price : ING[id].price; };
+function recipeBody(r) {
+  return `<ul>${r.ing.map(([id, a]) => `<li>${esc(ingLine(id, a))}</li>`).join("")}</ul>
+    <ol class="steps">${r.steps.map(x => `<li>${esc(x)}</li>`).join("")}</ol>
+    ${r.batch ? `<p class="muted">${esc(r.batch)} Leftovers cover other days or go in the freezer.</p>` : ""}
+    ${r.family ? `<p class="muted">${esc(r.family)}</p>` : ""}
+    <p class="muted" style="margin:0">Per serving: ${r.kcal} calories, ${r.p} g protein, ${r.f} g fat, ${r.c} g carbs.</p>`;
+}
 
 const SUPPS = [
   { name: "Creatine monohydrate", dose: "5 g a day, any time, every day", why: "The best-studied supplement for strength and muscle. Plain monohydrate is all you need; skip blends. Roughly $20–30 for a 3–4 month supply." },
-  { name: "Whey protein", dose: "1 scoop on days you’re short on protein", why: "Optional. A convenience tool, not a requirement. Look for a third-party tested label (NSF Certified for Sport or Informed Sport)." },
+  { name: "Whey protein", dose: "1 scoop in your morning oatmeal", why: "Vanilla or chocolate both work in oats. Add a second scoop in milk on days you’re short on protein. Look for a third-party tested label (NSF Certified for Sport or Informed Sport), and check it’s made without shellfish-derived ingredients." },
   { name: "Electrolytes on Hotworx days", dose: "Sodium-based, during or after heat sessions", why: "Altitude plus infrared heat means big sweat losses. Blood pressure medications like yours can raise potassium, so choose a sodium-forward mix rather than a high-potassium one, and skip salt substitutes. Run the product past your pharmacist." },
   { name: "Vitamin D", dose: "Only after a blood test", why: "Ask your doctor to check your level at your next physical; dose depends on the result." },
   { name: "Fish oil", dose: "Optional", why: "Fish is safe for you, and two fish meals a week covers most of the benefit. If you buy one, make sure it’s fish oil, not krill oil." }
@@ -423,6 +581,7 @@ try {
   if (raw) { const o = JSON.parse(raw); S = { ...S, ...o, settings: normSettings(o.settings) }; }
 } catch (e) {}
 
+S.groc2 = S.groc2 || {}; plan();
 let col = null, dbReady = false, firstSnap = false, migrated = false;
 const dirty = new Set(), writing = {}, again = {}, timers = {};
 let syncState = "local";
@@ -479,11 +638,11 @@ function phase() {
 function itemView(it) { return phase() === "fx" && it.fx ? { ...it, ...it.fx } : it; }
 function sessionFor(date) { const d = getDay(date); return d.swap || WEEK[parseDs(date).getDay()]; }
 function isHeatDay(date) { const s = sessionFor(date); return !!(s && SESSIONS[s] && SESSIONS[s].heat); }
-function mealsFor(date) { return DAYPLAN[parseDs(date).getDay()]; }
+function mealsFor(date) { return planFor(parseDs(date).getDay()); }
 function dayTotals(date) {
   const d = getDay(date), eaten = d.meals || {};
   let p = 0, k = 0;
-  mealsFor(date).forEach(id => { if (eaten[id]) { p += MEALS[id].p; k += MEALS[id].kcal; } });
+  mealsFor(date).forEach(([slot, id]) => { if (eaten[slot]) { p += RECIPES[id].p; k += RECIPES[id].kcal; } });
   p += d.extraP || 0; k += (d.extraP || 0) * 5;
   return { p, k };
 }
@@ -511,15 +670,15 @@ function mondayOf(date) { const d = parseDs(date); const off = (d.getDay() + 6) 
 const toMin = hhmm => { const [h, m] = String(hhmm || "12:00").split(":").map(Number); return h * 60 + (m || 0); };
 function fmtMin(min) { min = ((min % 1440) + 1440) % 1440; const h = Math.floor(min / 60), m = min % 60; return `${h % 12 || 12}:${pad(m)} ${h >= 12 ? "pm" : "am"}`; }
 function fastWindow() { const open = toMin(S.settings.fastOpen), len = (S.settings.fastHours || 8) * 60; return { open, close: open + len, len }; }
-function mealTime(id) {
-  const { open, close } = fastWindow(), slot = MEALS[id].slot;
-  if (slot === "Breakfast") return open;
-  if (slot === "Lunch") return open + 180;
-  if (slot === "Dinner") return close - 150;
+function mealTime(slot) {
+  const { open, close } = fastWindow();
+  if (slot === "first") return open;
+  if (slot === "lunch") return open + 180;
+  if (slot === "dinner") return close - 150;
   return close - 30;
 }
-function slotLabel(id) { const m = MEALS[id]; if (!S.settings.fastOn) return m.slot; return `${fmtMin(mealTime(id))}, ${m.slot === "Breakfast" ? "first meal" : m.slot.toLowerCase()}`; }
-function orderedMeals(date) { const ms = mealsFor(date).slice(); return S.settings.fastOn ? ms.sort((a, b) => mealTime(a) - mealTime(b)) : ms; }
+function slotLabel(slot) { if (!S.settings.fastOn) return slot === "first" ? "Breakfast" : SLOTNAME[slot]; return `${fmtMin(mealTime(slot))}, ${SLOTNAME[slot].toLowerCase()}`; }
+function orderedMeals(date) { const ms = mealsFor(date).slice(); return S.settings.fastOn ? ms.sort((a, b) => mealTime(a[0]) - mealTime(b[0])) : ms; }
 const dur = m => { const h = Math.floor(m / 60), mm = m % 60; return h ? `${h} h ${mm} min` : `${mm} min`; };
 function fastStatus() {
   const now = new Date(), n = now.getHours() * 60 + now.getMinutes();
@@ -556,8 +715,8 @@ function fastCardInner() {
 setInterval(() => { const el = document.getElementById("fastcard"); if (el) el.innerHTML = fastCardInner(); }, 60000);
 
 /* ---------------- Rendering ---------------- */
-let tab = "today", eatDay = new Date().getDay(), GEN = null;
-const openSet = new Set(["prep"]);
+let tab = "today", PLANMSG = "";
+const openSet = new Set();
 const TABS = [
   ["today", "Today", '<path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.3 6.3 4.9 4.9M19.1 19.1l-1.4-1.4M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/><circle cx="12" cy="12" r="4"/>'],
   ["train", "Train", '<path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/>'],
@@ -650,10 +809,10 @@ function vToday() {
       <h3>Fuel</h3><div><span class="big">${tot.p}</span><span class="muted"> / ${P} g protein</span></div></div>
     <div class="meter" role="progressbar" aria-valuenow="${tot.p}" aria-valuemin="0" aria-valuemax="${P}"><span style="width:${Math.min(100, tot.p / P * 100)}%"></span></div>
     <div class="small muted" style="margin-bottom:6px">About ${tot.k.toLocaleString()} of ${S.settings.kcal.toLocaleString()} calories. Tap each meal as you eat it.</div>
-    ${orderedMeals(t).map(id => { const m = MEALS[id], on = !!(d.meals || {})[id];
-      return `<div class="meal"><button class="check" aria-pressed="${on}" aria-label="Ate ${esc(m.name)}" data-action="meal" data-id="${id}"></button>
-        <div class="info"><div class="slot">${esc(slotLabel(id))}</div><div class="mname">${esc(m.name)}</div></div>
-        <div class="mac">${m.p} g protein<br><a href="#eat" data-action="openrecipe" data-id="${id}">Recipe</a></div></div>`; }).join("")}
+    ${orderedMeals(t).map(([slot, id]) => { const m = RECIPES[id], on = !!(d.meals || {})[slot];
+      return `<div class="meal"><button class="check" aria-pressed="${on}" aria-label="Ate ${esc(m.name)}" data-action="meal" data-id="${slot}"></button>
+        <div class="info"><div class="slot">${esc(slotLabel(slot))}</div><div class="mname">${esc(m.name)}</div></div>
+        <div class="mac">${m.p} g protein<br><a href="#eat" data-action="openrecipe" data-id="${id}">Recipe</a></div></div>`; }).join("") || `<p class="small muted">No meals planned yet. Pick some on the Eat tab.</p>`}
     <div class="field" style="border-top:1px solid var(--line);margin-top:4px"><div class="lbl">Other protein<span class="sub">${d.extraP ? `${d.extraP} g added` : "A shake, extra eggs, a protein bar"}</span></div>
       <div class="chips"><button class="chip" data-action="extra" data-val="10">+10 g</button><button class="chip" data-action="extra" data-val="25">+25 g</button>${d.extraP ? `<button class="chip" data-action="extra" data-val="0">Clear</button>` : ""}</div></div>
   </section>`;
@@ -699,46 +858,93 @@ function vTrain() {
 }
 
 function vEat() {
-  const st = S.settings;
+  const st = S.settings, P = plan();
   const targets = `<section class="panel"><h3>Daily targets</h3>
-    <div class="tot"><div><b>${st.kcal.toLocaleString()}</b><span>calories</span></div><div><b>${st.p} g</b><span>protein</span></div><div><b>${st.f} g</b><span>fat</span></div><div><b>${st.c} g</b><span>carbs</span></div></div>
-    <p class="small muted" style="margin:10px 0 0">The planned meals land about 100–300 calories under target on purpose. That covers coffee, cooking oil, and the bites of mac and cheese you finish off the kids’ plates.</p></section>`;
+    <div class="tot"><div><b>${st.kcal.toLocaleString()}</b><span>calories</span></div><div><b>${st.p} g</b><span>protein</span></div><div><b>${st.f} g</b><span>fat</span></div><div><b>${st.c} g</b><span>carbs</span></div></div></section>`;
+
+  const chip = (act, id, label, on) => `<button class="chip" aria-pressed="${on}" data-action="${act}" data-id="${id}">${esc(label)}</button>`;
+  const used = new Set(); Object.values(RECIPES).forEach(r => r.ing.forEach(([id]) => used.add(id)));
+  const offCount = Object.keys(P.off).length + Object.values(P.flav).filter(v => !v).length;
+  const step1 = `<section class="panel"><details data-key="plan-ing"><summary><span><b>1. Pick your ingredients</b><br><span class="small muted">${offCount ? `${offCount} turned off this week` : "Everything is on. Tap to turn off what you don’t want."}</span></span></summary>
+    <div class="dbody"><h3 style="margin:4px 0 6px">Flavors</h3><div class="chips">${Object.entries(FLAVORS).map(([k, l]) => chip("flav", k, l, !!P.flav[k])).join("")}</div>
+    ${GROUPS.map(([g, label]) => `<h3 style="margin:14px 0 6px">${label}</h3><div class="chips">${Object.entries(ING).filter(([id, x]) => x.g === g && !x.minor && used.has(id)).map(([id, x]) => chip("ing", id, x.name, ingOn(id))).join("")}</div>`).join("")}
+    <p class="small muted" style="margin:12px 0 0">Recipes that need a protein, dairy or carb you turned off disappear from step 2. Vegetables you turn off just move recipes down the list, since they’re easy to swap.</p></div></details></section>`;
+
+  const opt = (slot, rid) => {
+    const r = RECIPES[rid], on = P.picks[slot].includes(rid);
+    return `<div class="meal" style="align-items:flex-start"><button class="check" style="margin-top:6px" aria-pressed="${on}" aria-label="${on ? "Remove" : "Add"} ${esc(r.name)}" data-action="pick" data-slot="${slot}" data-id="${rid}"></button>
+      <details data-key="o-${slot}-${rid}" data-lazy="1" style="flex:1;min-width:0;border:none"><summary style="padding:4px 0"><span><b>${esc(r.name)}</b><br><span class="small muted">${esc(flavName(r))}, ${r.kcal} cal, ${r.p} g protein${matches(rid) ? "" : ". Uses something you turned off"}</span></span></summary>
+      <div class="dbody small">${openSet.has(`o-${slot}-${rid}`) ? recipeBody(r) : ""}</div></details></div>`;
+  };
+  const step2 = `<section class="panel"><h3>2. Pick your meals</h3>
+    <p class="small muted" style="margin:4px 0 6px">Open a meal type and tap the box next to the recipes you want. Tap a recipe name to see what’s in it.</p>
+    ${PLANMSG ? `<div class="note small">${esc(PLANMSG)}</div>` : ""}
+    ${SLOTS.map(([slot, label, max]) => {
+      const list = Object.keys(RECIPES).filter(rid => RECIPES[rid].slots.includes(slot) && (matches(rid) || P.picks[slot].includes(rid)))
+        .sort((a, b) => (P.picks[slot].includes(b) - P.picks[slot].includes(a)) || (vegScore(b) - vegScore(a)) || RECIPES[a].name.localeCompare(RECIPES[b].name));
+      const names = P.picks[slot].map(id => RECIPES[id].short).join(", ");
+      return `<details data-key="slot-${slot}"><summary><span><b>${label}: ${P.picks[slot].length} of ${max}</b><br><span class="small muted">${esc(names || "None picked yet")}</span></span></summary>
+        <div class="dbody">${list.length ? list.map(rid => opt(slot, rid)).join("") : `<p class="small muted">No recipes match. Turn some ingredients back on in step 1.</p>`}</div></details>`;
+    }).join("")}</section>`;
+
   const order = [1, 2, 3, 4, 5, 6, 0];
-  const dayPick = `<h2>Your rotation</h2><p class="small muted">The same week, every week. Tap a meal for the recipe.${S.settings.fastOn ? ` Eating window ${fmtMin(fastWindow().open)} to ${fmtMin(fastWindow().close)}; meal times are on the Today tab.` : ""}</p>
-    <section class="panel"><div class="scroll"><table><thead><tr><th>Day</th><th>${S.settings.fastOn ? "First meal" : "Breakfast"}</th><th>Lunch</th><th>Dinner</th><th>Total</th></tr></thead><tbody>
-    ${order.map(wd => { const pl = DAYPLAN[wd]; const k = pl.reduce((a, id) => a + MEALS[id].kcal, 0), p = pl.reduce((a, id) => a + MEALS[id].p, 0);
-      return `<tr><th scope="row">${DAYNAMES[wd].slice(0, 3)}</th>${pl.filter(id => !isSnack(id)).map(id => `<td><a href="#eat" data-action="openrecipe" data-id="${id}">${esc(SHORT[id])}</a></td>`).join("")}<td>${k.toLocaleString()}<br><span class="muted">${p} g</span></td></tr>`; }).join("")}
-    </tbody></table></div>
-    <p class="small muted" style="margin:10px 0 0">Every day also includes two snacks: cottage cheese with honey, and eggs with milk. Totals include them.</p></section>`;
+  const step3 = `<section class="panel"><h3>3. Your week</h3>
+    <p class="small muted" style="margin:4px 0 6px">Your picks rotate through the week on their own. Open a day to swap a meal.</p>
+    ${order.map(wd => {
+      const pl = planFor(wd);
+      const k = pl.reduce((a, [, id]) => a + RECIPES[id].kcal, 0), p = pl.reduce((a, [, id]) => a + RECIPES[id].p, 0);
+      const mains = pl.filter(([s]) => !s.startsWith("snack")).map(([, id]) => RECIPES[id].short).join(", ");
+      return `<details data-key="day-${wd}"><summary><span><b>${DAYNAMES[wd]}</b><br><span class="small muted">${esc(mains || "Nothing planned")}<br>${k.toLocaleString()} cal, ${p} g protein</span></span></summary>
+        <div class="dbody">${["first", "lunch", "dinner"].map(slot => {
+          const arr = P.picks[slot]; if (!arr.length) return "";
+          const cur = slotPick(wd, slot);
+          return `<div class="field"><label for="ov-${wd}-${slot}">${SLOTNAME[slot]}</label><select id="ov-${wd}-${slot}" data-over="${wd}|${slot}">${arr.map(id => `<option value="${id}" ${id === cur ? "selected" : ""}>${esc(RECIPES[id].short)}</option>`).join("")}</select></div>`;
+        }).join("")}</div></details>`;
+    }).join("")}
+    ${Object.keys(P.over).length ? `<div class="row" style="margin-top:10px"><button class="btn sm" data-action="resetweek">Go back to the automatic rotation</button></div>` : ""}
+    <p class="small muted" style="margin:10px 0 0">Totals include your snacks${P.picks.snack.length ? ` (${esc(P.picks.snack.map(id => RECIPES[id].short.toLowerCase()).join(" and "))})` : ""}. Landing a little under ${st.kcal.toLocaleString()} calories leaves room for coffee and cooking oil.</p></section>`;
 
-  const card = id => { const m = MEALS[id]; return `<details data-key="r-${id}" id="r-${id}"><summary><span><b>${esc(m.name)}</b><br><span class="small muted">${m.kcal} cal, ${m.p} g protein, ${m.f} g fat, ${m.c} g carbs</span></span></summary>
-      <div class="dbody"><ul>${m.ing.map(i => `<li>${esc(i)}</li>`).join("")}</ul><ol class="steps">${m.steps.map(x => `<li>${esc(x)}</li>`).join("")}</ol>${m.family ? `<p class="small muted">${esc(m.family)}</p>` : ""}</div></details>`; };
-  const ids = Object.keys(MEALS);
-  const recipes = `<h2>Your 10 meals</h2>` + [["Breakfast", "Breakfasts"], ["Lunch", "Lunches"], ["Dinner", "Dinners"]].map(([slot, label]) =>
-      `<section class="panel"><h3 style="margin-bottom:4px">${label}</h3>${ids.filter(id => MEALS[id].slot === slot).map(card).join("")}</section>`).join("")
-    + `<section class="panel"><h3 style="margin-bottom:4px">Daily snacks</h3>${ids.filter(isSnack).map(card).join("")}</section>`;
-  const prep = `<h2>Sunday prep, about 75 minutes</h2><section class="panel"><ol class="steps" style="margin:0">${PREP.map(p => `<li>${esc(p)}</li>`).join("")}</ol></section>`;
+  const days = [0, 1, 2, 3, 4, 5, 6];
+  const weekIds = [...new Set(order.flatMap(wd => planFor(wd).map(([, id]) => id)))];
+  const recipes = `<h2>This week’s recipes</h2><section class="panel">${weekIds.map(id => { const r = RECIPES[id];
+    return `<details data-key="r-${id}" id="r-${id}"><summary><span><b>${esc(r.name)}</b><br><span class="small muted">${esc(flavName(r))}, ${r.kcal} cal, ${r.p} g protein</span></span></summary><div class="dbody small">${recipeBody(r)}</div></details>`; }).join("") || `<p class="muted">Pick some meals above.</p>`}</section>`;
 
-  // Grocery
-  const g = S.grocery;
-  let trip = 0, weekly = 0, mine = 0;
-  GROCERY.forEach(it => { const p = g[it.id] && g[it.id].price != null ? +g[it.id].price : it.price; trip += p; weekly += p / it.lasts; if (!it.shared) mine += p / it.lasts; });
-  const secs = [...new Set(GROCERY.map(i => i.sec))];
+  // Prep, built from the week
+  const need = weekNeeds();
+  const all = days.flatMap(wd => planFor(wd));
+  const cnt = rid => all.filter(([, id]) => id === rid).length;
+  const prepChx = all.filter(([, id]) => RECIPES[id].prepChicken).reduce((a, [, id]) => a + RECIPES[id].ing.find(([i]) => i === "chx")[1], 0);
+  const steps = ["Shop using the list below."];
+  if (need.rice) steps.push(`Cook rice: about ${fmtAmt(Math.ceil(need.rice / 3 * 2) / 2)} cups dry makes the ${fmtAmt(Math.round(need.rice * 4) / 4)} cups cooked you need. Freeze what you won’t eat by Thursday.`);
+  if (prepChx) steps.push(`Bake ${Math.round(prepChx)} oz of chicken breast at 425°F for 18–22 minutes, to 165°F inside. Slice and refrigerate for the week.`);
+  const boil = cnt("seggs") * 2; if (boil) steps.push(`Hard-boil ${boil} eggs.`);
+  weekIds.filter(id => RECIPES[id].batch).forEach(id => steps.push(RECIPES[id].batch));
+  steps.push("Everything else cooks the night you eat it, in 20–30 minutes.");
+  const prep = `<h2>Sunday prep</h2><section class="panel"><ol class="steps" style="margin:0">${steps.map(p => `<li>${esc(p)}</li>`).join("")}</ol></section>`;
+
+  // Walmart list, built from the week
+  const ids = Object.keys(need).filter(id => need[id] > 0);
+  let checkout = 0, eaten = 0;
+  ids.forEach(id => { const g = ING[id], pr = priceOf(id); eaten += need[id] * pr / g.pkg; if (!g.pantry) checkout += Math.max(1, Math.ceil(need[id] / g.pkg - 0.1)) * pr; });
+  const row = id => {
+    const g = ING[id], got = !!(S.groc2[id] && S.groc2[id].got), n = Math.max(1, Math.ceil(need[id] / g.pkg - 0.1));
+    return `<div class="gitem"><button class="check" aria-pressed="${got}" aria-label="Got ${esc(g.name)}" data-action="got" data-id="${id}"></button>
+      <div class="gname ${got ? "got" : ""}">${g.pantry ? "" : `${n} × `}${esc(g.name)}<span class="small muted" style="display:block">${esc(g.pkgName)}. Need ${esc(ingLine(id, need[id]))}.</span></div>
+      <label class="sr" for="p-${id}">Price for ${esc(g.name)}</label><input type="number" id="p-${id}" inputmode="decimal" step="0.01" min="0" value="${priceOf(id).toFixed(2)}" data-price="${id}"></div>`;
+  };
+  const GORDER = [["protein", "Protein"], ["dairy", "Eggs and dairy"], ["carb", "Bread, pasta and beans"], ["veg", "Produce and frozen vegetables"], ["pantry", "Sauces, broth and cans"]];
   const groc = `<h2>Walmart list</h2><section class="panel">
-    <div class="tot" style="grid-template-columns:repeat(3,1fr);margin-top:0"><div><b>${money(mine)}</b><span>your share per week</span></div><div><b>${money(weekly)}</b><span>household items included</span></div><div><b>${money(S.settings.budget)}</b><span>your budget</span></div></div>
-    <p class="small muted" style="margin:10px 0">Prices are estimates. Tap a price to change it to what you paid. Items marked “lasts” are only bought every few weeks, so they count partly toward each week. Items marked “household” are things the family shares.</p>
-    ${secs.map(sec => `<h3 style="margin:12px 0 2px">${esc(sec)}</h3>` + GROCERY.filter(i => i.sec === sec).map(it => {
-      const got = !!(g[it.id] && g[it.id].got), price = g[it.id] && g[it.id].price != null ? g[it.id].price : it.price;
-      return `<div class="gitem"><button class="check" aria-pressed="${got}" aria-label="Got ${esc(it.name)}" data-action="got" data-id="${it.id}"></button>
-        <div class="gname ${got ? "got" : ""}">${esc(it.name)}${it.lasts > 1 ? `<span class="tag">lasts ${it.lasts} wk</span>` : ""}${it.shared ? `<span class="tag">household</span>` : ""}</div>
-        <label class="sr" for="p-${it.id}">Price for ${esc(it.name)}</label><input type="number" id="p-${it.id}" inputmode="decimal" step="0.01" min="0" value="${(+price).toFixed(2)}" data-price="${it.id}"></div>`; }).join("")).join("")}
-    <div class="row" style="margin-top:12px"><button class="btn sm" data-action="clearlist">Uncheck everything for a new week</button></div>
-    <p class="small muted" style="margin:10px 0 0">One full trip, buying everything once: ${money(trip)}.</p></section>`;
+    <div class="tot" style="grid-template-columns:repeat(3,1fr);margin-top:0"><div><b>${money(eaten)}</b><span>food you’ll eat</span></div><div><b>${money(checkout)}</b><span>at checkout</span></div><div><b>${money(st.budget)}</b><span>your budget</span></div></div>
+    <p class="small muted" style="margin:10px 0">“Food you’ll eat” is what this week’s meals use. Checkout is whole packages, so it runs higher some weeks; the leftovers carry into the next. Prices are estimates: tap one to change it to what you paid.</p>
+    ${GORDER.map(([g, label]) => { const list = ids.filter(id => ING[id].g === g && !ING[id].pantry); return list.length ? `<h3 style="margin:12px 0 2px">${label}</h3>` + list.map(row).join("") : ""; }).join("")}
+    ${ids.some(id => ING[id].pantry) ? `<h3 style="margin:16px 0 2px">Pantry staples</h3><p class="small muted" style="margin:0 0 4px">These last several weeks, so they aren’t in the checkout total. Buy when you run out.</p>` + ids.filter(id => ING[id].pantry).map(row).join("") : ""}
+    <div class="row" style="margin-top:12px"><button class="btn sm" data-action="clearlist">Uncheck everything for a new week</button></div></section>`;
 
   const rules = `<h2>Eating out or eating with the family</h2><section class="panel small">
     <p>Build the plate by hand: 2 palms of protein, 1–2 cupped hands of carbs, 2 fists of vegetables, 1 thumb of fat.</p>
-    <p style="margin:0">Always ask about shellfish in sauces, stocks, and shared fryers. Fish is fine for you, but some restaurants cook fish and shellfish together.</p></section>`;
-  return targets + dayPick + recipes + prep + groc + rules;
+    <p style="margin:0">Always ask about shellfish in sauces, stocks and shared fryers. Puerto Rican restaurants often cook with shrimp, so ask about the sofrito and rice too.</p></section>`;
+
+  return targets + `<h2>Plan your week</h2>` + step1 + step2 + step3 + recipes + prep + groc + rules;
 }
 
 function vProgress() {
@@ -824,7 +1030,7 @@ function vMore() {
   const fw = fastWindow(), fh = st.fastHours || 8;
   const fastGuide = `<h2>Fasting plan</h2><section class="panel small">
       ${st.fastOn ? `<p><b>${24 - fh}:${fh}, ${fmtMin(fw.open)} to ${fmtMin(fw.close)}, every day.</b> Weekends too. One window you never have to think about.</p>
-      <p><b>Your day:</b> ${fmtMin(fw.open)} first meal (overnight oats, or the scramble on weekends), ${fmtMin(fw.open + 180)} lunch bowl, ${fmtMin(fw.close - 150)} dinner with the family, ${fmtMin(fw.close - 30)} both snacks. You’re done eating about 90 minutes before a 9 pm workout, which also helps you sleep.</p>` : `<p><b>Fasting is off.</b> Turn it on in your numbers below.</p>`}
+      <p><b>Your day:</b> ${fmtMin(fw.open)} first meal, ${fmtMin(fw.open + 180)} lunch, ${fmtMin(fw.close - 150)} dinner with the family, ${fmtMin(fw.close - 30)} snacks. You’re done eating about 90 minutes before a 9 pm workout, which also helps you sleep.</p>` : `<p><b>Fasting is off.</b> Turn it on in your numbers below.</p>`}
       <p><b>Fasting decides when you eat, not how much.</b> Still hit your protein and get close to your calories. A short window makes it easy to under-eat, and under-eating is the fastest way to lose muscle along with fat.</p>
       <p><b>During the fast:</b> water, black coffee, plain tea and zero-calorie sodium electrolytes.</p>
       <p><b>Saturday’s 5:30 am session is fasted.</b> Drink water and an electrolyte first. If you feel lightheaded, eat something. You can open the window early that day and close it early.</p>
@@ -887,9 +1093,18 @@ document.addEventListener("click", e => {
     case "extra": { const d = getDay(t); const v = +b.dataset.val; setDay(t, { extraP: v === 0 ? 0 : (d.extraP || 0) + v }); render(); break; }
     case "opensession": e.preventDefault(); openSet.add("s-" + b.dataset.sid); go("train", "s-" + b.dataset.sid); break;
     case "openrecipe": e.preventDefault(); openSet.add("r-" + b.dataset.id); go("eat", "r-" + b.dataset.id); break;
-    case "eatday": eatDay = +b.dataset.val; render(); break;
-    case "got": { const id = b.dataset.id; S.grocery[id] = { ...(S.grocery[id] || {}), got: !(S.grocery[id] && S.grocery[id].got) }; persist("profile"); render(); break; }
-    case "clearlist": Object.keys(S.grocery).forEach(id => { S.grocery[id] = { ...S.grocery[id], got: false }; }); persist("profile"); render(); break;
+    case "got": { const id = b.dataset.id; S.groc2[id] = { ...(S.groc2[id] || {}), got: !(S.groc2[id] && S.groc2[id].got) }; persist("profile"); render(); break; }
+    case "clearlist": Object.keys(S.groc2).forEach(id => { S.groc2[id] = { ...S.groc2[id], got: false }; }); persist("profile"); render(); break;
+    case "ing": { const P = plan(), id = b.dataset.id; if (P.off[id]) delete P.off[id]; else P.off[id] = true; PLANMSG = ""; persist("profile"); render(); break; }
+    case "flav": { const P = plan(); P.flav[b.dataset.id] = !P.flav[b.dataset.id]; PLANMSG = ""; persist("profile"); render(); break; }
+    case "pick": {
+      const P = plan(), slot = b.dataset.slot, id = b.dataset.id, arr = P.picks[slot], def = SLOTS.find(x => x[0] === slot);
+      if (arr.includes(id)) { P.picks[slot] = arr.filter(x => x !== id); Object.values(P.over).forEach(o => { if (o[slot] === id) delete o[slot]; }); PLANMSG = ""; }
+      else if (arr.length >= def[2]) PLANMSG = `You can pick up to ${def[2]} ${def[1].toLowerCase()}. Remove one first.`;
+      else { arr.push(id); PLANMSG = ""; }
+      persist("profile"); render(); break;
+    }
+    case "resetweek": plan().over = {}; persist("profile"); render(); break;
     case "adjust": { const v = +b.dataset.val; S.settings.kcal += v; S.settings.c = Math.max(100, S.settings.c + Math.round(v / 4)); persist("profile"); render(); break; }
     case "addmeasure": {
       const waist = parseFloat($("#m-waist").value), neck = parseFloat($("#m-neck").value);
@@ -936,7 +1151,7 @@ document.addEventListener("change", e => {
       const o = JSON.parse(txt);
       if (!o || typeof o !== "object" || !(o.settings || o.logs)) throw new Error("bad");
       if (!confirm("Replace the data on this phone with this backup?")) return;
-      S = { settings: normSettings(o.settings), grocery: o.grocery || {}, measures: o.measures || [], tests: o.tests || [], saved: o.saved || [], logs: o.logs || {} };
+      S = { settings: normSettings(o.settings), grocery: o.grocery || {}, groc2: o.groc2 || {}, plan: o.plan || null, measures: o.measures || [], tests: o.tests || [], saved: o.saved || [], logs: o.logs || {} }; plan();
       saveLocal(); render(); alert("Backup restored.");
     }).catch(() => alert("That file isn’t a Summit backup. Choose the .json file you saved from this app."));
     el.value = ""; return;
@@ -944,12 +1159,22 @@ document.addEventListener("change", e => {
   if (el.dataset.ftime) { setDay(t, { [el.dataset.ftime]: el.value || null }); pendingRender = true; return; }
   if (el.dataset.field === "w") { const v = parseFloat(el.value); setDay(t, { w: isNaN(v) ? null : round1(v) }); }
   else if (el.dataset.lift) { const d = getDay(t); const l = { ...(d.lifts || {}) }; const v = el.value.trim().slice(0, 40); if (v) l[el.dataset.lift] = v; else delete l[el.dataset.lift]; setDay(t, { lifts: l }); }
-  else if (el.dataset.price) { const v = parseFloat(el.value); const id = el.dataset.price; S.grocery[id] = { ...(S.grocery[id] || {}), price: isNaN(v) ? null : v }; persist("profile"); pendingRender = true; }
+  else if (el.dataset.price) { const v = parseFloat(el.value); const id = el.dataset.price; S.groc2[id] = { ...(S.groc2[id] || {}), price: isNaN(v) ? null : v }; persist("profile"); pendingRender = true; }
+  else if (el.dataset.over) {
+    const [wd, slot] = el.dataset.over.split("|"), P = plan(), arr = P.picks[slot], def = arr[((+wd + 6) % 7) % arr.length];
+    const o = { ...(P.over[wd] || {}) };
+    if (el.value === def) delete o[slot]; else o[slot] = el.value;
+    if (Object.keys(o).length) P.over[wd] = o; else delete P.over[wd];
+    persist("profile"); render();
+  }
 });
 
 document.addEventListener("toggle", e => {
   const d = e.target;
-  if (d.tagName === "DETAILS" && d.dataset.key) { if (d.open) openSet.add(d.dataset.key); else openSet.delete(d.dataset.key); }
+  if (d.tagName === "DETAILS" && d.dataset.key) {
+    if (d.open) openSet.add(d.dataset.key); else openSet.delete(d.dataset.key);
+    if (d.open && d.dataset.lazy) { const body = d.querySelector(".dbody"); if (body && !body.innerHTML.trim()) safeRender(); }
+  }
 }, true);
 
 /* ---------------- Routing ---------------- */
