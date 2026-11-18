@@ -164,18 +164,154 @@ nav.tabs a[aria-current="page"] svg{stroke:var(--heat)}
 @keyframes sp{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:root{--iron:#2F5D8A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--iron:#7DAEDF}}
+:root[data-theme="dark"]{--iron:#7DAEDF}
+body.lock{overflow:hidden}
+.top .morelink{font-weight:600;font-size:15px;color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid var(--line);border-radius:999px}
+.top .morelink[aria-current="page"]{color:var(--ink);border-color:var(--ink)}
+.hero{box-shadow:inset 0 5px 0 var(--k,var(--line))}
+.hero .when{color:var(--k,var(--muted));font-weight:600}
+.linkbtn{appearance:none;background:none;border:none;padding:0;margin:0;color:inherit;text-align:left;cursor:pointer;font:inherit}
+.linkbtn.mname{font-weight:600;display:block}
+button.linkbtn:not(.mname):not(.rname){color:var(--pine);text-decoration:underline}
+.check.ghost{display:inline-block;border-style:dashed;background:transparent;cursor:default}
+.check.ghost.on{border-style:solid;border-color:var(--pine)}
+.sub3{font-size:18px;margin:16px 0 4px}
+ul.plain{list-style:none;padding:0;margin:6px 0}
+ul.plain li{margin:3px 0}
+.search{width:100%}
+input[type=search]{background:var(--field);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-height:44px;font-size:17px;-webkit-appearance:none}
+
+.weeknav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0 10px}
+.weeknav>div{text-align:center;display:flex;flex-direction:column}
+.weeknav b{font-family:var(--cond);font-size:22px;font-weight:600}
+.weeknav .btn{min-width:44px;font-size:22px;line-height:1}
+
+.strip{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px 4px 8px}
+.sday{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--ink);border-radius:12px;padding:4px 0}
+.sday.today{background:var(--field)}
+.sday .sl{font-size:12px;font-weight:600;color:var(--muted)}
+.sday .sn{font-family:var(--cond);font-size:17px;font-weight:600}
+.ringwrap{position:relative;width:42px;height:42px}
+.ringwrap svg{display:block}
+.rdot{position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;box-sizing:border-box}
+.legend .rdot{position:relative;display:inline-block;left:auto;top:auto;margin:0 2px 0 8px;vertical-align:-1px}
+.rdot.done{background:var(--k)}
+.rdot.plan{border:2px solid var(--k)}
+.rdot.miss{border:2px dashed var(--muted)}
+.rdot.rest{width:10px;height:3px;margin:-1.5px 0 0 -5px;border-radius:2px;background:var(--line)}
+.legend{margin:6px 2px 0}
+
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;gap:1px}
+.tile b{font-family:var(--cond);font-size:28px;font-weight:700;line-height:1}
+.tile b small{font-size:16px;color:var(--muted);font-weight:600}
+.tile span{font-size:13px;font-weight:600}
+.tile em{font-style:normal;font-size:11px;color:var(--muted)}
+
+.daylist{padding:4px 12px}
+.daycard>summary{padding:10px 0}
+.daycard.today .dcd b{color:var(--heat)}
+.dc{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;width:100%}
+.dcd{display:flex;flex-direction:column;align-items:center;line-height:1.05}
+.dcd b{font-size:14px}
+.dcd span{font-family:var(--cond);font-size:24px;font-weight:700}
+.dcm{min-width:0}
+.dck{text-align:right;line-height:1}
+.dck b{font-family:var(--cond);font-size:24px;display:block}
+.dck span{font-size:12px;color:var(--muted)}
+.pill{display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;margin-bottom:5px;flex-wrap:wrap}
+.pill i{width:10px;height:10px;border-radius:50%;background:var(--k);flex:0 0 auto}
+.pill em{font-style:normal;font-weight:500;font-size:12px;color:var(--muted)}
+.mbars{display:flex;flex-direction:column;gap:3px}
+.mb{display:grid;grid-template-columns:12px 1fr 34px;gap:6px;align-items:center;font-size:11px}
+.mb span{color:var(--muted);font-weight:600}
+.mb b{font-weight:600;text-align:right}
+.mtrack{height:6px;background:var(--field);border-radius:4px;overflow:hidden}
+.mtrack i{display:block;height:100%;border-radius:4px}
+.ntable td,.ntable th{text-align:right}
+.ntable th:first-child,.ntable tbody th,.ntable tfoot th{text-align:left}
+.ntable td.hit{color:var(--pine);font-weight:700}
+.ntable tfoot th,.ntable tfoot td{font-weight:600}
+
+.cal{padding:6px 10px}
+.calrow{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;padding:10px 0 10px 8px;border-top:1px solid var(--line);box-shadow:inset 4px 0 0 var(--k)}
+.calrow:first-child{border-top:none}
+.calrow.today{background:var(--field);border-radius:10px}
+.calbody{appearance:none;background:none;border:none;text-align:left;padding:2px 0;cursor:pointer;display:flex;flex-direction:column;gap:1px;font:inherit;color:inherit;min-width:0}
+.cname{font-weight:600}
+.st{font-size:12px;font-weight:700}
+.st.done{color:var(--pine)}.st.today{color:var(--heat)}.st.miss{color:var(--muted)}
+
+.rrow,.mrow{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.rrow:first-of-type,.mrow:first-of-type{border-top:none}
+.rname{flex:1;min-width:0;display:flex;flex-direction:column}
+.star{color:var(--heat)}
+.stepper{display:flex;align-items:center;gap:6px}
+.stepper b{min-width:20px;text-align:center;font-family:var(--cond);font-size:20px}
+
+.dayplan{padding:10px 0;border-top:1px solid var(--line)}
+.dayplan:first-of-type{border-top:none}
+.dayplan.today .dph b{color:var(--heat)}
+.dph{display:flex;justify-content:space-between;gap:8px;align-items:baseline;margin-bottom:6px}
+.slotchips{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.slotchip{appearance:none;border:1px dashed var(--line);background:transparent;border-radius:10px;padding:5px 4px;min-height:52px;font:inherit;font-size:12px;line-height:1.2;color:var(--muted);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.slotchip span{font-size:10px;text-transform:none;font-weight:600;color:var(--muted)}
+.slotchip.set{border-style:solid;background:var(--field);color:var(--ink);font-weight:600}
+.slotchip.ate{border-color:var(--pine);box-shadow:inset 0 -3px 0 var(--pine)}
+
+.addform{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.addform input[type=text]{width:100%}
+.grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.grid4 label{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.grid4 input[type=number]{width:100%;text-align:left}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+
+#ov{position:fixed;inset:0;z-index:40;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:env(safe-area-inset-top,0px)}
+.ovhead{position:sticky;top:0;z-index:2;background:var(--bg);display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);max-width:560px;margin:0 auto}
+.ovt{flex:1;min-width:0}
+.ovt h2{margin:0;font-size:24px}
+.ovbody{max-width:560px;margin:0 auto;padding:12px 16px 140px}
+.ovfoot{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;gap:8px;justify-content:center;z-index:3}
+.ovfoot .btn.primary{flex:1;max-width:420px}
+.pickrow{appearance:none;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:6px 0;display:grid;grid-template-columns:1fr auto;column-gap:10px;font:inherit;color:inherit;cursor:pointer}
+.pickrow b{grid-column:1}
+.pickrow span{grid-column:1}
+.pickrow em{grid-column:2;grid-row:1 / span 2;align-self:center;font-style:normal;font-weight:700;font-size:13px;color:var(--pine)}
+.pickrow em.zero{color:var(--muted)}
+.pickrow.cur{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.kdot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--k);margin-right:6px}
+
+.exlog{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0}
+.exh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.exh .rx{font-family:var(--cond);font-size:17px;font-weight:600;color:var(--muted)}
+.setrow{display:grid;grid-template-columns:26px 1fr 76px 60px 34px;gap:8px;align-items:center;padding:5px 4px;border-radius:8px;margin-top:4px}
+.setrow.head{font-size:12px;color:var(--muted);font-weight:600;padding-top:8px}
+.setrow.ok{background:var(--pine-soft)}
+.setrow .sn{font-weight:700;text-align:center}
+.setrow .prev{font-size:14px;color:var(--muted)}
+.setrow input{width:100%;min-height:40px;padding:6px 8px;text-align:center}
+.setrow .check{width:32px;height:32px}
+.hint{font-size:14px;color:var(--pine);font-weight:600;margin:6px 0 2px}
+.restbar{width:100%;display:flex;align-items:center;gap:10px;font-size:15px}
+.restbar b{font-family:var(--cond);font-size:22px}
+.rtrack{flex:1;height:8px;background:var(--field);border-radius:5px;overflow:hidden}
+.rtrack i{display:block;height:100%;background:var(--heat)}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:15px;font-weight:600;max-width:90vw;box-shadow:0 6px 20px rgba(0,0,0,.18)}
 </style>
 </head>
 <body>
 <main id="app" aria-live="polite"></main>
+<div id="ov" role="dialog" aria-modal="true" hidden></div>
+<div id="toast" role="status" hidden></div>
 <nav class="tabs" aria-label="Sections"><div class="in" id="tabs"></div></nav>
-
 <script>
 /* ---------------- Plan content ---------------- */
 const DEFAULTS = {
   kcal: 2450, p: 200, f: 70, c: 255,
   heightIn: 76, startWeight: 230, startBf: 24, goalBf: 15,
-  startDate: "2026-11-16", crunchEnd: "2027-03-01", phase: "auto", budget: 70,
+  startDate: "2026-11-16", crunchEnd: "2027-03-28", phase: "auto", budget: 70,
   fastOn: true, fastOpen: "12:00", fastHours: 8
 };
 
@@ -194,13 +330,13 @@ const SESSIONS = {
     parts: [
       { title: "Warm-up, 6 minutes", warm: true },
       { title: "Main lifts", items: [
-        { id: "dl", name: "Trap-bar deadlift", rx: "4 × 5–6, rest 2–3 min", fx: { name: "Dumbbell Romanian deadlift", rx: "4 × 8–10, rest 2 min" }, log: true, note: "Brace before every rep. Stop with 1–2 reps left in the tank." },
-        { id: "sq", name: "Back squat or safety-bar squat", rx: "3 × 6–8", fx: { name: "Goblet squat, 3-second lowering", rx: "3 × 10–12" }, log: true, note: "Back cranky? Do goblet squats instead." },
-        { id: "bss", name: "Bulgarian split squat", rx: "3 × 8–10 each leg", log: true },
-        { id: "ht", name: "Barbell or machine hip thrust", rx: "3 × 10–12", fx: { name: "Single-leg hip thrust", rx: "3 × 12 each leg" }, log: true }
+        { id: "dl", name: "Trap-bar deadlift", rx: "4 × 5–6, rest 2–3 min", fx: { id: "dl_fx", name: "Smith machine Romanian deadlift", rx: "4 × 6–8, rest 2 min" }, log: true, note: "Brace before every rep. Stop with 1–2 reps left in the tank." },
+        { id: "sq", name: "Back squat or safety-bar squat", rx: "3 × 6–8", fx: { id: "sq_fx", name: "Smith machine squat", rx: "3 × 6–8, rest 2 min", note: "Set your feet slightly in front of the bar; it’s easier on your lower back. Back cranky? Do goblet squats with a 50." }, log: true, note: "Back cranky? Do goblet squats instead." },
+        { id: "bss", name: "Bulgarian split squat", rx: "3 × 8–10 each leg", log: true, fx: { note: "Dumbbells go up to 50 lb. When 50s get easy, slow the lowering to 3 seconds or do it in the Smith machine." } },
+        { id: "ht", name: "Barbell or machine hip thrust", rx: "3 × 10–12", fx: { name: "Hip thrust machine", rx: "3 × 8–12", note: "Load it with the 45s and 35s; add a smaller plate when you hit 12 on every set." }, log: true }
       ]},
       { title: "Finish", items: [
-        { id: "sc", name: "Suitcase carry", rx: "3 × 40 yards each side", log: true, note: "One heavy dumbbell, walk tall. Same job as carrying a car seat." },
+        { id: "sc", name: "Suitcase carry", rx: "3 × 40 yards each side", log: true, note: "One heavy dumbbell, walk tall. Same job as carrying a car seat.", fx: { note: "Use a 50. When it’s easy, walk farther or pause for 5 seconds every 10 steps." } },
         { id: "sp", name: "Side plank", rx: "2 × 20–30 seconds each side" }
       ]}
     ]},
@@ -209,14 +345,14 @@ const SESSIONS = {
     parts: [
       { title: "Warm-up, 6 minutes", warm: true },
       { title: "Main lifts", items: [
-        { id: "bp", name: "Dumbbell bench press", rx: "4 × 6–8, rest 2 min", fx: { name: "Dumbbell floor or bench press", rx: "4 × 8–10" }, log: true },
-        { id: "row", name: "One-arm dumbbell row", rx: "4 × 8–10 each side", log: true },
+        { id: "bp", name: "Dumbbell bench press", rx: "4 × 6–8, rest 2 min", fx: { id: "bp_fx", name: "Smith machine bench press", rx: "4 × 6–8, rest 2 min", note: "Needs a flat bench. No bench? Do dumbbell floor press with the 50s." }, log: true },
+        { id: "row", name: "One-arm dumbbell row", rx: "4 × 8–10 each side", log: true, fx: { id: "row_fx", name: "One-arm cable row", rx: "4 × 10–12 each side", note: "The cable keeps progressing after you outgrow the 50 lb dumbbells." } },
         { id: "ohp", name: "Half-kneeling dumbbell press", rx: "3 × 8–10 each side", log: true, note: "Kneeling keeps your lower back out of it." },
-        { id: "lat", name: "Lat pulldown or pull-ups", rx: "3 × 8–12", fx: { name: "Band lat pulldown or band row", rx: "3 × 12–15" }, log: true }
+        { id: "lat", name: "Lat pulldown or pull-ups", rx: "3 × 8–12", fx: { name: "Pull-ups on the Throwdown rack, or cable pulldown", rx: "3 × 6–12", note: "Use the rack’s pull-up bar if it has one. Otherwise kneel at the cable machine with the pulley set high." }, log: true }
       ]},
       { title: "Finish", items: [
-        { id: "fp", name: "Cable face pull", rx: "2 × 15", fx: { name: "Band face pull", rx: "2 × 20" } },
-        { id: "fc", name: "Farmer carry", rx: "3 × 40 yards", log: true }
+        { id: "fp", name: "Cable face pull", rx: "2 × 15" },
+        { id: "fc", name: "Farmer carry", rx: "3 × 40 yards", log: true, fx: { note: "Use the 50s." } }
       ]}
     ]},
   C: { name: "Hot Blast + full body", where: { crunch: "Hotworx", fx: "Hotworx" }, min: 45, heat: true,
@@ -230,7 +366,7 @@ const SESSIONS = {
         { id: "pu", name: "Push-ups", rx: "× 10–15" },
         { id: "rl", name: "Dumbbell reverse lunge", rx: "× 8 each leg" },
         { id: "br", name: "Band row", rx: "× 12" },
-        { id: "pp", name: "Band Pallof press", rx: "× 10 each side", note: "Resisting rotation is what a strong back actually needs." },
+        { id: "pp", name: "Cable or band Pallof press", rx: "× 10 each side", note: "Resisting rotation is what a strong back actually needs." },
         { id: "ropes", name: "Battle ropes", rx: "30 seconds" }
       ]}
     ]},
@@ -284,6 +420,7 @@ const REST = { 1: "Rest day. A walk counts if you get one.", 5: "Rest day. Famil
 const DAYNAMES = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const DAYSHORT = ["Su","Mo","Tu","We","Th","Fr","Sa"];
 
+
 /* ---------------- Food: ingredients, recipes, planning ---------------- */
 // n = [calories, protein, fat, carbs] per unit; pkg = units per package
 const ING = {
@@ -296,6 +433,7 @@ const ING = {
   tilapia:{ g: "protein", name: "Frozen tilapia fillets", u: "oz", say: "tilapia", n: [27, 5.7, 0.5, 0], pkg: 32, pkgName: "2 lb bag", price: 8.00 },
   tuna:   { g: "protein", name: "Light tuna in water", u: "", say: ["can light tuna, drained", "cans light tuna, drained"], n: [110, 25, 1, 0], pkg: 1, pkgName: "5 oz can", price: 1.10 },
   whey:   { g: "protein", name: "Protein powder", u: "", say: ["scoop whey protein powder", "scoops whey protein powder"], n: [120, 24, 1.5, 3], pkg: 28, pkgName: "2 lb tub (lasts weeks)", price: 30.00, pantry: true },
+  bistec: { g: "protein", name: "Thin-cut beef (bistec)", u: "oz", say: "thin-cut top round (bistec)", n: [35, 6.5, 0.85, 0], pkg: 16, pkgName: "1 lb pack", price: 6.98 },
   deli:   { g: "protein", name: "Deli turkey", u: "oz", say: "deli turkey", n: [30, 5, 0.5, 1], pkg: 9, pkgName: "9 oz pack", price: 3.50 },
   egg:    { g: "dairy", name: "Eggs", u: "", say: ["large egg", "large eggs"], n: [72, 6.3, 4.8, 0.4], pkg: 24, pkgName: "2 dozen", price: 6.00 },
   yog:    { g: "dairy", name: "Greek yogurt", u: ["cup", "cups"], say: "plain nonfat Greek yogurt", n: [133, 23, 0.9, 8], pkg: 4, pkgName: "32 oz tub", price: 4.50 },
@@ -316,6 +454,10 @@ const ING = {
   beans:  { g: "carb", name: "Beans (habichuelas)", u: ["cup", "cups"], say: "pink or red beans, canned", n: [220, 14, 1, 40], pkg: 1.5, pkgName: "15.5 oz can", price: 0.90 },
   wbeans: { g: "carb", name: "White beans", u: ["cup", "cups"], say: "cannellini or great northern beans, canned", n: [220, 15, 0.5, 40], pkg: 1.5, pkgName: "15.5 oz can", price: 0.95 },
   carrot: { g: "veg", name: "Carrots", u: ["cup", "cups"], say: "chopped carrots", n: [52, 1.2, 0.3, 12], pkg: 6, pkgName: "2 lb bag", price: 1.50 },
+  gandul: { g: "carb", name: "Gandules", u: ["cup", "cups"], say: "canned gandules (pigeon peas), drained", n: [200, 12, 1, 36], pkg: 1.5, pkgName: "15 oz can", price: 1.50 },
+  lentil: { g: "carb", name: "Lentils", u: ["cup", "cups"], say: "dry lentils, rinsed", n: [680, 50, 2, 115], pkg: 2.25, pkgName: "1 lb bag", price: 1.50 },
+  gplant: { g: "carb", name: "Green plantains", u: "", say: ["green plantain", "green plantains"], n: [218, 2.3, 0.7, 57], pkg: 1, pkgName: "each", price: 0.69 },
+  apple:  { g: "veg", name: "Apples", u: "", say: ["apple", "apples"], n: [95, 0.5, 0.3, 25], pkg: 1, pkgName: "each", price: 0.60 },
   broc:   { g: "veg", name: "Broccoli", u: ["cup", "cups"], say: "frozen broccoli", n: [30, 2.5, 0.3, 5], pkg: 3.5, pkgName: "12 oz frozen bag", price: 1.25 },
   gbean:  { g: "veg", name: "Green beans", u: ["cup", "cups"], say: "frozen green beans", n: [35, 2, 0, 8], pkg: 3, pkgName: "12 oz frozen bag", price: 1.25 },
   spin:   { g: "veg", name: "Spinach", u: ["cup", "cups"], say: "frozen spinach", n: [30, 3, 0.5, 4], pkg: 3, pkgName: "12 oz frozen bag", price: 1.25 },
@@ -342,6 +484,7 @@ const ING = {
   panko:  { g: "pantry", name: "Panko", u: ["cup", "cups"], say: "panko breadcrumbs", n: [220, 8, 2, 44], pkg: 3.5, pkgName: "8 oz", price: 1.80, pantry: true },
   hot:    { g: "pantry", name: "Hot sauce", u: "tbsp", say: "hot or buffalo sauce", n: [0, 0, 0, 0], pkg: 24, pkgName: "bottle", price: 1.50, pantry: true },
   mayo:   { g: "pantry", name: "Light mayo", u: "tbsp", say: "light mayo", n: [35, 0, 3.5, 1], pkg: 60, pkgName: "30 oz jar", price: 3.50, pantry: true },
+  mustard:{ g: "pantry", name: "Mustard", u: "tbsp", say: "yellow or Dijon mustard", n: [10, 0.5, 0.5, 1], pkg: 24, pkgName: "bottle", price: 1.00, pantry: true },
   pb:     { g: "pantry", name: "Peanut butter", u: "tbsp", say: "peanut butter", n: [95, 3.5, 8, 3.5], pkg: 28, pkgName: "16 oz jar", price: 2.10, pantry: true },
   honey:  { g: "pantry", name: "Honey", u: "tbsp", say: "honey", n: [64, 0, 0, 17], pkg: 16, pkgName: "12 oz bottle", price: 3.50, pantry: true },
   granola:{ g: "pantry", name: "Granola", u: ["cup", "cups"], say: "granola", n: [480, 12, 16, 76], pkg: 4.25, pkgName: "18 oz bag", price: 3.24, pantry: true },
@@ -471,7 +614,88 @@ const RECIPES = {
   scott: { name: "Cottage cheese and honey", short: "Cottage cheese", slots: ["snack"], flavor: "any", ing: [["cott", 1], ["honey", 1]], steps: ["Stir in honey and cinnamon."], family: "" },
   seggs: { name: "Hard-boiled eggs and milk", short: "Eggs and milk", slots: ["snack"], flavor: "any", ing: [["egg", 2], ["milk", 1]], steps: ["Boil a batch on Sunday."], family: "" },
   syog: { name: "Greek yogurt and berries", short: "Yogurt and berries", slots: ["snack"], flavor: "any", ing: [["yog", 1], ["berry", 0.5]], steps: ["Stir together."], family: "" },
-  sroll: { name: "Turkey and cheese roll-ups", short: "Roll-ups", slots: ["snack"], flavor: "any", ing: [["deli", 3], ["string", 1]], steps: ["Wrap turkey slices around the cheese."], family: "" }
+  sroll: { name: "Turkey and cheese roll-ups", short: "Roll-ups", slots: ["snack"], flavor: "any", ing: [["deli", 3], ["string", 1]], steps: ["Wrap turkey slices around the cheese."], family: "" },
+  /* ---- Added in the bigger recipe bank ---- */
+  cpancake: { name: "Cottage cheese protein pancakes", short: "Protein pancakes", slots: ["first"], flavor: "american",
+    ing: [["oats", 0.5], ["cott", 0.5], ["egg", 2], ["banana", 0.5], ["honey", 1], ["yog", 0.5]],
+    steps: ["Blend oats, cottage cheese, eggs and half the banana until smooth (a blender or a fork and some patience).", "Cook ¼-cup pancakes in a nonstick pan, 2 minutes a side.", "Top with Greek yogurt, the rest of the banana and honey."],
+    family: "Kids love these. Make a double batch." },
+  eggquesa: { name: "Egg and cheese breakfast quesadilla", short: "Breakfast quesadilla", slots: ["first"], flavor: "american",
+    ing: [["egg", 3], ["taco", 2], ["cheddar", 0.25], ["pepper", 0.5], ["cott", 0.5]],
+    steps: ["Scramble eggs with the peppers and onions.", "Fill two small tortillas with eggs and cheese; crisp in a dry pan 2 minutes a side.", "Cottage cheese on the side."], family: "" },
+  ftoast: { name: "French toast with Greek yogurt and berries", short: "French toast", slots: ["first"], flavor: "american",
+    ing: [["bread", 3], ["egg", 2], ["milk", 0.25], ["yog", 1], ["berry", 0.5]],
+    steps: ["Whisk eggs, milk and cinnamon; soak each slice for a few seconds.", "Cook in a buttered or sprayed pan, 2–3 minutes a side.", "Top with Greek yogurt and warm berries instead of syrup."], family: "A weekend family breakfast." },
+  panhuevo: { name: "Pan con huevo y queso", short: "Pan con huevo", slots: ["first"], flavor: "pr",
+    ing: [["hoagie", 1], ["egg", 2], ["deli", 2], ["cheddar", 0.25]],
+    steps: ["Fry or scramble the eggs.", "Split and toast the roll in a pan, pressed flat like a sandwich press.", "Fill with eggs, turkey and cheese; press again until the cheese melts."],
+    family: "Puerto Rican bakery-style breakfast sandwich." },
+  avena: { name: "Avena (Puerto Rican-style oatmeal)", short: "Avena", slots: ["first"], flavor: "pr",
+    ing: [["oats", 0.67], ["milk", 1.5], ["whey", 1]],
+    steps: ["Simmer oats in milk with a cinnamon stick, a pinch of salt and a splash of vanilla, 5 minutes, stirring.", "Off the heat, stir in vanilla protein powder.", "Dust with cinnamon."], family: "Creamy and sweet; kids share it without the protein powder." },
+
+  lasagna: { name: "Skillet turkey lasagna", short: "Skillet lasagna", slots: ["lunch", "dinner"], flavor: "italian", batch: "Make a skillet lasagna (4 servings).",
+    ing: [["turkey", 5], ["pasta", 2], ["marin", 0.5], ["cott", 0.5], ["mozz", 0.25], ["spin", 0.5]],
+    steps: ["Brown the turkey; add marinara, spinach and 1 cup water and bring to a simmer.", "Stir in broken lasagna noodles or any short pasta; cover and simmer 12–15 minutes.", "Dollop cottage cheese (it stands in for ricotta) and mozzarella on top; cover until melted."],
+    family: "Tastes like regular lasagna to kids." },
+  caprese: { name: "Chicken caprese pasta", short: "Caprese pasta", slots: ["lunch", "dinner"], flavor: "italian",
+    ing: [["chx", 6], ["pasta", 2.5], ["tomato", 1], ["mozz", 0.25], ["pesto", 0.5], ["oil", 1], ["garlic", 1]],
+    steps: ["Cook pasta. Sear seasoned chicken pieces in oil 6–8 minutes.", "Toss pasta with chicken, diced tomato, garlic and pesto.", "Top with mozzarella so it melts a little."], family: "" },
+  tuscan: { name: "Tuscan chicken and white beans", short: "Tuscan chicken", slots: ["lunch", "dinner"], flavor: "italian",
+    ing: [["chx", 6], ["wbeans", 0.5], ["dtom", 0.5], ["spin", 1], ["garlic", 1], ["oil", 1], ["parm", 1], ["bread", 1]],
+    steps: ["Sear chicken in oil 5 minutes a side; set aside.", "Add garlic, tomatoes and beans to the pan; simmer 5 minutes, then stir in spinach.", "Slice the chicken back in, top with parmesan, and serve with toast."], family: "" },
+  alfredo: { name: "Lighter chicken and broccoli alfredo", short: "Chicken alfredo", slots: ["lunch", "dinner"], flavor: "italian",
+    ing: [["chx", 6], ["pasta", 2.5], ["broc", 1.5], ["yog", 0.33], ["parm", 2], ["milk", 0.25], ["butter", 0.5], ["garlic", 1]],
+    steps: ["Cook pasta, adding broccoli for the last 3 minutes. Sear chicken pieces separately.", "Off the heat, stir butter, garlic, milk, Greek yogurt and parmesan into the drained pasta to make a creamy sauce.", "Fold in the chicken."], family: "Kids get theirs with butter and parmesan." },
+
+  cburger: { name: "Cheeseburger rice bowl", short: "Cheeseburger bowl", slots: ["lunch", "dinner"], flavor: "american",
+    ing: [["beef", 6], ["rice", 1], ["cheddar", 0.25], ["tomato", 0.5], ["salad", 1], ["mustard", 1]],
+    steps: ["Brown the beef with salt, pepper and garlic powder.", "Pile over rice with cheese, lettuce and tomato.", "Drizzle with mustard (or a little ketchup)."], family: "Deconstructed burgers are a hit with kids." },
+  sloppy: { name: "Turkey sloppy joes", short: "Sloppy joes", slots: ["lunch", "dinner"], flavor: "american",
+    ing: [["turkey", 6], ["tsauce", 0.25], ["bbq", 1], ["pepper", 0.5], ["cheddar", 0.25], ["bun", 1], ["gbean", 1]],
+    steps: ["Brown turkey with the peppers and onions.", "Stir in tomato sauce, BBQ sauce and a squeeze of mustard; simmer 5 minutes.", "Pile on the bun with cheese; green beans on the side."], family: "A kid classic." },
+  club: { name: "Chicken club wrap", short: "Club wrap", slots: ["lunch", "dinner"], flavor: "american", prepChicken: true,
+    ing: [["chx", 5], ["deli", 2], ["tort", 1], ["cheddar", 0.25], ["salad", 1], ["tomato", 0.5], ["mayo", 1]],
+    steps: ["Spread mayo on the tortilla.", "Layer sliced cooked chicken, turkey, cheese, lettuce and tomato.", "Roll tight and cut in half."], family: "" },
+  honeymust: { name: "Honey mustard chicken thighs, green beans and rice", short: "Honey mustard thighs", slots: ["lunch", "dinner"], flavor: "american",
+    ing: [["thigh", 7], ["mustard", 1], ["honey", 1], ["gbean", 1.5], ["rice", 1], ["oil", 1]],
+    steps: ["Stir honey and mustard together.", "Roast thighs and green beans with oil at 425°F for 20 minutes; brush thighs with the sauce for the last 5.", "Serve over rice."], family: "Sweet enough for kids." },
+  philly: { name: "Philly-style beef and pepper sub", short: "Philly sub", slots: ["lunch", "dinner"], flavor: "american",
+    ing: [["bistec", 6], ["pepper", 1], ["mozz", 0.25], ["hoagie", 1]],
+    steps: ["Slice the thin-cut beef into strips; sear in a hot pan 2–3 minutes with the peppers and onions.", "Season with salt, pepper and garlic powder; top with mozzarella to melt.", "Pile into a toasted roll."], family: "" },
+  casserole: { name: "Cheesy chicken, broccoli and rice bake", short: "Chicken rice bake", slots: ["lunch", "dinner"], flavor: "american", prepChicken: true, batch: "Bake a chicken, broccoli and rice casserole (4 servings).",
+    ing: [["chx", 6], ["rice", 1], ["broc", 1], ["cheddar", 0.25], ["yog", 0.25], ["broth", 0.25]],
+    steps: ["Mix cooked rice, chopped cooked chicken, broccoli, Greek yogurt and broth with garlic powder, salt and pepper.", "Spread in a baking dish and top with cheddar.", "Bake at 375°F for 20 minutes."], family: "Comfort food the whole family eats." },
+  chili: { name: "Turkey and bean chili", short: "Turkey chili", slots: ["lunch", "dinner"], flavor: "american", batch: "Make a pot of chili (4 servings). It freezes well.",
+    ing: [["turkey", 6], ["beans", 0.75], ["dtom", 0.5], ["onion", 0.25], ["cheddar", 0.25]],
+    steps: ["Brown turkey and onion.", "Add beans, tomatoes, chili powder, cumin and ½ cup water; simmer 20 minutes.", "Top with cheddar."], family: "Keep it mild and the kids will eat it." },
+
+  asopao: { name: "Asopao de pollo", short: "Asopao", slots: ["lunch", "dinner"], flavor: "pr", batch: "Make a pot of asopao (4 servings).",
+    ing: [["chx", 6], ["rice", 1], ["sofrito", 2], ["sazon", 0.25], ["tsauce", 0.25], ["broth", 1.5], ["olives", 1], ["mixveg", 0.5]],
+    steps: ["Brown chicken pieces; stir in sofrito, sazón, tomato sauce and olives.", "Add broth and uncooked rice (½ cup dry for 4 servings is enough to thicken); simmer 20 minutes until soupy and thick.", "Stir in peas and carrots for the last 5 minutes."], family: "Puerto Rican comfort in a bowl." },
+  horno: { name: "Pollo al horno con arroz y habichuelas", short: "Pollo al horno", slots: ["lunch", "dinner"], flavor: "pr",
+    ing: [["thigh", 7], ["adobo", 1], ["garlic", 2], ["oil", 1], ["rice", 0.75], ["beans", 0.5]],
+    steps: ["Rub thighs with adobo, mashed garlic, oregano and oil (overnight if you can).", "Roast at 425°F for 25 minutes, to 175°F inside.", "Serve with rice and beans."], family: "" },
+  bistec: { name: "Bistec encebollado", short: "Bistec encebollado", slots: ["lunch", "dinner"], flavor: "pr",
+    ing: [["bistec", 6], ["onion", 1], ["oil", 1], ["adobo", 1], ["rice", 0.75], ["beans", 0.5]],
+    steps: ["Season the steak with adobo and a splash of vinegar; let it sit 15 minutes.", "Sear 1–2 minutes a side; set aside. Cook sliced onions in the same pan until soft, then return the steak with a splash of water for 5 minutes.", "Serve with rice and beans."], family: "" },
+  gandules: { name: "Arroz con gandules y pollo", short: "Arroz con gandules", slots: ["lunch", "dinner"], flavor: "pr", batch: "Make a pot of arroz con gandules with chicken (4 servings).",
+    ing: [["chx", 6], ["rice", 1], ["gandul", 0.5], ["sofrito", 2], ["sazon", 0.25], ["olives", 1], ["tsauce", 0.25], ["oil", 1]],
+    steps: ["Brown chicken pieces in oil; stir in sofrito, sazón, olives and tomato sauce.", "Add gandules, 2 cups rice and 3 cups water (for 4 servings); boil, then cover and cook on low 20 minutes.", "Fluff and serve. Made without pork, so it stays lean."], family: "A holiday classic, any night." },
+  pinchos: { name: "Pinchos de pollo with rice", short: "Pinchos", slots: ["lunch", "dinner"], flavor: "pr",
+    ing: [["chx", 7], ["adobo", 1], ["bbq", 2], ["oil", 1], ["rice", 0.75], ["salad", 1], ["bread", 1]],
+    steps: ["Cube chicken, season with adobo, and thread on skewers (or skip the skewers).", "Grill or broil 10–12 minutes, brushing with BBQ sauce at the end.", "Serve with rice and a salad, with a slice of bread on top, kiosk-style."], family: "Kids love anything on a stick." },
+
+  lentilsoup: { name: "Lentil and turkey soup", short: "Lentil soup", slots: ["lunch", "dinner"], flavor: "any", batch: "Make a pot of lentil soup (4 servings). It freezes well.",
+    ing: [["lentil", 0.25], ["turkey", 5], ["carrot", 0.5], ["onion", 0.25], ["dtom", 0.5], ["broth", 1.5], ["spin", 1], ["bread", 1]],
+    steps: ["Brown turkey with onion and carrot.", "Add rinsed lentils, tomatoes and broth; simmer 25 minutes until the lentils are tender.", "Stir in spinach. Toast on the side."], family: "" },
+  sancocho: { name: "Sancocho (Puerto Rican beef and vegetable stew)", short: "Sancocho", slots: ["lunch", "dinner"], flavor: "pr", batch: "Make a pot of sancocho (4 servings). It freezes well.",
+    ing: [["bistec", 6], ["gplant", 0.5], ["mixveg", 1], ["carrot", 0.5], ["sofrito", 2], ["sazon", 0.25], ["broth", 2], ["rice", 0.5]],
+    steps: ["Cut the beef into bite-size pieces and brown it; stir in sofrito and sazón.", "Add broth, chunks of green plantain and carrots; simmer 30 minutes until tender.", "Add mixed vegetables for the last 10 minutes. Serve with a little rice."], family: "Hearty Sunday stew." },
+
+  sshake: { name: "Protein shake", short: "Protein shake", slots: ["snack"], flavor: "any", ing: [["whey", 1], ["milk", 1]], steps: ["Shake or blend with ice."], family: "" },
+  sapple: { name: "Apple with peanut butter yogurt dip", short: "Apple and dip", slots: ["snack"], flavor: "any", ing: [["apple", 1], ["yog", 0.75], ["pb", 1]], steps: ["Stir peanut butter into the yogurt.", "Dip apple slices."], family: "" },
+  sstring: { name: "Hard-boiled eggs and string cheese", short: "Eggs and cheese", slots: ["snack"], flavor: "any", ing: [["egg", 2], ["string", 1]], steps: ["Boil a batch of eggs on Sunday."], family: "" }
 };
 for (const r of Object.values(RECIPES)) {
   const m = [0, 0, 0, 0];
@@ -479,43 +703,33 @@ for (const r of Object.values(RECIPES)) {
   r.kcal = Math.round(m[0] / 5) * 5; r.p = Math.round(m[1]); r.f = Math.round(m[2]); r.c = Math.round(m[3]);
 }
 
-const SLOTS = [["first", "First meals", 2], ["lunch", "Lunches", 3], ["dinner", "Dinners", 4], ["snack", "Snacks", 2]];
+/* ---------------- Recipes: library + your own ---------------- */
 const SLOTNAME = { first: "First meal", lunch: "Lunch", dinner: "Dinner", snack1: "Snack", snack2: "Snack" };
+const MEALSLOTS = ["first", "lunch", "dinner", "snack1", "snack2"];
 const FLAVORS = { italian: "Italian", american: "American", pr: "Puerto Rican" };
 const GROUPS = [["protein", "Proteins"], ["dairy", "Eggs and dairy"], ["carb", "Carbs"], ["veg", "Vegetables and fruit"]];
-const DEFAULT_PLAN = { off: {}, flav: { italian: true, american: true, pr: true }, over: {},
-  picks: { first: ["oats", "revolt"], lunch: ["bbqbowl", "chsalad"], dinner: ["tpasta", "arroz", "sheetpan", "criolla"], snack: ["scott", "seggs"] } };
-function plan() {
-  if (!S.plan || typeof S.plan !== "object") S.plan = JSON.parse(JSON.stringify(DEFAULT_PLAN));
-  const P = S.plan;
-  P.off = P.off || {}; P.flav = P.flav || { ...DEFAULT_PLAN.flav }; P.over = P.over || {};
-  P.picks = P.picks || JSON.parse(JSON.stringify(DEFAULT_PLAN.picks));
-  for (const [s] of SLOTS) P.picks[s] = (P.picks[s] || []).filter(id => RECIPES[id] && RECIPES[id].slots.includes(s));
-  return P;
+const R = id => RECIPES[id] || (S.myRecipes && S.myRecipes[id]) || null;
+const allIds = () => Object.keys(RECIPES).concat(Object.keys(S.myRecipes || {}));
+const slotKind = s => s.startsWith("snack") ? "snack" : s === "first" ? "first" : "main";
+const kindOf = r => r.slots.includes("snack") ? "snack" : r.slots.includes("first") ? "first" : "main";
+const KINDNAME = { first: "First meals", main: "Lunches and dinners", snack: "Snacks" };
+function macrosOf(ing) {
+  const m = [0, 0, 0, 0];
+  ing.forEach(([id, a]) => ING[id] && ING[id].n.forEach((v, k) => { m[k] += v * a; }));
+  return { kcal: Math.round(m[0] / 5) * 5, p: Math.round(m[1]), f: Math.round(m[2]), c: Math.round(m[3]) };
 }
-const ingOn = id => !plan().off[id];
-function matches(rid) {
-  const r = RECIPES[rid], P = plan();
-  if (r.flavor !== "any" && !P.flav[r.flavor]) return false;
-  return r.ing.every(([id]) => ["protein", "carb", "dairy"].includes(ING[id].g) ? ingOn(id) : true);
+const ingOn = id => !(S.plan && S.plan.off && S.plan.off[id]);
+function matches(id) {
+  const r = R(id);
+  if (r.flavor !== "any" && S.plan.flav && S.plan.flav[r.flavor] === false) return false;
+  return r.ing.every(([i]) => ["protein", "carb", "dairy"].includes(ING[i].g) ? ingOn(i) : true);
 }
-function vegScore(rid) { let s = 0; RECIPES[rid].ing.forEach(([id]) => { if (ING[id].g === "veg" && !ING[id].minor) s += ingOn(id) ? 1 : -3; }); return s; }
-function slotPick(wd, slot) {
-  const P = plan(), arr = P.picks[slot], o = (P.over[wd] || {})[slot];
-  if (o && arr.includes(o)) return o;
-  return arr.length ? arr[((wd + 6) % 7) % arr.length] : null;
+function searchText(r) {
+  const soup = r.ing.some(([i, a]) => i === "broth" && a >= 1) ? " soup stew" : "";
+  return (r.name + " " + r.ing.map(([i]) => ING[i].name + " " + (Array.isArray(ING[i].say) ? ING[i].say[0] : ING[i].say)).join(" ") + soup + " " + (FLAVORS[r.flavor] || "")).toLowerCase();
 }
-function planFor(wd) {
-  const out = [];
-  for (const slot of ["first", "lunch", "dinner"]) { const id = slotPick(wd, slot); if (id) out.push([slot, id]); }
-  plan().picks.snack.slice(0, 2).forEach((id, k) => out.push(["snack" + (k + 1), id]));
-  return out;
-}
-function weekNeeds() {
-  const tot = {};
-  for (let wd = 0; wd < 7; wd++) planFor(wd).forEach(([, rid]) => RECIPES[rid].ing.forEach(([id, a]) => { tot[id] = (tot[id] || 0) + a; }));
-  return tot;
-}
+const isHidden = id => S.rate && S.rate[id] === -1;
+const isFav = id => S.rate && S.rate[id] === 1;
 function fmtAmt(a) {
   const w = Math.floor(a + 1e-6), f = a - w;
   if (f < 0.04) return String(w);
@@ -528,14 +742,149 @@ function ingLine(id, a) {
   const say = Array.isArray(g.say) ? g.say[many ? 1 : 0] : g.say;
   return `${fmtAmt(a)}${u ? " " + u : ""} ${say}`;
 }
-const flavName = r => r.flavor === "any" ? "Goes with anything" : FLAVORS[r.flavor];
+const flavName = r => r.mine ? "Your recipe" : r.flavor === "any" ? "Goes with anything" : FLAVORS[r.flavor];
 const priceOf = id => { const o = S.groc2 && S.groc2[id]; return o && o.price != null ? +o.price : ING[id].price; };
-function recipeBody(r) {
-  return `<ul>${r.ing.map(([id, a]) => `<li>${esc(ingLine(id, a))}</li>`).join("")}</ul>
-    <ol class="steps">${r.steps.map(x => `<li>${esc(x)}</li>`).join("")}</ol>
-    ${r.batch ? `<p class="muted">${esc(r.batch)} Leftovers cover other days or go in the freezer.</p>` : ""}
-    ${r.family ? `<p class="muted">${esc(r.family)}</p>` : ""}
-    <p class="muted" style="margin:0">Per serving: ${r.kcal} calories, ${r.p} g protein, ${r.f} g fat, ${r.c} g carbs.</p>`;
+
+/* ---------------- Training calendar ---------------- */
+const HX = ["Hot Yoga", "Hot Pilates", "Hot Stretch", "Hot Iso", "Hot Core", "Hot Buns", "Hot Warrior", "Hot Bands", "Hot Barre None", "Hot Blast", "Hot Cycle", "Hot Thunder"];
+const HX15 = ["Hot Blast", "Hot Cycle", "Hot Thunder"];
+const KIND = { lift: { label: "Strength", color: "var(--iron)" }, heat: { label: "Infrared", color: "var(--heat)" }, mobility: { label: "Mobility", color: "var(--pine)" }, rest: { label: "Rest", color: "var(--muted)" } };
+function sessMeta(sid) {
+  if (!sid || sid === "rest") return { name: "Rest", kind: "rest", min: 0, where: "" };
+  if (sid.startsWith("hx:")) { const n = sid.slice(3); return { name: n, kind: ["Hot Stretch", "Hot Yoga"].includes(n) ? "mobility" : "heat", min: HX15.includes(n) ? 15 : 30, where: "Hotworx", heat: true }; }
+  const s = SESSIONS[sid]; if (!s) return { name: "Rest", kind: "rest", min: 0, where: "" };
+  return { name: s.name, kind: { A: "lift", B: "lift", C: "lift", H: "lift", D: "mobility", R: "mobility", E: "heat" }[sid] || "heat",
+    min: s.min, where: s.where[phase()], heat: s.heat, loggable: ["A", "B", "C", "H"].includes(sid), blurb: s.blurb, optional: s.optional };
+}
+const weekStart = date => addDays(date, -parseDs(date).getDay());
+function weekObj(ws, create) {
+  if (!S.weeks[ws]) { if (!create) return { menu: {}, train: {} }; S.weeks[ws] = { menu: {}, train: {} }; }
+  const w = S.weeks[ws]; w.menu = w.menu || {}; w.train = w.train || {}; return w;
+}
+function plannedSession(date) {
+  const w = S.weeks[weekStart(date)], wd = parseDs(date).getDay();
+  if (w && w.train && w.train[wd] !== undefined) return w.train[wd];
+  const tpl = S.settings.trainTpl || WEEK;
+  return tpl[wd] || "rest";
+}
+function isHeatDay(date) { return !!sessMeta(plannedSession(date)).heat; }
+function phase() {
+  if (S.settings.phase && S.settings.phase !== "auto") return S.settings.phase;
+  return today() < S.settings.crunchEnd ? "crunch" : "fx";
+}
+function itemView(it) { return phase() === "fx" && it.fx ? { ...it, ...it.fx } : it; }
+
+/* ---------------- Days, meals and totals ---------------- */
+function getDay(date) { return (S.logs[monthOf(date)] && S.logs[monthOf(date)].days[date]) || {}; }
+function setDay(date, patch) {
+  const m = monthOf(date);
+  if (!S.logs[m]) S.logs[m] = { days: {} };
+  S.logs[m].days[date] = { ...(S.logs[m].days[date] || {}), ...patch };
+  saveLocal();
+}
+function allDays() {
+  const out = [];
+  for (const m of Object.keys(S.logs)) for (const [d, v] of Object.entries(S.logs[m].days || {})) out.push([d, v]);
+  return out.sort((a, b) => a[0] < b[0] ? -1 : 1);
+}
+function menuUsed(ws) {
+  const used = {};
+  for (let i = 0; i < 7; i++) Object.values(getDay(addDays(ws, i)).slots || {}).forEach(id => { if (id) used[id] = (used[id] || 0) + 1; });
+  return used;
+}
+function assignSlot(date, slot, rid) {
+  const d = getDay(date), slots = { ...(d.slots || {}) }, eaten = { ...(d.eaten || {}) };
+  if (rid) slots[slot] = rid; else { delete slots[slot]; delete eaten[slot]; }
+  setDay(date, { slots, eaten });
+  if (rid) { const ws = weekStart(date), w = weekObj(ws, true), used = menuUsed(ws)[rid] || 0; if ((w.menu[rid] || 0) < used) w.menu[rid] = used; saveLocal(); }
+}
+function dayTotals(date, planned) {
+  const d = getDay(date), t = { k: 0, p: 0, f: 0, c: 0, n: 0 };
+  const add = (k, p, f, c) => { t.k += k; t.p += p; t.f += f; t.c += c; t.n++; };
+  const slots = d.slots || {}, eaten = d.eaten || {};
+  MEALSLOTS.forEach(s => { const r = slots[s] && R(slots[s]); if (r && (planned || eaten[s])) add(r.kcal, r.p, r.f, r.c); });
+  if (!planned) {
+    (d.extras || []).forEach(x => add(+x.k || 0, +x.p || 0, +x.f || 0, +x.c || 0));
+    if (d.extraP) add(d.extraP * 5, d.extraP, 0, 0);
+  }
+  for (const k of ["k", "p", "f", "c"]) t[k] = Math.round(t[k]);
+  return t;
+}
+function slotLabel(slot) { if (!S.settings.fastOn) return slot === "first" ? "Breakfast" : SLOTNAME[slot]; return `${fmtMin(mealTime(slot))}, ${SLOTNAME[slot].toLowerCase()}`; }
+function orderedSlots() { return S.settings.fastOn ? MEALSLOTS.slice().sort((a, b) => mealTime(a) - mealTime(b)) : ["first", "lunch", "snack1", "dinner", "snack2"]; }
+function avgWeight(endDate, days = 7) {
+  const ws = [];
+  for (let i = 0; i < days; i++) { const w = getDay(addDays(endDate, -i)).w; if (w) ws.push(+w); }
+  return ws.length ? { avg: ws.reduce((a, b) => a + b, 0) / ws.length, n: ws.length } : null;
+}
+function navyBf(waist, neck, h) {
+  if (!waist || !neck || waist <= neck) return null;
+  return 86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(h) + 36.76;
+}
+function mondayOf(date) { const d = parseDs(date); const off = (d.getDay() + 6) % 7; return addDays(date, -off); }
+
+/* ---------------- Workout logging ---------------- */
+function logItems(sid) {
+  const s = SESSIONS[sid]; if (!s) return [];
+  const out = [];
+  s.parts.forEach(part => {
+    if (part.warm) { out.push({ id: "warm", name: "Warm-up", rx: WARMUP.slice(0, 5).join(", "), sets: 1, check: true, part: part.title }); return; }
+    const rounds = (part.title.match(/(\d+) rounds/) || [])[1];
+    part.items.forEach(raw => {
+      const it = itemView(raw);
+      const m = it.rx.match(/^(\d+)\s*×/);
+      const sets = m ? +m[1] : rounds ? +rounds : 1;
+      const reps = /×/.test(it.rx) && !/yards|seconds|minutes/.test(it.rx);
+      const restM = it.rx.match(/rest (\d+)(?:–(\d+))? min/);
+      const rest = restM ? Math.round(((+restM[1]) + (+(restM[2] || restM[1]))) / 2 * 60) : rounds ? 60 : part.title === "Main lifts" ? 120 : 75;
+      out.push({ id: it.id, name: it.name, rx: it.rx, note: it.note, sets, weight: !!it.log && reps, reps, check: !reps, rest, part: part.title, inc: sid === "A" && ["dl", "sq", "ht", "dl_fx", "sq_fx"].includes(it.id) ? 10 : 5 });
+    });
+  });
+  return out;
+}
+function prevSets(exId, before) {
+  const days = allDays();
+  for (let i = days.length - 1; i >= 0; i--) {
+    const [d, v] = days[i];
+    if (d >= before) continue;
+    const sets = v.wlog && v.wlog.ex && v.wlog.ex[exId];
+    if (sets && sets.some(x => x.ok)) return { d, sets };
+    if (v.lifts && v.lifts[exId]) { const m = String(v.lifts[exId]).match(/(\d+(?:\.\d+)?)\D+(\d+)/); return { d, sets: m ? [{ w: m[1], r: m[2], ok: true }] : [], legacy: v.lifts[exId] }; }
+  }
+  return null;
+}
+function topReps(rx) { const m = rx.match(/(\d+)\s*[–-]\s*(\d+)/); if (m) return +m[2]; const n = rx.match(/×\s*(\d+)/); return n ? +n[1] : null; }
+function wlogStats(wl) {
+  let sets = 0, vol = 0;
+  Object.values((wl && wl.ex) || {}).forEach(arr => arr.forEach(x => { if (x.ok) { sets++; vol += (+x.w || 0) * (+x.r || 0); } }));
+  return { sets, vol: Math.round(vol), min: wl && wl.end && wl.start ? Math.round((wl.end - wl.start) / 60000) : null };
+}
+
+/* ---------------- One-time upgrade of older data ---------------- */
+function migrate() {
+  S.weeks = S.weeks || {}; S.myRecipes = S.myRecipes || {}; S.rate = S.rate || {}; S.groc2 = S.groc2 || {};
+  S.plan = S.plan || {}; S.plan.off = S.plan.off || {}; S.plan.flav = S.plan.flav || { italian: true, american: true, pr: true };
+  S.measures = S.measures || []; S.tests = S.tests || []; S.logs = S.logs || {};
+  if (S.settings.v3) return;
+  const P = S.plan, picks = P.picks;
+  for (const [date, d] of allDays()) if (d.swap) weekObj(weekStart(date), true).train[parseDs(date).getDay()] = d.swap;
+  if (picks) {
+    const rot = (wd, slot) => { const arr = (picks[slot] || []).filter(id => RECIPES[id]); const o = ((P.over || {})[wd] || {})[slot]; if (o && arr.includes(o)) return o; return arr.length ? arr[((wd + 6) % 7) % arr.length] : null; };
+    for (const [date, d] of allDays()) {
+      if (d.meals && !d.slots) {
+        const wd = parseDs(date).getDay(), slots = {}, eaten = {};
+        ["first", "lunch", "dinner"].forEach(s => { const id = rot(wd, s); if (id) { slots[s] = id; if (d.meals[s]) eaten[s] = true; } });
+        (picks.snack || []).filter(id => RECIPES[id]).slice(0, 2).forEach((id, k) => { const s = "snack" + (k + 1); slots[s] = id; if (d.meals[s]) eaten[s] = true; });
+        setDay(date, { slots, eaten });
+      }
+    }
+    const ws = weekStart(today()), w = weekObj(ws, true);
+    if (!Object.keys(w.menu).length) {
+      ["first", "lunch", "dinner"].forEach(s => { const arr = (picks[s] || []).filter(id => RECIPES[id]); arr.forEach((id, i) => { w.menu[id] = (w.menu[id] || 0) + Math.floor(7 / arr.length) + (i < 7 % arr.length ? 1 : 0); }); });
+      (picks.snack || []).filter(id => RECIPES[id]).forEach(id => { w.menu[id] = (w.menu[id] || 0) + 7; });
+    }
+  }
+  S.settings.v3 = true; saveLocal();
 }
 
 const SUPPS = [
@@ -554,6 +903,7 @@ const AVOID = [
   "“Fat burners” and anything that raises heart rate or blood pressure, given your blood pressure medication"
 ];
 
+
 /* ---------------- Utilities ---------------- */
 const $ = (s, el = document) => el.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -568,103 +918,18 @@ const fmtDate = s => parseDs(s).toLocaleDateString("en-US", { month: "short", da
 const clone = o => JSON.parse(JSON.stringify(o));
 const round1 = n => Math.round(n * 10) / 10;
 
-/* ---------------- State and storage ---------------- */
+
+/* ---------------- State and storage (everything stays on this phone) ---------------- */
 const LS = "summit-plan-v1";
 function normSettings(x) {
   const o = { ...DEFAULTS, ...(x || {}) };
   if (!o.v2) { if (o.budget === 50) o.budget = 70; o.v2 = true; }
+  if (!o.v4) { if (o.crunchEnd === "2027-03-01") o.crunchEnd = "2027-03-28"; o.v4 = true; }
   return o;
 }
-let S = { settings: { ...DEFAULTS }, grocery: {}, measures: [], tests: [], saved: [], logs: {} };
-try {
-  const raw = localStorage.getItem(LS);
-  if (raw) { const o = JSON.parse(raw); S = { ...S, ...o, settings: normSettings(o.settings) }; }
-} catch (e) {}
-
-S.groc2 = S.groc2 || {}; plan();
-let col = null, dbReady = false, firstSnap = false, migrated = false;
-const dirty = new Set(), writing = {}, again = {}, timers = {};
-let syncState = "local";
-
+let S = { settings: { ...DEFAULTS }, measures: [], tests: [], logs: {} };
+try { const raw = localStorage.getItem(LS); if (raw) { const o = JSON.parse(raw); S = { ...S, ...o, settings: normSettings(o.settings) }; } } catch (e) {}
 function saveLocal() { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) {} }
-function profileData() { return { settings: S.settings, grocery: S.grocery, measures: S.measures, tests: S.tests, saved: S.saved }; }
-function docData(id) { return id === "profile" ? clone(profileData()) : clone(S.logs[id.slice(4)] || { days: {} }); }
-
-function persist(id) {
-  saveLocal();
-  if (!dbReady) return;
-  dirty.add(id);
-  clearTimeout(timers[id]);
-  timers[id] = setTimeout(() => { timers[id] = null; if (firstSnap) flush(id); }, 700);
-}
-async function flush(id) {
-  if (writing[id]) { again[id] = true; return; }
-  writing[id] = true; setSync("saving");
-  try { await col.doc(id).set(docData(id)); setSync("cloud"); }
-  catch (e) { setSync("error"); }
-  finally {
-    writing[id] = false;
-    if (again[id]) { again[id] = false; flush(id); return; }
-    if (!timers[id]) dirty.delete(id);
-  }
-}
-function setSync(s) {
-  syncState = s;
-  const el = $("#sync"); if (el) el.textContent = syncLabel();
-}
-function syncLabel() {
-  return { local: "Saved on this device", cloud: "Saved to your account", saving: "Saving…", error: "Couldn’t reach your account. Saved on this device.", slow: "Connecting to your account…" }[syncState] || "";
-}
-
-function getDay(date) { return (S.logs[monthOf(date)] && S.logs[monthOf(date)].days[date]) || {}; }
-function setDay(date, patch) {
-  const m = monthOf(date);
-  if (!S.logs[m]) S.logs[m] = { days: {} };
-  const cur = S.logs[m].days[date] || {};
-  S.logs[m].days[date] = { ...cur, ...patch };
-  persist("log-" + m);
-}
-function allDays() {
-  const out = [];
-  for (const m of Object.keys(S.logs)) for (const [d, v] of Object.entries(S.logs[m].days || {})) out.push([d, v]);
-  return out.sort((a, b) => a[0] < b[0] ? -1 : 1);
-}
-
-/* ---------------- Derived values ---------------- */
-function phase() {
-  if (S.settings.phase && S.settings.phase !== "auto") return S.settings.phase;
-  return today() < S.settings.crunchEnd ? "crunch" : "fx";
-}
-function itemView(it) { return phase() === "fx" && it.fx ? { ...it, ...it.fx } : it; }
-function sessionFor(date) { const d = getDay(date); return d.swap || WEEK[parseDs(date).getDay()]; }
-function isHeatDay(date) { const s = sessionFor(date); return !!(s && SESSIONS[s] && SESSIONS[s].heat); }
-function mealsFor(date) { return planFor(parseDs(date).getDay()); }
-function dayTotals(date) {
-  const d = getDay(date), eaten = d.meals || {};
-  let p = 0, k = 0;
-  mealsFor(date).forEach(([slot, id]) => { if (eaten[slot]) { p += RECIPES[id].p; k += RECIPES[id].kcal; } });
-  p += d.extraP || 0; k += (d.extraP || 0) * 5;
-  return { p, k };
-}
-function avgWeight(endDate, days = 7) {
-  const ws = [];
-  for (let i = 0; i < days; i++) { const w = getDay(addDays(endDate, -i)).w; if (w) ws.push(+w); }
-  return ws.length ? { avg: ws.reduce((a, b) => a + b, 0) / ws.length, n: ws.length } : null;
-}
-function navyBf(waist, neck, h) {
-  if (!waist || !neck || waist <= neck) return null;
-  return 86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(h) + 36.76;
-}
-function lastLift(id) {
-  const t = today(); const days = allDays().reverse();
-  for (const [d, v] of days) if (d !== t && v.lifts && v.lifts[id]) return { d, val: v.lifts[id] };
-  return null;
-}
-function weekNumber() {
-  const diff = Math.floor((parseDs(today()) - parseDs(S.settings.startDate)) / 86400000);
-  return diff < 0 ? 0 : Math.floor(diff / 7) + 1;
-}
-function mondayOf(date) { const d = parseDs(date); const off = (d.getDay() + 6) % 7; return addDays(date, -off); }
 
 /* ---------------- Fasting ---------------- */
 const toMin = hhmm => { const [h, m] = String(hhmm || "12:00").split(":").map(Number); return h * 60 + (m || 0); };
@@ -677,8 +942,6 @@ function mealTime(slot) {
   if (slot === "dinner") return close - 150;
   return close - 30;
 }
-function slotLabel(slot) { if (!S.settings.fastOn) return slot === "first" ? "Breakfast" : SLOTNAME[slot]; return `${fmtMin(mealTime(slot))}, ${SLOTNAME[slot].toLowerCase()}`; }
-function orderedMeals(date) { const ms = mealsFor(date).slice(); return S.settings.fastOn ? ms.sort((a, b) => mealTime(a[0]) - mealTime(b[0])) : ms; }
 const dur = m => { const h = Math.floor(m / 60), mm = m % 60; return h ? `${h} h ${mm} min` : `${mm} min`; };
 function fastStatus() {
   const now = new Date(), n = now.getHours() * 60 + now.getMinutes();
@@ -714,21 +977,28 @@ function fastCardInner() {
 }
 setInterval(() => { const el = document.getElementById("fastcard"); if (el) el.innerHTML = fastCardInner(); }, 60000);
 
+
 /* ---------------- Rendering ---------------- */
-let tab = "today", PLANMSG = "";
+let tab = "today", WEEKOFF = 0, OV = null, ADDFOOD = null, MSG = "", RESTT = null;
+const RB = { q: "", kind: "all", flav: "all", fav: false, hidden: false };
 const openSet = new Set();
 const TABS = [
   ["today", "Today", '<path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.3 6.3 4.9 4.9M19.1 19.1l-1.4-1.4M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/><circle cx="12" cy="12" r="4"/>'],
+  ["week", "Week", '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>'],
   ["train", "Train", '<path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/>'],
   ["eat", "Eat", '<path d="M7 3v8a2 2 0 0 0 4 0V3M9 11v10M17 3c-2 1-3 4-3 7h3v11"/>'],
-  ["progress", "Progress", '<path d="M3 20h18M5 16l5-5 4 3 6-7"/>'],
-  ["more", "More", '<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>']
+  ["progress", "Progress", '<path d="M3 20h18M5 16l5-5 4 3 6-7"/>']
+];
+const PRESETS = [
+  { label: "+10 g protein", name: "Extra protein", k: 50, p: 10, f: 0, c: 0 },
+  { label: "Family plate", name: "Family plate (estimate)", k: 650, p: 45, f: 22, c: 65 },
+  { label: "Eating out", name: "Restaurant meal (estimate)", k: 900, p: 50, f: 40, c: 80 }
 ];
 
 let pendingRender = false;
 function safeRender() {
   const a = document.activeElement;
-  if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)) { pendingRender = true; return; }
+  if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) && a.type !== "checkbox") { pendingRender = true; return; }
   render();
 }
 document.addEventListener("focusout", () => { if (pendingRender) { pendingRender = false; setTimeout(render, 0); } });
@@ -736,59 +1006,88 @@ document.addEventListener("focusout", () => { if (pendingRender) { pendingRender
 function render() {
   $("#tabs").innerHTML = TABS.map(([id, label, icon]) =>
     `<a href="#${id}" ${tab === id ? 'aria-current="page"' : ""}><svg viewBox="0 0 24 24" aria-hidden="true">${icon}</svg>${label}</a>`).join("");
-  const head = `<div class="top"><div class="date">${parseDs(today()).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })}</div></div>`;
-  const views = { today: vToday, train: vTrain, eat: vEat, progress: vProgress, more: vMore };
+  const head = `<div class="top"><div class="date">${parseDs(today()).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })}</div>
+    <a class="morelink" href="#more" ${tab === "more" ? 'aria-current="page"' : ""}>More</a></div>`;
+  const views = { today: vToday, week: vWeek, train: vTrain, eat: vEat, progress: vProgress, more: vMore };
   $("#app").innerHTML = head + views[tab]();
+  const ov = $("#ov");
+  if (OV) { ov.innerHTML = vOverlay(); ov.hidden = false; document.body.classList.add("lock"); }
+  else { ov.hidden = true; ov.innerHTML = ""; document.body.classList.remove("lock"); }
   document.querySelectorAll("details[data-key]").forEach(d => { if (openSet.has(d.dataset.key)) d.open = true; });
+  const tst = $("#toast"); tst.textContent = MSG; tst.hidden = !MSG;
+  if (MSG) { clearTimeout(render.t); render.t = setTimeout(() => { MSG = ""; $("#toast").hidden = true; }, 2600); }
 }
+function toast(m) { MSG = m; }
 
-function sessionBody(sid) {
-  const s = SESSIONS[sid];
-  return s.parts.map(part => {
-    if (part.warm) return `<h3 style="margin:14px 0 6px">${esc(part.title)}</h3><ul>${WARMUP.map(w => `<li>${esc(w)}</li>`).join("")}</ul>`;
-    return `<h3 style="margin:14px 0 2px">${esc(part.title)}</h3>` + part.items.map(raw => {
-      const it = itemView(raw);
-      const cur = (getDay(today()).lifts || {})[it.id] || "";
-      const last = it.log ? lastLift(it.id) : null;
-      return `<div class="ex"><div class="exn">${esc(it.name)}</div><div class="rx">${esc(it.rx)}</div>
-        ${it.note ? `<div class="small muted">${esc(it.note)}</div>` : ""}
-        ${it.log ? `<div class="loginp"><label class="sr" for="l-${it.id}">Weight and reps for ${esc(it.name)}</label>
-          <input type="text" id="l-${it.id}" data-lift="${it.id}" placeholder="e.g. 185 × 6" value="${esc(cur)}" inputmode="text" autocomplete="off">
-          <span class="small muted">${last ? `Last: ${esc(last.val)} (${fmtDate(last.d)})` : "First time: pick a weight you could lift 2–3 more times"}</span></div>` : ""}
-      </div>`;
-    }).join("");
+function ring(pct, size = 40, stroke = 5, color = "var(--pine)") {
+  const r = (size - stroke) / 2, C = 2 * Math.PI * r, p = Math.max(0, Math.min(1, pct || 0)), h = size / 2;
+  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true"><circle cx="${h}" cy="${h}" r="${r}" fill="none" stroke="var(--line)" stroke-width="${stroke}"/>${p ? `<circle cx="${h}" cy="${h}" r="${r}" fill="none" stroke="${color}" stroke-width="${stroke}" stroke-linecap="round" stroke-dasharray="${(p * C).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 ${h} ${h})"/>` : ""}</svg>`;
+}
+function calColor(k) { const r = k / S.settings.kcal; return r > 1.1 ? "var(--heat)" : r >= 0.85 ? "var(--pine)" : "var(--iron)"; }
+function weekNav(ws) {
+  const label = WEEKOFF === 0 ? "This week" : WEEKOFF === -1 ? "Last week" : WEEKOFF === 1 ? "Next week" : "";
+  return `<div class="weeknav"><button class="btn sm ghost" data-action="wk" data-val="-1" aria-label="Previous week">‹</button>
+    <div><b>${fmtDate(ws)} – ${fmtDate(addDays(ws, 6))}</b>${label ? `<span class="small muted">${label}</span>` : ""}</div>
+    <button class="btn sm ghost" data-action="wk" data-val="1" aria-label="Next week">›</button></div>`;
+}
+const curWs = () => addDays(weekStart(today()), WEEKOFF * 7);
+
+function mealRows(date) {
+  const d = getDay(date), slots = d.slots || {}, eaten = d.eaten || {};
+  return orderedSlots().map(slot => {
+    const id = slots[slot], r = id && R(id);
+    if (!r) return `<div class="meal"><span class="check ghost" aria-hidden="true"></span><div class="info"><div class="slot">${esc(slotLabel(slot))}</div><div class="mname muted">Not chosen yet</div></div>
+      <button class="btn sm" data-action="choose" data-date="${date}" data-slot="${slot}">Choose</button></div>`;
+    const on = !!eaten[slot];
+    return `<div class="meal"><button class="check" aria-pressed="${on}" aria-label="Ate ${esc(r.name)}" data-action="eat" data-date="${date}" data-slot="${slot}"></button>
+      <div class="info"><div class="slot">${esc(slotLabel(slot))}</div><button class="linkbtn mname" data-action="recipe" data-id="${id}">${esc(r.name)}</button><div class="small muted">${r.kcal} cal, ${r.p} g protein</div></div>
+      <button class="btn sm ghost" data-action="choose" data-date="${date}" data-slot="${slot}" aria-label="Change ${esc(SLOTNAME[slot])}">Change</button></div>`;
   }).join("");
 }
+function extrasBlock(date) {
+  const d = getDay(date), xs = d.extras || [];
+  const list = xs.map((x, i) => `<div class="meal"><span class="check ghost on" aria-hidden="true"></span><div class="info"><div class="mname">${esc(x.name || "Other food")}</div>
+    <div class="small muted">${x.k} cal, ${x.p} g protein${x.f || x.c ? `, ${x.f} g fat, ${x.c} g carbs` : ""}</div></div>
+    <button class="btn sm ghost" data-action="delextra" data-date="${date}" data-i="${i}" aria-label="Remove ${esc(x.name || "food")}">×</button></div>`).join("");
+  const legacy = d.extraP ? `<p class="small muted">Plus ${d.extraP} g protein added earlier.</p>` : "";
+  const form = ADDFOOD === date ? `<div class="addform"><label class="sr" for="xf-name">What was it</label><input type="text" id="xf-name" placeholder="What was it? (optional)">
+      <div class="grid4"><label>Calories<input type="number" id="xf-k" inputmode="numeric"></label><label>Protein, g<input type="number" id="xf-p" inputmode="numeric"></label><label>Fat, g<input type="number" id="xf-f" inputmode="numeric"></label><label>Carbs, g<input type="number" id="xf-c" inputmode="numeric"></label></div>
+      <div class="row"><button class="btn sm primary" data-action="saveextra" data-date="${date}">Add it</button><button class="btn sm ghost" data-action="addfood" data-date="">Cancel</button></div></div>` : "";
+  return `${list}${legacy}<div class="chips" style="margin-top:8px">${PRESETS.map((p, i) => `<button class="chip" data-action="preset" data-date="${date}" data-i="${i}">${esc(p.label)}</button>`).join("")}
+    <button class="chip" data-action="addfood" data-date="${date}">Something else</button></div>${form}`;
+}
 
+/* ---------- Today ---------- */
 function vToday() {
   const t = today(), d = getDay(t), wd = parseDs(t).getDay();
-  const planned = WEEK[wd], sid = d.swap || planned;
+  const sid = plannedSession(t), m = sessMeta(sid), done = !!d.done, wl = d.wlog;
   const low = (d.sleep != null && d.sleep < 5) || (d.energy != null && d.energy <= 2);
   let hero;
-  if (sid) {
-    const s = SESSIONS[sid], done = d.done === sid;
-    const where = s.where[phase()];
-    hero = `<section class="hero ${s.heat ? "heat" : ""}">
-      <div class="when">${d.swap ? "Swapped for today" : esc(WHEN[sid] || "")}${s.optional ? " (optional)" : ""}</div>
-      <div class="name">${esc(s.name)}</div>
-      <div class="where">${esc(where)}, about ${s.min} minutes</div>
-      <p class="muted small" style="margin-top:6px">${esc(s.blurb)}</p>
-      <div class="row">
-        <button class="btn ${done ? "done" : "primary"}" data-action="done" data-sid="${sid}">${done ? "Done ✓" : "Mark done"}</button>
-        <a class="btn ghost" href="#train" data-action="opensession" data-sid="${sid}" style="text-decoration:none;display:inline-flex;align-items:center">See the workout</a>
-        ${d.swap ? `<button class="btn ghost" data-action="unswap">Undo swap</button>` : ""}
-      </div>
-    </section>`;
-    if (low && !d.swap && ["A", "B", "C"].includes(planned)) {
-      hero += `<div class="note">Short sleep or low energy today. Heavy training on a rough night costs more than it builds. <button class="btn sm heat" data-action="swap" data-sid="R" style="margin-top:8px">Swap to Hot Stretch + back care</button></div>`;
-    }
-    if (s.heat) hero += `<div class="note small">Heat day: drink 16–24 oz before, use a sodium-based electrolyte, and stand up slowly when the session ends.</div>`;
-  } else {
-    const done = d.done === "H";
-    hero = `<section class="hero"><div class="when">${DAYNAMES[wd]}</div><div class="name">Rest day</div>
+  if (m.kind === "rest") {
+    hero = `<section class="hero" style="--k:var(--muted)"><div class="when">${DAYNAMES[wd]}</div><div class="name">Rest day</div>
       <p class="muted small">${esc(REST[wd] || "Recovery is where the muscle gets built.")}</p>
-      <div class="row"><button class="btn ${done ? "done" : "ghost"}" data-action="done" data-sid="H">${done ? "Home workout done ✓" : "I did the 15-minute home workout"}</button></div></section>`;
+      <div class="row">${wl ? `<button class="btn ${wl.end ? "done" : "heat"}" data-action="openlog" data-date="${t}">${wl.end ? "Home workout done ✓" : "Continue home workout"}</button>` : `<button class="btn ghost" data-action="startlog" data-date="${t}" data-sid="H">15-minute home workout</button>`}
+      <button class="btn ghost" data-action="sesspick" data-date="${t}">Change</button></div></section>`;
+  } else {
+    const btn = m.loggable
+      ? (wl && wl.end ? `<button class="btn done" data-action="openlog" data-date="${t}">Done ✓ View</button>` : wl ? `<button class="btn heat" data-action="openlog" data-date="${t}">Continue workout</button>` : `<button class="btn primary" data-action="startlog" data-date="${t}" data-sid="${sid}">Start workout</button>`)
+      : `<button class="btn ${done ? "done" : "primary"}" data-action="done" data-date="${t}">${done ? "Done ✓" : "Mark done"}</button>`;
+    hero = `<section class="hero" style="--k:${KIND[m.kind].color}"><div class="when">${esc(KIND[m.kind].label)}${m.optional ? ", optional" : ""}</div>
+      <div class="name">${esc(m.name)}</div><div class="where">${esc(m.where)}${m.min ? `, about ${m.min} minutes` : ""}</div>
+      ${m.blurb ? `<p class="muted small" style="margin-top:6px">${esc(m.blurb)}</p>` : ""}
+      <div class="row">${btn}<button class="btn ghost" data-action="sesspick" data-date="${t}">Change</button></div></section>`;
+    if (low && m.kind === "lift" && !done && !wl) hero += `<div class="note">Short sleep or low energy today. Heavy training on a rough night costs more than it builds. <button class="btn sm heat" data-action="setsess" data-date="${t}" data-sid="R" style="margin-top:8px">Swap to Hot Stretch + back care</button></div>`;
+    if (m.heat) hero += `<div class="note small">Heat day: drink 16–24 oz before, use a sodium-based electrolyte, and stand up slowly when the session ends.</div>`;
   }
+
+  const fh = S.settings.fastHours || 8;
+  const kept = windowKept(t), wlen = windowLen(d), of = overnightFast(t);
+  const timeRow = (k, label) => `<div class="field"><label for="ft-${k}">${label}</label><div class="chips" style="align-items:center;flex-wrap:nowrap"><input type="time" id="ft-${k}" data-ftime="${k}" value="${d[k] || ""}" style="width:130px"><button class="chip" data-action="stamp" data-k="${k}">Now</button></div></div>`;
+  const fast = S.settings.fastOn ? `<section class="panel"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><h3>${24 - fh}:${fh} fasting</h3>
+      ${kept === true ? `<span class="small" style="color:var(--pine);font-weight:600">Window kept ✓</span>` : kept === false ? `<span class="small" style="color:var(--heat);font-weight:600">Window ran ${dur(wlen)}</span>` : ""}</div>
+      <div id="fastcard" style="margin:8px 0 4px">${fastCardInner()}</div>
+      ${timeRow("eatStart", "First bite")}${timeRow("eatEnd", "Last bite")}
+      ${of != null || wlen != null ? `<p class="small muted" style="margin:6px 0 0">${of != null ? `Overnight fast: ${dur(of)}. ` : ""}${wlen != null ? `Eating window: ${dur(wlen)}.` : ""}</p>` : ""}</section>` : "";
 
   const sleepOpts = [[4.5, "Under 5"], [5.5, "5–6"], [6.5, "6–7"], [7.5, "7+"]];
   const avg = avgWeight(t);
@@ -804,147 +1103,236 @@ function vToday() {
       <div class="chips"><button class="chip" data-action="water" data-val="-16" aria-label="Remove 16 ounces">−</button><button class="chip" data-action="water" data-val="16">+16 oz</button></div></div>
   </section>`;
 
-  const tot = dayTotals(t), P = S.settings.p;
-  const fuel = `<section class="panel"><div style="display:flex;justify-content:space-between;align-items:baseline">
-      <h3>Fuel</h3><div><span class="big">${tot.p}</span><span class="muted"> / ${P} g protein</span></div></div>
-    <div class="meter" role="progressbar" aria-valuenow="${tot.p}" aria-valuemin="0" aria-valuemax="${P}"><span style="width:${Math.min(100, tot.p / P * 100)}%"></span></div>
-    <div class="small muted" style="margin-bottom:6px">About ${tot.k.toLocaleString()} of ${S.settings.kcal.toLocaleString()} calories. Tap each meal as you eat it.</div>
-    ${orderedMeals(t).map(([slot, id]) => { const m = RECIPES[id], on = !!(d.meals || {})[slot];
-      return `<div class="meal"><button class="check" aria-pressed="${on}" aria-label="Ate ${esc(m.name)}" data-action="meal" data-id="${slot}"></button>
-        <div class="info"><div class="slot">${esc(slotLabel(slot))}</div><div class="mname">${esc(m.name)}</div></div>
-        <div class="mac">${m.p} g protein<br><a href="#eat" data-action="openrecipe" data-id="${id}">Recipe</a></div></div>`; }).join("") || `<p class="small muted">No meals planned yet. Pick some on the Eat tab.</p>`}
-    <div class="field" style="border-top:1px solid var(--line);margin-top:4px"><div class="lbl">Other protein<span class="sub">${d.extraP ? `${d.extraP} g added` : "A shake, extra eggs, a protein bar"}</span></div>
-      <div class="chips"><button class="chip" data-action="extra" data-val="10">+10 g</button><button class="chip" data-action="extra" data-val="25">+25 g</button>${d.extraP ? `<button class="chip" data-action="extra" data-val="0">Clear</button>` : ""}</div></div>
-  </section>`;
-  const fh = S.settings.fastHours || 8;
-  const kept = windowKept(t), wl = windowLen(d), of = overnightFast(t);
-  const timeRow = (k, label) => `<div class="field"><label for="ft-${k}">${label}</label><div class="chips" style="align-items:center;flex-wrap:nowrap"><input type="time" id="ft-${k}" data-ftime="${k}" value="${d[k] || ""}" style="width:130px"><button class="chip" data-action="stamp" data-k="${k}">Now</button></div></div>`;
-  const fast = S.settings.fastOn ? `<section class="panel"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><h3>${24 - fh}:${fh} fasting</h3>
-      ${kept === true ? `<span class="small" style="color:var(--pine);font-weight:600">Window kept ✓</span>` : kept === false ? `<span class="small" style="color:var(--heat);font-weight:600">Window ran ${dur(wl)}</span>` : ""}</div>
-      <div id="fastcard" style="margin:8px 0 4px">${fastCardInner()}</div>
-      ${timeRow("eatStart", "First bite")}${timeRow("eatEnd", "Last bite")}
-      ${of != null || wl != null ? `<p class="small muted" style="margin:6px 0 0">${of != null ? `Overnight fast: ${dur(of)}. ` : ""}${wl != null ? `Eating window: ${dur(wl)}.` : ""}</p>` : ""}</section>` : "";
-  const logged = allDays().length, lb = S.settings.lastBackup;
-  const remind = logged >= 7 && (!lb || (parseDs(t) - parseDs(lb)) / 86400000 >= 14)
+  const tot = dayTotals(t), st = S.settings;
+  const fuel = `<section class="panel"><div style="display:flex;justify-content:space-between;align-items:baseline"><h3>Fuel</h3><div><span class="big">${tot.p}</span><span class="muted"> / ${st.p} g protein</span></div></div>
+    <div class="meter" role="progressbar" aria-label="Protein" aria-valuenow="${tot.p}" aria-valuemin="0" aria-valuemax="${st.p}"><span style="width:${Math.min(100, tot.p / st.p * 100)}%"></span></div>
+    <div class="small muted" style="margin-bottom:4px">${tot.k.toLocaleString()} of ${st.kcal.toLocaleString()} calories, ${tot.f} g fat, ${tot.c} g carbs. Tap a meal’s box when you eat it.</div>
+    ${mealRows(t)}
+    <h3 style="margin:14px 0 2px">Anything else</h3>${extrasBlock(t)}</section>`;
+
+  const lb = st.lastBackup;
+  const remind = allDays().length >= 7 && (!lb || (parseDs(t) - parseDs(lb)) / 86400000 >= 14)
     ? `<div class="note small">Your data lives only on this phone. <a href="#more">Back it up</a> so you don’t lose it.</div>` : "";
-  return hero + fast + checkin + fuel + remind;
+  return hero + fast + fuel + checkin + remind;
 }
 
-function vTrain() {
-  const ph = phase();
-  const banner = ph === "crunch"
-    ? `<div class="note good">Crunch phase, through ${fmtDate(addDays(S.settings.crunchEnd, -1))}. Lift heavy at Crunch (open 24 hours Tuesday–Thursday). On ${fmtDate(S.settings.crunchEnd)} your lifting moves to the Hotworx FX Zone and the exercises below switch automatically.</div>`
-    : `<div class="note good">FX Zone phase. Lifting is set up for the dumbbells and bands at Hotworx.</div>`;
-  const order = [1, 2, 3, 4, 5, 6, 0];
-  const week = order.map(wd => {
-    const sid = WEEK[wd];
-    if (!sid) return `<details><summary><span><b>${DAYNAMES[wd]}</b><br><span class="muted small">${esc(REST[wd])}</span></span></summary><div class="dbody"><p class="small muted">No session. If you want movement, the home backup below takes 15 minutes.</p></div></details>`;
-    const s = SESSIONS[sid];
-    return `<details data-key="s-${sid}" id="s-${sid}"><summary><span><b>${DAYNAMES[wd]}</b>: ${esc(s.name)}${s.optional ? " (optional)" : ""}<br><span class="muted small">${esc(WHEN[sid])}, ${esc(s.where[ph])}</span></span></summary>
-      <div class="dbody"><p class="small muted">${esc(s.blurb)}</p>${sessionBody(sid)}</div></details>`;
+/* ---------- Week dashboard ---------- */
+function vWeek() {
+  const ws = curWs(), t = today(), st = S.settings;
+  const days = [...Array(7)].map((_, i) => addDays(ws, i));
+  const info = days.map(date => {
+    const d = getDay(date), sid = plannedSession(date), m = sessMeta(d.done && d.done !== sid ? d.done : sid), tot = dayTotals(date);
+    return { date, d, sid, m, tot, done: !!d.done, past: date < t, isToday: date === t, logged: tot.n > 0 };
+  });
+  // Strip of rings
+  const strip = `<div class="strip">${info.map(x => {
+    const dotCls = x.m.kind === "rest" ? "rest" : x.done ? "done" : x.m.optional && x.past ? "rest" : (x.past ? "miss" : "plan");
+    return `<a class="sday ${x.isToday ? "today" : ""}" href="#day-${x.date}" data-action="jumpday" data-date="${x.date}">
+      <span class="sl">${DAYNAMES[parseDs(x.date).getDay()][0]}</span>
+      <span class="ringwrap">${ring(x.tot.k / st.kcal, 42, 5, calColor(x.tot.k))}<span class="rdot ${dotCls}" style="--k:${KIND[x.m.kind].color}"></span></span>
+      <span class="sn">${parseDs(x.date).getDate()}</span></a>`;
+  }).join("")}</div>
+  <p class="small muted legend"><span class="rdot done" style="--k:var(--iron)"></span> done <span class="rdot plan" style="--k:var(--iron)"></span> planned <span class="rdot miss"></span> missed. Rings fill with calories.</p>`;
+
+  // Tiles
+  const planned = info.filter(x => x.sid !== "rest" && sessMeta(x.sid).kind !== "rest" && !sessMeta(x.sid).optional);
+  const doneN = info.filter(x => x.done).length;
+  const logged = info.filter(x => x.logged && x.date <= t);
+  const avgK = logged.length ? Math.round(logged.reduce((a, x) => a + x.tot.k, 0) / logged.length) : null;
+  const avgP = logged.length ? Math.round(logged.reduce((a, x) => a + x.tot.p, 0) / logged.length) : null;
+  const protHit = logged.filter(x => x.tot.p >= st.p - 10).length;
+  const fastDays = info.filter(x => windowKept(x.date) !== null);
+  const fastKept = fastDays.filter(x => windowKept(x.date)).length;
+  const endW = avgWeight(ws > t ? t : addDays(ws, 6) > t ? t : addDays(ws, 6)), prevW = avgWeight(addDays(ws, -1));
+  const wDelta = endW && prevW && endW.n >= 2 && prevW.n >= 2 ? round1(endW.avg - prevW.avg) : null;
+  const tile = (big, label, sub, color) => `<div class="tile"><b style="${color ? `color:${color}` : ""}">${big}</b><span>${label}</span>${sub ? `<em>${sub}</em>` : ""}</div>`;
+  const tiles = `<div class="tiles">
+    ${tile(`${doneN}<small>/${planned.length}</small>`, "workouts", "")}
+    ${tile(avgK != null ? avgK.toLocaleString() : "—", "avg calories", `target ${st.kcal.toLocaleString()}`)}
+    ${tile(avgP != null ? `${avgP}<small> g</small>` : "—", "avg protein", `target ${st.p} g`)}
+    ${tile(`${protHit}<small>/${logged.length}</small>`, "protein days", "")}
+    ${st.fastOn ? tile(`${fastKept}<small>/${fastDays.length}</small>`, "fasts kept", "") : ""}
+    ${tile(wDelta != null ? `${wDelta > 0 ? "+" : ""}${wDelta}<small> lb</small>` : "—", "weight trend", "7-day average", wDelta != null ? (wDelta <= 0 ? "var(--pine)" : "var(--heat)") : "")}
+  </div>`;
+
+  // Day cards
+  const mbar = (v, target, label, color) => `<div class="mb"><span>${label}</span><div class="mtrack"><i style="width:${Math.min(100, (v / target) * 100)}%;background:${color}"></i></div><b>${v}</b></div>`;
+  const cards = info.map(x => {
+    const wd = parseDs(x.date).getDay(), k = KIND[x.m.kind];
+    const status = x.m.kind === "rest" ? "Rest" : x.done ? "Done ✓" : x.isToday ? "Today" : x.past ? (x.m.optional ? "Skipped" : "Missed") : x.m.optional ? "Optional" : "Planned";
+    const wl = x.d.wlog, stt = wl ? wlogStats(wl) : null;
+    const meals = MEALSLOTS.filter(s => (x.d.slots || {})[s]).map(s => { const r = R(x.d.slots[s]); return r ? `<li>${(x.d.eaten || {})[s] ? "✓" : "○"} ${esc(r.short || r.name)} <span class="muted">${r.kcal} cal, ${r.p} g</span></li>` : ""; }).join("")
+      + (x.d.extras || []).map(e => `<li>✓ ${esc(e.name || "Other food")} <span class="muted">${e.k} cal, ${e.p} g</span></li>`).join("");
+    const kept = windowKept(x.date);
+    return `<details class="daycard ${x.isToday ? "today" : ""}" data-key="day-${x.date}" id="day-${x.date}">
+      <summary><div class="dc">
+        <div class="dcd"><b>${DAYNAMES[wd].slice(0, 3)}</b><span>${parseDs(x.date).getDate()}</span></div>
+        <div class="dcm"><div class="pill" style="--k:${k.color}"><i></i>${esc(x.m.name)}<em>${status}</em></div>
+          ${x.logged ? `<div class="mbars">${mbar(x.tot.p, st.p, "P", "var(--pine)")}${mbar(x.tot.f, st.f, "F", "var(--iron)")}${mbar(x.tot.c, st.c, "C", "var(--heat)")}</div>` : `<div class="small muted">${x.date > t ? "Nothing logged yet" : "No food logged"}</div>`}
+        </div>
+        <div class="dck">${x.logged ? `<b>${x.tot.k.toLocaleString()}</b><span>cal</span>` : `<span class="muted">—</span>`}</div>
+      </div></summary>
+      <div class="dbody small">
+        ${x.d.w ? `<p>Weight ${x.d.w} lb${x.d.sleep ? `, sleep ${x.d.sleep < 5 ? "under 5" : x.d.sleep < 6 ? "5–6" : x.d.sleep < 7 ? "6–7" : "7+"} hours` : ""}.</p>` : ""}
+        ${wl ? `<p><b>Workout:</b> ${stt.sets} sets${stt.vol ? `, ${stt.vol.toLocaleString()} lb lifted` : ""}${stt.min ? `, ${stt.min} minutes` : ""}. <button class="linkbtn" data-action="openlog" data-date="${x.date}">View</button></p>` : ""}
+        ${kept !== null ? `<p><b>Fasting:</b> ${kept ? "window kept" : "window ran long"} (${esc(fmtMin(toMin(x.d.eatStart)))} to ${esc(fmtMin(toMin(x.d.eatEnd)))}).</p>` : ""}
+        ${meals ? `<ul class="plain">${meals}</ul>` : ""}
+        ${x.logged ? `<p class="muted">${x.tot.k.toLocaleString()} cal, ${x.tot.p} g protein, ${x.tot.f} g fat, ${x.tot.c} g carbs.</p>` : ""}
+        <div class="row"><button class="btn sm" data-action="editday" data-date="${x.date}">Edit meals and workout</button></div>
+      </div></details>`;
   }).join("");
-  const backups = ["R", "H"].map(sid => { const s = SESSIONS[sid];
-    return `<details data-key="s-${sid}" id="s-${sid}"><summary><span><b>${esc(s.name)}</b><br><span class="muted small">${esc(s.where[ph])}, ${s.min} minutes</span></span></summary><div class="dbody"><p class="small muted">${esc(s.blurb)}</p>${sessionBody(sid)}</div></details>`; }).join("");
-  return `<h2>Your week</h2>${banner}
-    <section class="panel">${week}</section>
-    <h2>When plans fall apart</h2><section class="panel">${backups}</section>
-    <h2>How to progress</h2><section class="panel small">
-      <p><b>Add weight when you earn it.</b> When you hit the top of the rep range on every set with 1–2 reps to spare, go up next time: about 5 lb for upper body, 10 lb for lower body.</p>
-      <p><b>Every 6th week is lighter.</b> Same exercises, half the sets. You’ll come back stronger.</p>
-      <p><b>Log one number per lift.</b> Type the weight and reps of your best set, like “185 × 6”. The app shows it next time.</p>
-      <p><b>Heat and blood pressure.</b> Hydrate before Hotworx, use sodium-based electrolytes, and stand up slowly afterward. Lightheaded or unusually short of breath: stop, cool down, and keep your rescue inhaler in your bag.</p>
-      <p style="margin:0"><b>Late sessions and sleep.</b> Start by 9:15, finish by 10, skip caffeine, and take a cool shower after.</p>
-    </section>`;
+
+  // Nutrition table
+  const cell = (v, target, kind) => { if (v == null) return `<td class="muted">—</td>`; const hit = kind === "k" ? Math.abs(v - target) / target <= 0.1 : kind === "p" ? v >= target - 10 : v <= target * 1.15; return `<td class="${hit ? "hit" : ""}">${v.toLocaleString()}</td>`; };
+  const rows = info.map(x => `<tr><th scope="row">${DAYNAMES[parseDs(x.date).getDay()].slice(0, 3)}</th>${x.logged ? cell(x.tot.k, st.kcal, "k") + cell(x.tot.p, st.p, "p") + cell(x.tot.f, st.f, "f") + cell(x.tot.c, st.c, "c") : `<td class="muted">—</td><td class="muted">—</td><td class="muted">—</td><td class="muted">—</td>`}</tr>`).join("");
+  const av = k => logged.length ? Math.round(logged.reduce((a, x) => a + x.tot[k], 0) / logged.length).toLocaleString() : "—";
+  const table = `<section class="panel"><h3>Nutrition this week</h3><div class="scroll"><table class="ntable"><thead><tr><th></th><th>Calories</th><th>Protein</th><th>Fat</th><th>Carbs</th></tr></thead>
+    <tbody>${rows}</tbody><tfoot><tr><th scope="row">Average</th><td>${av("k")}</td><td>${av("p")}</td><td>${av("f")}</td><td>${av("c")}</td></tr>
+    <tr class="muted"><th scope="row">Target</th><td>${st.kcal.toLocaleString()}</td><td>${st.p}</td><td>${st.f}</td><td>${st.c}</td></tr></tfoot></table></div>
+    <p class="small muted" style="margin:8px 0 0">Green means on target: calories within 10%, protein within 10 g, fat and carbs not more than 15% over. Averages count only days you logged food.</p></section>`;
+
+  return weekNav(ws) + strip + tiles + `<h2>Day by day</h2><section class="panel daylist">${cards}</section>` + table;
 }
 
+/* ---------- Train ---------- */
+function sessionBody(sid) {
+  const s = SESSIONS[sid];
+  return s.parts.map(part => part.warm
+    ? `<h3 style="margin:12px 0 4px">${esc(part.title)}</h3><ul>${WARMUP.map(w => `<li>${esc(w)}</li>`).join("")}</ul>`
+    : `<h3 style="margin:12px 0 2px">${esc(part.title)}</h3>` + part.items.map(raw => { const it = itemView(raw);
+      return `<div class="ex"><div class="exn">${esc(it.name)}</div><div class="rx">${esc(it.rx)}</div>${it.note ? `<div class="small muted">${esc(it.note)}</div>` : ""}</div>`; }).join("")).join("");
+}
+function vTrain() {
+  const ws = curWs(), t = today(), ph = phase();
+  const banner = ph === "crunch"
+    ? `<div class="note good small">Crunch phase, through ${fmtDate(addDays(S.settings.crunchEnd, -1))}. Lift heavy at Crunch (open 24 hours Tuesday–Thursday). On ${fmtDate(S.settings.crunchEnd)}, lifting switches to the Hotworx FX Zone automatically: Smith machine, cable machine, hip thrust machine and dumbbells up to 50 lb.${(parseDs(S.settings.crunchEnd) - parseDs(today())) / 86400000 <= 28 ? " Try one lifting session at the FX Zone before then to learn the setup." : ""}</div>`
+    : `<div class="note good small">FX Zone phase. Lifting uses the Smith machine, cable machine, hip thrust machine and dumbbells up to 50 lb at Hotworx.</div>`;
+  const cal = [...Array(7)].map((_, i) => {
+    const date = addDays(ws, i), d = getDay(date), sid = plannedSession(date), m = sessMeta(sid), k = KIND[m.kind], wl = d.wlog;
+    const done = !!d.done, isToday = date === t, past = date < t;
+    const status = m.kind === "rest" ? "" : done ? `<span class="st done">Done ✓</span>` : isToday ? `<span class="st today">Today</span>` : past ? `<span class="st miss">${m.optional ? "Skipped" : "Missed"}</span>` : "";
+    let act = "";
+    if (m.kind !== "rest" && date <= t) {
+      act = m.loggable
+        ? (wl ? `<button class="btn sm ${wl.end ? "done" : "heat"}" data-action="openlog" data-date="${date}">${wl.end ? "View" : "Continue"}</button>` : `<button class="btn sm primary" data-action="startlog" data-date="${date}" data-sid="${sid}">Start</button>`)
+        : `<button class="btn sm ${done ? "done" : ""}" data-action="done" data-date="${date}">${done ? "Done ✓" : "Mark done"}</button>`;
+    }
+    return `<div class="calrow ${isToday ? "today" : ""}" style="--k:${k.color}">
+      <div class="dcd"><b>${DAYNAMES[parseDs(date).getDay()].slice(0, 3)}</b><span>${parseDs(date).getDate()}</span></div>
+      <button class="calbody" data-action="sesspick" data-date="${date}" aria-label="Change ${DAYNAMES[parseDs(date).getDay()]}’s session">
+        <span class="cname">${esc(m.name)}${m.optional ? " (optional)" : ""}</span>
+        <span class="small muted">${m.kind === "rest" ? "Tap to add a session" : `${esc(k.label)}${m.where ? `, ${esc(m.where)}` : ""}${m.min ? `, ${m.min} min` : ""}`}</span>${status}</button>
+      <div class="calact">${act}</div></div>`;
+  }).join("");
+  const lib = ["A", "B", "C", "D", "E", "R", "H"].map(sid => { const s = SESSIONS[sid], m = sessMeta(sid);
+    return `<details data-key="lib-${sid}"><summary><span><b>${esc(s.name)}</b><br><span class="muted small">${esc(KIND[m.kind].label)}, ${esc(s.where[ph])}, ${s.min} minutes</span></span></summary>
+      <div class="dbody"><p class="small muted">${esc(s.blurb)}</p>${sessionBody(sid)}</div></details>`; }).join("");
+  return weekNav(ws) + banner + `<section class="panel cal">${cal}</section>
+    <div class="row" style="margin:-2px 0 8px"><button class="btn sm ghost" data-action="savetpl">Make this week my default</button>${S.weeks[ws] && Object.keys(S.weeks[ws].train || {}).length ? `<button class="btn sm ghost" data-action="resettrain">Reset to default</button>` : ""}</div>
+    <p class="small muted">Tap any day to change its session or add a single Hotworx class. Strength days open a workout logger that shows what you lifted last time and runs your rest timer.</p>
+    <h2>Session guide</h2><section class="panel">${lib}</section>
+    <h2>How to progress</h2><section class="panel small">
+      <p><b>Add weight when you earn it.</b> When you hit the top of the rep range on every set, the logger tells you to go up next time: about 5 lb for upper body, 10 lb for big lower-body lifts.</p>
+      <p><b>Every 6th week is lighter.</b> Same exercises, half the sets.</p>
+      <p><b>At the FX Zone, dumbbells top out at 50 lb.</b> When a dumbbell lift gets easy at 50, slow the lowering to 3 seconds, add reps (up to 15), or move it to the Smith machine or cable machine, which keep going up.</p>
+      <p><b>Heat and blood pressure.</b> Hydrate before Hotworx, use sodium-based electrolytes, and stand up slowly afterward. Lightheaded or unusually short of breath: stop, cool down, and keep your rescue inhaler in your bag.</p>
+      <p style="margin:0"><b>Late sessions and sleep.</b> Start by 9:15, finish by 10, skip caffeine, and take a cool shower after.</p></section>`;
+}
+
+/* ---------- Eat ---------- */
+function weekMenuNeeds(ws) {
+  const w = weekObj(ws), tot = {};
+  Object.entries(w.menu).forEach(([id, n]) => { const r = R(id); if (r && n > 0) r.ing.forEach(([i, a]) => { tot[i] = (tot[i] || 0) + a * n; }); });
+  return tot;
+}
+function recipeRow(id, extra) {
+  const r = R(id), inMenu = weekObj(curWs()).menu[id] || 0;
+  return `<div class="rrow"><button class="linkbtn rname" data-action="recipe" data-id="${id}"><b>${esc(r.name)}</b>${isFav(id) ? ` <span class="star">★</span>` : ""}<span class="small muted">${esc(flavName(r))}, ${r.kcal} cal, ${r.p} g protein</span></button>
+    ${extra || `<button class="btn sm ${inMenu ? "done" : ""}" data-action="menuadd" data-id="${id}" aria-label="Add ${esc(r.name)} to this week’s menu">${inMenu ? `Menu ×${inMenu}` : "+ Menu"}</button>`}</div>`;
+}
+function browserList() {
+  const q = RB.q.trim().toLowerCase();
+  let ids = allIds().filter(id => {
+    const r = R(id); if (!r) return false;
+    if (RB.hidden ? !isHidden(id) : isHidden(id)) return false;
+    if (RB.kind !== "all" && kindOf(r) !== RB.kind) return false;
+    if (RB.flav === "mine" ? !r.mine : RB.flav !== "all" && r.flavor !== RB.flav) return false;
+    if (RB.fav && !isFav(id)) return false;
+    if (!RB.hidden && !matches(id)) return false;
+    if (q && !q.split(/\s+/).every(w => searchText(r).includes(w.replace(/s$/, "")))) return false;
+    return true;
+  });
+  ids.sort((a, b) => (isFav(b) - isFav(a)) || R(a).name.localeCompare(R(b).name));
+  if (!ids.length) return `<p class="small muted">${RB.hidden ? "No hidden recipes." : "Nothing matches. Try clearing the search or filters."}</p>`;
+  return `<p class="small muted" style="margin:0 0 4px">${ids.length} recipe${ids.length === 1 ? "" : "s"}</p>` + ids.map(id => recipeRow(id, RB.hidden ? `<button class="btn sm" data-action="rate" data-id="${id}" data-val="0">Unhide</button>` : "")).join("");
+}
 function vEat() {
-  const st = S.settings, P = plan();
-  const targets = `<section class="panel"><h3>Daily targets</h3>
-    <div class="tot"><div><b>${st.kcal.toLocaleString()}</b><span>calories</span></div><div><b>${st.p} g</b><span>protein</span></div><div><b>${st.f} g</b><span>fat</span></div><div><b>${st.c} g</b><span>carbs</span></div></div></section>`;
+  const ws = curWs(), st = S.settings, w = weekObj(ws), used = menuUsed(ws), t = today();
+  // Menu
+  const entries = Object.entries(w.menu).filter(([id, n]) => R(id) && n > 0);
+  const byKind = k => entries.filter(([id]) => kindOf(R(id)) === k);
+  const needMeals = { first: 7, main: 14, snack: 14 };
+  const menu = `<section class="panel"><h3>This week’s menu</h3>
+    <p class="small muted" style="margin:4px 0 8px">How many times you’ll eat each meal. Your grocery list and prep come from this. Pick days for them below, or decide the day of.</p>
+    ${entries.length ? ["first", "main", "snack"].map(k => { const list = byKind(k); if (!list.length) return ""; const total = list.reduce((a, [, n]) => a + n, 0);
+      return `<h3 class="sub3">${KINDNAME[k]} <span class="small muted">${total} of ${needMeals[k]}</span></h3>` + list.map(([id, n]) => { const r = R(id), u = used[id] || 0;
+        return `<div class="mrow"><button class="linkbtn rname" data-action="recipe" data-id="${id}"><b>${esc(r.name)}</b><span class="small muted">${u} of ${n} on your days${u < n ? `, ${n - u} left` : ""}</span></button>
+          <div class="stepper"><button class="chip" data-action="serv" data-id="${id}" data-val="-1" aria-label="One fewer">−</button><b>${n}</b><button class="chip" data-action="serv" data-id="${id}" data-val="1" aria-label="One more">+</button></div></div>`; }).join(""); }).join("")
+    : `<p class="muted">Nothing on the menu yet. Add recipes from the list below${Object.keys(weekObj(addDays(ws, -7)).menu).length ? ", or copy last week’s" : ""}.</p>`}
+    <div class="row" style="margin-top:10px">${Object.keys(weekObj(addDays(ws, -7)).menu).length && !entries.length ? `<button class="btn sm primary" data-action="copymenu">Copy last week’s menu</button>` : ""}<button class="btn sm" data-action="build">Build a meal from what you have</button></div></section>`;
 
-  const chip = (act, id, label, on) => `<button class="chip" aria-pressed="${on}" data-action="${act}" data-id="${id}">${esc(label)}</button>`;
-  const used = new Set(); Object.values(RECIPES).forEach(r => r.ing.forEach(([id]) => used.add(id)));
-  const offCount = Object.keys(P.off).length + Object.values(P.flav).filter(v => !v).length;
-  const step1 = `<section class="panel"><details data-key="plan-ing"><summary><span><b>1. Pick your ingredients</b><br><span class="small muted">${offCount ? `${offCount} turned off this week` : "Everything is on. Tap to turn off what you don’t want."}</span></span></summary>
-    <div class="dbody"><h3 style="margin:4px 0 6px">Flavors</h3><div class="chips">${Object.entries(FLAVORS).map(([k, l]) => chip("flav", k, l, !!P.flav[k])).join("")}</div>
-    ${GROUPS.map(([g, label]) => `<h3 style="margin:14px 0 6px">${label}</h3><div class="chips">${Object.entries(ING).filter(([id, x]) => x.g === g && !x.minor && used.has(id)).map(([id, x]) => chip("ing", id, x.name, ingOn(id))).join("")}</div>`).join("")}
-    <p class="small muted" style="margin:12px 0 0">Recipes that need a protein, dairy or carb you turned off disappear from step 2. Vegetables you turn off just move recipes down the list, since they’re easy to swap.</p></div></details></section>`;
+  // Days
+  const days = `<section class="panel"><h3>Your days</h3><p class="small muted" style="margin:4px 0 8px">Tap a slot to choose a meal. Plan ahead or fill it in the day of.</p>
+    ${[...Array(7)].map((_, i) => { const date = addDays(ws, i), d = getDay(date), pt = dayTotals(date, true);
+      return `<div class="dayplan ${date === t ? "today" : ""}"><div class="dph"><b>${DAYNAMES[parseDs(date).getDay()]} ${parseDs(date).getDate()}</b><span class="small muted">${pt.n ? `${pt.k.toLocaleString()} cal, ${pt.p} g protein planned` : ""}</span></div>
+        <div class="slotchips">${MEALSLOTS.map(s => { const id = (d.slots || {})[s], r = id && R(id);
+          return `<button class="slotchip ${r ? "set" : ""} ${(d.eaten || {})[s] ? "ate" : ""}" data-action="choose" data-date="${date}" data-slot="${s}"><span>${s === "first" ? "First" : s.startsWith("snack") ? "Snack" : SLOTNAME[s]}</span>${r ? esc(r.short || r.name) : "+"}</button>`; }).join("")}</div></div>`; }).join("")}</section>`;
 
-  const opt = (slot, rid) => {
-    const r = RECIPES[rid], on = P.picks[slot].includes(rid);
-    return `<div class="meal" style="align-items:flex-start"><button class="check" style="margin-top:6px" aria-pressed="${on}" aria-label="${on ? "Remove" : "Add"} ${esc(r.name)}" data-action="pick" data-slot="${slot}" data-id="${rid}"></button>
-      <details data-key="o-${slot}-${rid}" data-lazy="1" style="flex:1;min-width:0;border:none"><summary style="padding:4px 0"><span><b>${esc(r.name)}</b><br><span class="small muted">${esc(flavName(r))}, ${r.kcal} cal, ${r.p} g protein${matches(rid) ? "" : ". Uses something you turned off"}</span></span></summary>
-      <div class="dbody small">${openSet.has(`o-${slot}-${rid}`) ? recipeBody(r) : ""}</div></details></div>`;
-  };
-  const step2 = `<section class="panel"><h3>2. Pick your meals</h3>
-    <p class="small muted" style="margin:4px 0 6px">Open a meal type and tap the box next to the recipes you want. Tap a recipe name to see what’s in it.</p>
-    ${PLANMSG ? `<div class="note small">${esc(PLANMSG)}</div>` : ""}
-    ${SLOTS.map(([slot, label, max]) => {
-      const list = Object.keys(RECIPES).filter(rid => RECIPES[rid].slots.includes(slot) && (matches(rid) || P.picks[slot].includes(rid)))
-        .sort((a, b) => (P.picks[slot].includes(b) - P.picks[slot].includes(a)) || (vegScore(b) - vegScore(a)) || RECIPES[a].name.localeCompare(RECIPES[b].name));
-      const names = P.picks[slot].map(id => RECIPES[id].short).join(", ");
-      return `<details data-key="slot-${slot}"><summary><span><b>${label}: ${P.picks[slot].length} of ${max}</b><br><span class="small muted">${esc(names || "None picked yet")}</span></span></summary>
-        <div class="dbody">${list.length ? list.map(rid => opt(slot, rid)).join("") : `<p class="small muted">No recipes match. Turn some ingredients back on in step 1.</p>`}</div></details>`;
-    }).join("")}</section>`;
+  // Recipe browser
+  const chip = (act, val, label, on) => `<button class="chip" aria-pressed="${on}" data-action="${act}" data-val="${val}">${esc(label)}</button>`;
+  const usedIng = new Set(); allIds().forEach(id => R(id).ing.forEach(([i]) => usedIng.add(i)));
+  const offCount = Object.keys(S.plan.off).filter(k => S.plan.off[k]).length + Object.values(S.plan.flav).filter(v => v === false).length;
+  const browser = `<h2>Recipes</h2><section class="panel">
+    <label class="sr" for="rb-q">Search recipes</label><input type="search" id="rb-q" class="search" placeholder="Search: chicken, soup, rice…" value="${esc(RB.q)}" data-search="rb">
+    <div class="chips" style="margin:10px 0 6px">${[["all", "All"], ["first", "First meals"], ["main", "Lunch and dinner"], ["snack", "Snacks"]].map(([v, l]) => chip("rbkind", v, l, RB.kind === v)).join("")}</div>
+    <div class="chips" style="margin-bottom:6px">${[["all", "Any flavor"], ["italian", "Italian"], ["american", "American"], ["pr", "Puerto Rican"], ["mine", "My recipes"]].map(([v, l]) => chip("rbflav", v, l, RB.flav === v)).join("")}${chip("rbfav", 1, "★ Favorites", RB.fav)}</div>
+    <details data-key="ingfilter"><summary><span><b>Ingredients this week</b><br><span class="small muted">${offCount ? `${offCount} turned off` : "Everything on. Turn off what you don’t want."}</span></span></summary><div class="dbody">
+      <div class="chips">${Object.entries(FLAVORS).map(([k, l]) => `<button class="chip" aria-pressed="${S.plan.flav[k] !== false}" data-action="flav" data-id="${k}">${l}</button>`).join("")}</div>
+      ${GROUPS.map(([g, label]) => `<h3 class="sub3">${label}</h3><div class="chips">${Object.entries(ING).filter(([id, x]) => x.g === g && !x.minor && usedIng.has(id)).map(([id, x]) => `<button class="chip" aria-pressed="${ingOn(id)}" data-action="ing" data-id="${id}">${esc(x.name)}</button>`).join("")}</div>`).join("")}
+      <p class="small muted" style="margin:10px 0 0">Recipes that need a protein, dairy or carb you turned off are hidden from the list.</p></div></details>
+    <div id="rb-list">${browserList()}</div>
+    <div class="row" style="margin-top:8px"><button class="btn sm ghost" data-action="rbhidden">${RB.hidden ? "Back to all recipes" : `Recipes you hid (${allIds().filter(isHidden).length})`}</button></div></section>`;
 
-  const order = [1, 2, 3, 4, 5, 6, 0];
-  const step3 = `<section class="panel"><h3>3. Your week</h3>
-    <p class="small muted" style="margin:4px 0 6px">Your picks rotate through the week on their own. Open a day to swap a meal.</p>
-    ${order.map(wd => {
-      const pl = planFor(wd);
-      const k = pl.reduce((a, [, id]) => a + RECIPES[id].kcal, 0), p = pl.reduce((a, [, id]) => a + RECIPES[id].p, 0);
-      const mains = pl.filter(([s]) => !s.startsWith("snack")).map(([, id]) => RECIPES[id].short).join(", ");
-      return `<details data-key="day-${wd}"><summary><span><b>${DAYNAMES[wd]}</b><br><span class="small muted">${esc(mains || "Nothing planned")}<br>${k.toLocaleString()} cal, ${p} g protein</span></span></summary>
-        <div class="dbody">${["first", "lunch", "dinner"].map(slot => {
-          const arr = P.picks[slot]; if (!arr.length) return "";
-          const cur = slotPick(wd, slot);
-          return `<div class="field"><label for="ov-${wd}-${slot}">${SLOTNAME[slot]}</label><select id="ov-${wd}-${slot}" data-over="${wd}|${slot}">${arr.map(id => `<option value="${id}" ${id === cur ? "selected" : ""}>${esc(RECIPES[id].short)}</option>`).join("")}</select></div>`;
-        }).join("")}</div></details>`;
-    }).join("")}
-    ${Object.keys(P.over).length ? `<div class="row" style="margin-top:10px"><button class="btn sm" data-action="resetweek">Go back to the automatic rotation</button></div>` : ""}
-    <p class="small muted" style="margin:10px 0 0">Totals include your snacks${P.picks.snack.length ? ` (${esc(P.picks.snack.map(id => RECIPES[id].short.toLowerCase()).join(" and "))})` : ""}. Landing a little under ${st.kcal.toLocaleString()} calories leaves room for coffee and cooking oil.</p></section>`;
+  // Prep and grocery from the menu
+  const need = weekMenuNeeds(ws);
+  const prepItems = [];
+  if (need.rice) prepItems.push(`Cook rice: about ${fmtAmt(Math.ceil(need.rice / 3 * 2) / 2)} cups dry makes the ${fmtAmt(Math.round(need.rice * 4) / 4)} cups cooked on your menu. Freeze what you won’t eat by Thursday.`);
+  const prepChx = entries.filter(([id]) => R(id).prepChicken).reduce((a, [id, n]) => a + ((R(id).ing.find(([i]) => i === "chx") || [0, 0])[1]) * n, 0);
+  if (prepChx) prepItems.push(`Bake ${Math.round(prepChx)} oz of chicken breast at 425°F for 18–22 minutes, to 165°F inside. Slice and refrigerate for the bowls, wraps and salads.`);
+  const eggsBoil = entries.filter(([id]) => ["seggs", "sstring"].includes(id)).reduce((a, [, n]) => a + n * 2, 0);
+  if (eggsBoil) prepItems.push(`Hard-boil ${eggsBoil} eggs.`);
+  entries.filter(([id]) => R(id).batch).forEach(([id]) => prepItems.push(R(id).batch));
+  const prep = entries.length ? `<h2>Sunday prep</h2><section class="panel"><ol class="steps" style="margin:0">${["Shop using the list below.", ...prepItems, "Everything else cooks the night you eat it, in 20–30 minutes."].map(p => `<li>${esc(p)}</li>`).join("")}</ol></section>` : "";
 
-  const days = [0, 1, 2, 3, 4, 5, 6];
-  const weekIds = [...new Set(order.flatMap(wd => planFor(wd).map(([, id]) => id)))];
-  const recipes = `<h2>This week’s recipes</h2><section class="panel">${weekIds.map(id => { const r = RECIPES[id];
-    return `<details data-key="r-${id}" id="r-${id}"><summary><span><b>${esc(r.name)}</b><br><span class="small muted">${esc(flavName(r))}, ${r.kcal} cal, ${r.p} g protein</span></span></summary><div class="dbody small">${recipeBody(r)}</div></details>`; }).join("") || `<p class="muted">Pick some meals above.</p>`}</section>`;
-
-  // Prep, built from the week
-  const need = weekNeeds();
-  const all = days.flatMap(wd => planFor(wd));
-  const cnt = rid => all.filter(([, id]) => id === rid).length;
-  const prepChx = all.filter(([, id]) => RECIPES[id].prepChicken).reduce((a, [, id]) => a + RECIPES[id].ing.find(([i]) => i === "chx")[1], 0);
-  const steps = ["Shop using the list below."];
-  if (need.rice) steps.push(`Cook rice: about ${fmtAmt(Math.ceil(need.rice / 3 * 2) / 2)} cups dry makes the ${fmtAmt(Math.round(need.rice * 4) / 4)} cups cooked you need. Freeze what you won’t eat by Thursday.`);
-  if (prepChx) steps.push(`Bake ${Math.round(prepChx)} oz of chicken breast at 425°F for 18–22 minutes, to 165°F inside. Slice and refrigerate for the week.`);
-  const boil = cnt("seggs") * 2; if (boil) steps.push(`Hard-boil ${boil} eggs.`);
-  weekIds.filter(id => RECIPES[id].batch).forEach(id => steps.push(RECIPES[id].batch));
-  steps.push("Everything else cooks the night you eat it, in 20–30 minutes.");
-  const prep = `<h2>Sunday prep</h2><section class="panel"><ol class="steps" style="margin:0">${steps.map(p => `<li>${esc(p)}</li>`).join("")}</ol></section>`;
-
-  // Walmart list, built from the week
   const ids = Object.keys(need).filter(id => need[id] > 0);
   let checkout = 0, eaten = 0;
   ids.forEach(id => { const g = ING[id], pr = priceOf(id); eaten += need[id] * pr / g.pkg; if (!g.pantry) checkout += Math.max(1, Math.ceil(need[id] / g.pkg - 0.1)) * pr; });
-  const row = id => {
-    const g = ING[id], got = !!(S.groc2[id] && S.groc2[id].got), n = Math.max(1, Math.ceil(need[id] / g.pkg - 0.1));
+  const grow = id => { const g = ING[id], got = !!(S.groc2[id] && S.groc2[id].got), n = Math.max(1, Math.ceil(need[id] / g.pkg - 0.1));
     return `<div class="gitem"><button class="check" aria-pressed="${got}" aria-label="Got ${esc(g.name)}" data-action="got" data-id="${id}"></button>
       <div class="gname ${got ? "got" : ""}">${g.pantry ? "" : `${n} × `}${esc(g.name)}<span class="small muted" style="display:block">${esc(g.pkgName)}. Need ${esc(ingLine(id, need[id]))}.</span></div>
-      <label class="sr" for="p-${id}">Price for ${esc(g.name)}</label><input type="number" id="p-${id}" inputmode="decimal" step="0.01" min="0" value="${priceOf(id).toFixed(2)}" data-price="${id}"></div>`;
-  };
+      <label class="sr" for="p-${id}">Price for ${esc(g.name)}</label><input type="number" id="p-${id}" inputmode="decimal" step="0.01" min="0" value="${priceOf(id).toFixed(2)}" data-price="${id}"></div>`; };
   const GORDER = [["protein", "Protein"], ["dairy", "Eggs and dairy"], ["carb", "Bread, pasta and beans"], ["veg", "Produce and frozen vegetables"], ["pantry", "Sauces, broth and cans"]];
-  const groc = `<h2>Walmart list</h2><section class="panel">
+  const groc = entries.length ? `<h2>Walmart list</h2><section class="panel">
     <div class="tot" style="grid-template-columns:repeat(3,1fr);margin-top:0"><div><b>${money(eaten)}</b><span>food you’ll eat</span></div><div><b>${money(checkout)}</b><span>at checkout</span></div><div><b>${money(st.budget)}</b><span>your budget</span></div></div>
-    <p class="small muted" style="margin:10px 0">“Food you’ll eat” is what this week’s meals use. Checkout is whole packages, so it runs higher some weeks; the leftovers carry into the next. Prices are estimates: tap one to change it to what you paid.</p>
-    ${GORDER.map(([g, label]) => { const list = ids.filter(id => ING[id].g === g && !ING[id].pantry); return list.length ? `<h3 style="margin:12px 0 2px">${label}</h3>` + list.map(row).join("") : ""; }).join("")}
-    ${ids.some(id => ING[id].pantry) ? `<h3 style="margin:16px 0 2px">Pantry staples</h3><p class="small muted" style="margin:0 0 4px">These last several weeks, so they aren’t in the checkout total. Buy when you run out.</p>` + ids.filter(id => ING[id].pantry).map(row).join("") : ""}
-    <div class="row" style="margin-top:12px"><button class="btn sm" data-action="clearlist">Uncheck everything for a new week</button></div></section>`;
+    <p class="small muted" style="margin:10px 0">Built from this week’s menu. Checkout is whole packages, so it runs higher some weeks; leftovers carry over. Tap a price to change it.</p>
+    ${GORDER.map(([g, label]) => { const list = ids.filter(id => ING[id].g === g && !ING[id].pantry); return list.length ? `<h3 class="sub3">${label}</h3>` + list.map(grow).join("") : ""; }).join("")}
+    ${ids.some(id => ING[id].pantry) ? `<h3 class="sub3">Pantry staples</h3><p class="small muted" style="margin:0 0 4px">These last several weeks, so they’re not in the checkout total.</p>` + ids.filter(id => ING[id].pantry).map(grow).join("") : ""}
+    <div class="row" style="margin-top:12px"><button class="btn sm" data-action="clearlist">Uncheck everything for a new week</button></div></section>` : "";
 
   const rules = `<h2>Eating out or eating with the family</h2><section class="panel small">
-    <p>Build the plate by hand: 2 palms of protein, 1–2 cupped hands of carbs, 2 fists of vegetables, 1 thumb of fat.</p>
+    <p>Build the plate by hand: 2 palms of protein, 1–2 cupped hands of carbs, 2 fists of vegetables, 1 thumb of fat. Log it with “Family plate” or “Eating out” on the Today tab.</p>
     <p style="margin:0">Always ask about shellfish in sauces, stocks and shared fryers. Puerto Rican restaurants often cook with shrimp, so ask about the sofrito and rice too.</p></section>`;
-
-  return targets + `<h2>Plan your week</h2>` + step1 + step2 + step3 + recipes + prep + groc + rules;
+  return weekNav(ws) + menu + days + browser + prep + groc + rules;
 }
 
 function vProgress() {
@@ -988,9 +1376,6 @@ function vProgress() {
     else { msg = `Flat this week (${delta > 0 ? "+" : ""}${round1(delta)} lb). One flat week is usually water from heat, salt, or poor sleep. Hold steady and check next week.`; }
     review = `<p>${msg}</p>${act}`;
   }
-  const mon = mondayOf(t);
-  let sessions = 0, protDays = 0, daysSoFar = 0, fastDays = 0;
-  for (let i = 0; i < 7; i++) { const d = addDays(mon, i); if (d > t) break; daysSoFar++; const v = getDay(d); if (v.done) sessions++; if (dayTotals(d).p >= S.settings.p - 10) protDays++; if (windowKept(d)) fastDays++; }
 
   // Measurements
   const h = S.settings.heightIn;
@@ -1019,10 +1404,10 @@ function vProgress() {
   </section>`;
 
   return `<h2>Weight trend</h2><section class="panel">${chart}</section>
-    <h2>This week</h2><section class="panel"><div class="tot" style="grid-template-columns:repeat(${S.settings.fastOn ? 3 : 2},1fr);margin-top:0"><div><b>${sessions} of 4</b><span>sessions done</span></div><div><b>${protDays} of ${daysSoFar}</b><span>days protein hit</span></div>${S.settings.fastOn ? `<div><b>${fastDays} of ${daysSoFar}</b><span>windows kept</span></div>` : ""}</div>
-      <div style="margin-top:12px">${review}</div></section>
+    <h2>Weekly review</h2><section class="panel">${review}<p class="small muted" style="margin:10px 0 0">For workouts and nutrition day by day, see the <a href="#week">Week</a> tab.</p></section>
     <h2>Measurements</h2>${meas}${testsPanel}`;
 }
+
 
 function vMore() {
   const st = S.settings;
@@ -1038,6 +1423,13 @@ function vMore() {
       <p style="margin:0"><b>When to loosen it:</b> if your lifts stall for 2 weeks or hunger is wrecking your sleep, switch to 14:10 below.</p></section>`;
   return `${fastGuide}<h2>Supplements</h2><section class="panel">${SUPPS.map(s => `<details data-key="sup-${esc(s.name)}"><summary><span><b>${esc(s.name)}</b><br><span class="small muted">${esc(s.dose)}</span></span></summary><div class="dbody small">${esc(s.why)}</div></details>`).join("")}</section>
     <section class="panel"><h3>Skip these: shellfish allergy and blood pressure</h3><ul class="small" style="margin-bottom:0">${AVOID.map(a => `<li>${esc(a)}</li>`).join("")}</ul></section>
+
+    <h2>Recipe feedback</h2><section class="panel small">
+      ${(() => { const fav = allIds().filter(isFav), hid = allIds().filter(isHidden), mine = Object.keys(S.myRecipes || {});
+        const ls = arr => arr.length ? arr.map(id => esc(R(id).short || R(id).name)).join(", ") : "none yet";
+        return `<p><b>Favorites:</b> ${ls(fav)}</p><p><b>Not for me:</b> ${ls(hid)}</p><p><b>Your own recipes:</b> ${ls(mine)}</p>`; })()}
+      <p class="muted">Star the meals you love and hide the ones you don’t. When you want more recipes, copy this and paste it into your chat with Claude, and you’ll get a new app file with recipes built around what you like.</p>
+      <button class="btn sm primary" data-action="copyfeedback">Copy my recipe feedback</button></section>
 
     <h2>Your numbers</h2><section class="panel">
       ${num("s-kcal", "Calories", "Daily target", st.kcal, 50)}
@@ -1076,49 +1468,340 @@ function vMore() {
     </section>`;
 }
 
+
+/* ---------------- Overlays: recipe, chooser, session picker, builder, logger, day editor ---------------- */
+function ovShell(title, body, foot, sub) {
+  return `<div class="ovhead"><button class="btn sm ghost" data-action="close">${OV && OV.back ? "‹ Back" : "Close"}</button><div class="ovt"><h2>${esc(title)}</h2>${sub ? `<span class="small muted">${sub}</span>` : ""}</div></div>
+    <div class="ovbody">${body}</div>${foot ? `<div class="ovfoot">${foot}</div>` : ""}`;
+}
+function macroTiles(m) {
+  return `<div class="tot"><div><b>${m.kcal.toLocaleString()}</b><span>calories</span></div><div><b>${m.p} g</b><span>protein</span></div><div><b>${m.f} g</b><span>fat</span></div><div><b>${m.c} g</b><span>carbs</span></div></div>`;
+}
+function vOverlay() {
+  const o = OV;
+  if (o.t === "recipe") {
+    const r = R(o.id); if (!r) return ovShell("Recipe", "<p>This recipe was removed.</p>");
+    const n = weekObj(curWs()).menu[o.id] || 0;
+    return ovShell(r.name, `<p class="small muted">${esc(flavName(r))}. Per serving.</p>${macroTiles(r)}
+      <h3 class="sub3">Ingredients</h3><ul>${r.ing.map(([id, a]) => `<li>${esc(ingLine(id, a))}</li>`).join("")}</ul>
+      <h3 class="sub3">Steps</h3><ol class="steps">${r.steps.map(x => `<li>${esc(x)}</li>`).join("")}</ol>
+      ${r.batch ? `<p class="small muted">${esc(r.batch)} Leftovers cover other days or go in the freezer.</p>` : ""}
+      ${r.family ? `<p class="small muted">${esc(r.family)}</p>` : ""}
+      <div class="row" style="margin-top:14px">
+        <button class="btn sm ${isFav(o.id) ? "done" : ""}" data-action="rate" data-id="${o.id}" data-val="${isFav(o.id) ? 0 : 1}">${isFav(o.id) ? "★ Favorite" : "☆ Favorite"}</button>
+        <button class="btn sm ghost" data-action="rate" data-id="${o.id}" data-val="${isHidden(o.id) ? 0 : -1}">${isHidden(o.id) ? "Unhide" : "Not for me"}</button>
+        ${r.mine ? `<button class="btn sm ghost" data-action="delmine" data-id="${o.id}">Delete recipe</button>` : ""}</div>`,
+      `<button class="btn primary" data-action="menuadd" data-id="${o.id}">${n ? `On this week’s menu ×${n}. Add one more` : "Add to this week’s menu"}</button>`);
+  }
+  if (o.t === "choose") {
+    const ws = weekStart(o.date), w = weekObj(ws), used = menuUsed(ws), k = slotKind(o.slot), cur = (getDay(o.date).slots || {})[o.slot];
+    const mine = Object.entries(w.menu).filter(([id, n]) => R(id) && n > 0 && kindOf(R(id)) === k);
+    const menuList = mine.length ? mine.map(([id, n]) => { const r = R(id), left = n - (used[id] || 0);
+      return `<button class="pickrow ${id === cur ? "cur" : ""}" data-action="pickmeal" data-id="${id}"><b>${esc(r.name)}</b><span class="small muted">${r.kcal} cal, ${r.p} g protein</span><em class="${left > 0 ? "" : "zero"}">${left > 0 ? `${left} left` : "all used"}</em></button>`; }).join("")
+      : `<p class="small muted">Nothing on this week’s menu for this slot yet. Pick from all recipes below; it’ll be added to your menu.</p>`;
+    return ovShell(`Choose ${SLOTNAME[o.slot].toLowerCase()}`, `
+      <h3 class="sub3">From your menu</h3>${menuList}
+      <h3 class="sub3">All recipes</h3><label class="sr" for="ch-q">Search recipes</label><input type="search" id="ch-q" class="search" placeholder="Search" value="${esc(o.q || "")}" data-search="ch">
+      <div id="ch-list">${chooserList()}</div>
+      <div class="row" style="margin-top:12px"><button class="btn sm" data-action="build">Build a meal from what you have</button>${cur ? `<button class="btn sm ghost" data-action="clearslot">Clear this slot</button>` : ""}</div>`,
+      "", `${DAYNAMES[parseDs(o.date).getDay()]}, ${fmtDate(o.date)}`);
+  }
+  if (o.t === "sess") {
+    const cur = plannedSession(o.date);
+    const row = sid => { const m = sessMeta(sid), k = KIND[m.kind];
+      return `<button class="pickrow ${sid === cur ? "cur" : ""}" data-action="setsess" data-date="${o.date}" data-sid="${sid}" style="--k:${k.color}"><b><i class="kdot"></i>${esc(m.name)}</b><span class="small muted">${esc(k.label)}${m.where ? `, ${esc(m.where)}` : ""}${m.min ? `, ${m.min} min` : ""}</span></button>`; };
+    return ovShell("Choose a session", `<h3 class="sub3">Your program</h3>${["A", "B", "C", "D", "E", "R", "H"].map(row).join("")}${row("rest")}
+      <h3 class="sub3">A single Hotworx session</h3><div class="chips">${HX.map(n => `<button class="chip" aria-pressed="${cur === "hx:" + n}" data-action="setsess" data-date="${o.date}" data-sid="hx:${n}">${esc(n)}</button>`).join("")}</div>`,
+      "", `${DAYNAMES[parseDs(o.date).getDay()]}, ${fmtDate(o.date)}`);
+  }
+  if (o.t === "build") return vBuilder();
+  if (o.t === "log") return vLogger();
+  if (o.t === "day") {
+    const d = getDay(o.date), sid = plannedSession(o.date), m = sessMeta(sid);
+    const wk = m.kind === "rest" ? `<p class="small muted">Rest day.</p>` : m.loggable
+      ? (d.wlog ? `<button class="btn sm ${d.wlog.end ? "done" : "heat"}" data-action="openlog" data-date="${o.date}">${d.wlog.end ? "View workout" : "Continue workout"}</button>` : `<button class="btn sm primary" data-action="startlog" data-date="${o.date}" data-sid="${sid}">Log this workout</button>`)
+      : `<button class="btn sm ${d.done ? "done" : ""}" data-action="done" data-date="${o.date}">${d.done ? "Done ✓" : "Mark done"}</button>`;
+    return ovShell(`${DAYNAMES[parseDs(o.date).getDay()]}, ${fmtDate(o.date)}`, `
+      <h3 class="sub3">Workout: ${esc(m.name)}</h3><div class="row">${wk}<button class="btn sm ghost" data-action="sesspick" data-date="${o.date}">Change</button></div>
+      <h3 class="sub3">Meals</h3>${mealRows(o.date)}<h3 class="sub3">Anything else</h3>${extrasBlock(o.date)}
+      <h3 class="sub3">Weight</h3><div class="field"><label for="dw-in">Morning weight</label><input type="number" id="dw-in" inputmode="decimal" step="0.1" placeholder="lb" value="${d.w ?? ""}" data-field="w" data-date="${o.date}"></div>`);
+  }
+  return "";
+}
+function chooserList() {
+  const o = OV, k = slotKind(o.slot), q = (o.q || "").trim().toLowerCase(), menu = weekObj(weekStart(o.date)).menu;
+  let ids = allIds().filter(id => { const r = R(id); return r && kindOf(r) === k && !isHidden(id) && !(menu[id] > 0) && (q ? q.split(/\s+/).every(w => searchText(r).includes(w.replace(/s$/, ""))) : matches(id)); });
+  ids.sort((a, b) => (isFav(b) - isFav(a)) || R(a).name.localeCompare(R(b).name));
+  return ids.map(id => { const r = R(id); return `<button class="pickrow" data-action="pickmeal" data-id="${id}"><b>${esc(r.name)}${isFav(id) ? " ★" : ""}</b><span class="small muted">${esc(flavName(r))}, ${r.kcal} cal, ${r.p} g protein</span></button>`; }).join("") || `<p class="small muted">No matches.</p>`;
+}
+
+/* ----- Meal builder ----- */
+const BT = { main: { k: 600, p: 50, label: "Lunch or dinner" }, first: { k: 550, p: 40, label: "First meal" }, snack: { k: 250, p: 25, label: "Snack" } };
+const unit0 = g => Array.isArray(g.u) ? g.u[0] : g.u;
+function defAmt(id) {
+  const g = ING[id], u = unit0(g);
+  if (u === "oz") return g.g === "protein" ? 6 : 2;
+  if (id === "egg") return 2; if (id === "bread") return 2; if (id === "taco") return 3;
+  if (u === "cup") return ["mozz", "cheddar", "lentil", "granola", "panko"].includes(id) ? 0.25 : ["rice", "broth", "milk", "yog", "cott"].includes(id) || g.g === "veg" ? 1 : 0.5;
+  return 1;
+}
+function stepOf(id) { const u = unit0(ING[id]); if (u === "oz") return 1; if (u === "cup") return 0.25; if (["sazon"].includes(id)) return 0.25; if (["plant", "gplant", "onion", "tomato", "lemon", "banana", "apple", "tuna"].includes(id)) return 0.5; return 1; }
+function buildStyle(items) {
+  const has = id => items[id] > 0;
+  const style = has("broth") ? "soup" : (has("taco") || has("tort")) ? "tacos" : has("pasta") ? "pasta" : (has("bread") || has("bun") || has("hoagie")) ? "sandwich" : has("oats") ? "oats" : (has("rice") || has("lentil")) ? "bowl" : "plate";
+  const flav = (has("sofrito") || has("sazon") || has("adobo")) ? "pr" : (has("marin") || has("pesto") || has("parm")) ? "italian" : has("bbq") ? "bbq" : "simple";
+  return { style, flav };
+}
+function buildName(items) {
+  const { style, flav } = buildStyle(items), ids = Object.keys(items).filter(i => items[i] > 0);
+  const prot = ids.find(i => ING[i].g === "protein") || ids.find(i => ING[i].g === "dairy");
+  const SN = { chx: "chicken", thigh: "chicken thigh", rot: "rotisserie chicken", turkey: "turkey", beef: "beef", bistec: "steak", salmon: "salmon", tilapia: "tilapia", tuna: "tuna", deli: "turkey", whey: "protein", egg: "egg", yog: "yogurt", cott: "cottage cheese" };
+  const pn = prot ? (SN[prot] || ING[prot].name.toLowerCase()) : "veggie";
+  const noun = { soup: "soup", tacos: "tacos", pasta: "pasta", sandwich: "sandwich", oats: "oatmeal", bowl: "bowl", plate: "plate" }[style];
+  const pre = flav === "pr" ? "Puerto Rican-style " : flav === "italian" ? "Italian " : flav === "bbq" ? "BBQ " : "";
+  return (pre + pn + " " + noun).replace(/^./, c => c.toUpperCase());
+}
+const COOK = { chx: "Season the chicken and sear it 6–7 minutes a side, or bake at 425°F for 18–22 minutes, to 165°F inside.", thigh: "Season the thighs and sear, or roast at 425°F for 20–25 minutes, to 175°F inside.",
+  turkey: "Brown the ground turkey 6–8 minutes, breaking it up.", beef: "Brown the ground beef 6–8 minutes, breaking it up; drain if needed.", bistec: "Sear the thin-cut beef 1–2 minutes a side.",
+  salmon: "Bake the salmon at 425°F for 12–15 minutes.", tilapia: "Bake the tilapia from frozen at 425°F for 15–18 minutes.", tuna: "Drain and flake the tuna.", rot: "Pull the rotisserie chicken off the bone.",
+  deli: "Slice or roll the deli turkey.", egg: "Scramble or fry the eggs over medium-low until just set." };
+function buildSteps(items) {
+  const has = id => items[id] > 0, { style } = buildStyle(items), s = [];
+  if (has("adobo")) s.push("Season the protein with adobo.");
+  if (has("rice")) s.push("Cook the rice, or reheat rice from Sunday.");
+  if (has("pasta")) s.push("Boil the pasta 9–11 minutes; drain.");
+  if (has("oats")) s.push("Microwave the oats with water for 2–2½ minutes.");
+  if (has("lentil")) s.push("Simmer the lentils 20–25 minutes until tender.");
+  if (has("plant") || has("gplant")) s.push(style === "soup" ? "Cut the plantain into chunks to simmer in the soup." : "Slice the plantain and bake at 400°F for 15 minutes.");
+  Object.keys(COOK).forEach(id => { if (has(id)) s.push(style === "soup" && ["chx", "thigh", "turkey", "beef", "bistec"].includes(id) ? "Brown the meat in the soup pot." : COOK[id]); });
+  if (has("sofrito") || has("sazon")) s.push("Stir in the sofrito and sazón for the last minute of browning.");
+  if (style === "soup") s.push(`Add the broth${has("dtom") ? ", tomatoes" : ""}${["beans", "wbeans", "gandul"].some(has) ? ", beans" : ""} and vegetables; simmer 15–20 minutes.`);
+  else {
+    if (["marin", "tsauce", "dtom"].some(has)) s.push("Add the sauce and simmer 5 minutes.");
+    if (["broc", "gbean", "spin", "mixveg", "pepper", "carrot"].some(has)) s.push("Microwave the vegetables 3–4 minutes, or add them to the pan for the last few minutes.");
+    if (["beans", "wbeans", "gandul"].some(has)) s.push("Warm the beans.");
+  }
+  if (has("whey")) s.push("Stir in the protein powder off the heat so it doesn’t clump.");
+  s.push({ soup: "Ladle into a bowl.", tacos: "Warm the tortillas in a dry pan, fill them and fold.", pasta: "Toss the pasta with everything else.", sandwich: "Toast the bread and build the sandwich.", oats: "Add your toppings.", bowl: "Pile everything over the base in a bowl.", plate: "Plate it up." }[style]);
+  if (["mozz", "cheddar", "parm"].some(has)) s.push("Top with the cheese.");
+  if (["pesto", "bbq", "hot", "mayo", "mustard", "honey"].some(has)) s.push("Finish with the sauce.");
+  return s;
+}
+function vBuilder() {
+  const o = OV, T = BT[o.slot], items = o.items, entries = Object.entries(items).filter(([, a]) => a > 0);
+  const m = macrosOf(entries), name = o.name || (entries.length ? buildName(items) : "");
+  const tips = [];
+  if (!entries.length) tips.push("Start with a protein, then add a carb and vegetables.");
+  else {
+    if (m.p < T.p - 5) {
+      const prot = entries.find(([i]) => ING[i].g === "protein" && unit0(ING[i]) === "oz");
+      tips.push(prot ? `About ${T.p - m.p} g short on protein. Add ${Math.ceil((T.p - m.p) / ING[prot[0]].n[1])} oz more ${ING[prot[0]].say}.` : `About ${T.p - m.p} g short on protein. Add a protein, or Greek yogurt or cottage cheese on the side.`);
+    } else tips.push(`Protein is on target for a ${T.label.toLowerCase()}.`);
+    if (m.kcal > T.k + 100) tips.push(`About ${m.kcal - T.k} calories over a typical ${T.label.toLowerCase()}. Trim the carbs, cheese or oil a little.`);
+    else if (m.kcal < T.k - 150) tips.push(`Room for about ${T.k - m.kcal} more calories. Add a carb or more vegetables.`);
+  }
+  const chips = GROUPS.concat([["pantry", "Sauces and seasonings"]]).map(([g, label]) => `<h3 class="sub3">${label}</h3><div class="chips">${Object.entries(ING).filter(([, x]) => x.g === g).map(([id, x]) => `<button class="chip" aria-pressed="${items[id] > 0}" data-action="badd" data-id="${id}">${esc(x.name)}</button>`).join("")}</div>`).join("");
+  const list = entries.map(([id, a]) => `<div class="mrow"><div class="rname"><b>${esc(ingLine(id, a))}</b></div><div class="stepper"><button class="chip" data-action="bstep" data-id="${id}" data-val="-1" aria-label="Less ${esc(ING[id].name)}">−</button><button class="chip" data-action="bstep" data-id="${id}" data-val="1" aria-label="More ${esc(ING[id].name)}">+</button></div></div>`).join("");
+  const steps = entries.length ? buildSteps(items) : [];
+  return ovShell("Build a meal", `
+    <div class="chips">${Object.entries(BT).map(([k, v]) => `<button class="chip" aria-pressed="${o.slot === k}" data-action="bslot" data-val="${k}">${v.label}</button>`).join("")}</div>
+    ${macroTiles(m)}
+    <div class="note ${entries.length && m.p >= T.p - 5 ? "good" : ""} small">${tips.map(esc).join(" ")}</div>
+    ${entries.length ? `<h3 class="sub3">Your meal</h3>${list}
+      <h3 class="sub3">How to make it</h3><ol class="steps">${steps.map(x => `<li>${esc(x)}</li>`).join("")}</ol>
+      <label class="small muted" for="b-name">Name it</label><input type="text" id="b-name" data-bname="1" value="${esc(name)}" style="width:100%">` : ""}
+    <h2 style="margin-top:18px">What do you have?</h2><p class="small muted">Tap to add. Use − and + above to set amounts.</p>${chips}`,
+    entries.length ? `<button class="btn primary" data-action="bsave" data-val="menu">Save${o.back && o.back.t === "choose" ? " and use it" : " and add to menu"}</button><button class="btn ghost" data-action="bsave" data-val="">Save</button>` : "",
+    "Numbers update as you go");
+}
+
+/* ----- Workout logger ----- */
+function fmtClock(sec) { sec = Math.max(0, Math.round(sec)); return `${Math.floor(sec / 60)}:${pad(sec % 60)}`; }
+function vLogger() {
+  const o = OV, d = getDay(o.date), wl = d.wlog;
+  if (!wl) return ovShell("Workout", `<p class="muted">No workout here.</p>`);
+  const items = logItems(wl.sid), stt = wlogStats(wl), s = SESSIONS[wl.sid];
+  const body = items.map(it => {
+    const cur = (wl.ex && wl.ex[it.id]) || [], prev = prevSets(it.id, o.date);
+    let hint = "";
+    if (it.weight && prev && !prev.legacy && prev.sets.length >= it.sets) {
+      const top = topReps(it.rx);
+      if (top && prev.sets.slice(0, it.sets).every(x => x.ok && +x.r >= top)) hint = `<div class="hint">Last time you hit ${top}+ on every set. Go up about ${it.inc} lb today.</div>`;
+    }
+    const rows = [...Array(it.sets)].map((_, i) => {
+      const c = cur[i] || {}, ps = prev && prev.sets.length ? (prev.sets[i] || prev.sets[prev.sets.length - 1]) : null;
+      const prevTxt = ps ? `${ps.w ? ps.w + " × " : ""}${ps.r || "✓"}` : "—";
+      return `<div class="setrow ${c.ok ? "ok" : ""}"><span class="sn">${it.check && it.sets === 1 ? "" : i + 1}</span><span class="prev">${esc(prevTxt)}</span>
+        ${it.weight ? `<input type="number" inputmode="decimal" aria-label="${esc(it.name)} set ${i + 1} weight" data-ls="${it.id}|${i}|w" value="${c.w ?? ""}" placeholder="${ps && ps.w ? esc(ps.w) : "lb"}">` : `<span></span>`}
+        ${it.reps ? `<input type="number" inputmode="numeric" aria-label="${esc(it.name)} set ${i + 1} reps" data-ls="${it.id}|${i}|r" value="${c.r ?? ""}" placeholder="${ps && ps.r ? esc(ps.r) : (topReps(it.rx) || "")}">` : `<span></span>`}
+        <button class="check" aria-pressed="${!!c.ok}" aria-label="${esc(it.name)} set ${i + 1} done" data-action="setok" data-ex="${it.id}" data-i="${i}" data-rest="${it.rest}"></button></div>`;
+    }).join("");
+    return `<section class="exlog"><div class="exh"><b>${esc(it.name)}</b><span class="rx">${esc(it.id === "warm" ? "6 minutes" : it.rx)}</span></div>
+      ${it.note ? `<div class="small muted">${esc(it.note)}</div>` : ""}${it.id === "warm" ? `<div class="small muted">${esc(WARMUP.slice(0, 5).join(", "))}.</div>` : ""}${hint}
+      ${it.sets > 1 || it.weight || it.reps ? `<div class="setrow head"><span>Set</span><span>Last time</span><span>${it.weight ? "lb" : ""}</span><span>${it.reps ? "Reps" : ""}</span><span></span></div>` : ""}${rows}</section>`;
+  }).join("");
+  const sub = wl.end ? `Saved: ${stt.sets} sets${stt.vol ? `, ${stt.vol.toLocaleString()} lb lifted` : ""}${stt.min ? `, ${stt.min} minutes` : ""}` : `<span id="elapsed">${fmtClock((Date.now() - wl.start) / 1000)}</span> elapsed, ${stt.sets} sets done`;
+  const foot = wl.end
+    ? `<button class="btn primary" data-action="close">Close</button><button class="btn ghost" data-action="discardlog">Delete workout</button>`
+    : `<div id="restbar" class="restbar" ${RESTT ? "" : "hidden"}></div><button class="btn primary" data-action="finishlog">Finish workout</button><button class="btn ghost" data-action="discardlog">Discard</button>`;
+  return ovShell(s ? s.name : "Workout", `<p class="small muted">Tap ✓ as you finish each set. Leave a box empty and it uses last time’s number (shown in gray). The rest timer starts on its own.</p>${body}`, foot, sub);
+}
+function tick() {
+  if (!OV || OV.t !== "log") return;
+  const wl = getDay(OV.date).wlog;
+  const el = document.getElementById("elapsed"); if (el && wl) el.textContent = fmtClock((Date.now() - wl.start) / 1000);
+  const rb = document.getElementById("restbar");
+  if (rb) {
+    if (!RESTT) { rb.hidden = true; return; }
+    const left = (RESTT.end - Date.now()) / 1000;
+    rb.hidden = false;
+    rb.innerHTML = left > 0
+      ? `<span>Rest <b>${fmtClock(left)}</b></span><div class="rtrack"><i style="width:${Math.max(0, Math.min(100, (1 - left / RESTT.total) * 100))}%"></i></div><button class="chip" data-action="restplus">+30 s</button><button class="chip" data-action="restskip">Skip</button>`
+      : `<span><b>Rest done.</b> Next set.</span><button class="chip" data-action="restskip">OK</button>`;
+    if (left <= 0 && !RESTT.buzzed) { RESTT.buzzed = true; try { navigator.vibrate && navigator.vibrate(300); } catch (e) {} }
+  }
+}
+setInterval(tick, 1000);
+
 /* ---------------- Events ---------------- */
+function closeOv() { OV = (OV && OV.back) || null; }
+function scrollToId(id) { setTimeout(() => { const el = document.getElementById(id); if (el) el.scrollIntoView({ block: "start", behavior: "smooth" }); }, 30); }
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-action],[data-set]");
   if (!b) return;
-  const t = today();
-  if (b.dataset.set) { const k = b.dataset.set, v = +b.dataset.val; const d = getDay(t); setDay(t, { [k]: d[k] === v ? null : v }); render(); return; }
+  const t = today(), date = b.dataset.date || t;
+  if (b.dataset.set) { const k = b.dataset.set, v = +b.dataset.val, d = getDay(t); setDay(t, { [k]: d[k] === v ? null : v }); render(); return; }
   const a = b.dataset.action;
+  if (b.tagName === "A") e.preventDefault();
   switch (a) {
-    case "done": { const d = getDay(t); setDay(t, { done: d.done === b.dataset.sid ? null : b.dataset.sid }); render(); break; }
-    case "swap": setDay(t, { swap: b.dataset.sid }); render(); break;
-    case "unswap": setDay(t, { swap: null }); render(); break;
+    case "close": closeOv(); RESTT = null; render(); break;
+    case "wk": WEEKOFF += +b.dataset.val; render(); break;
+    case "jumpday": openSet.add("day-" + date); render(); scrollToId("day-" + date); break;
+    case "editday": OV = { t: "day", date }; render(); break;
+
+    /* workouts */
+    case "done": { const d = getDay(date); setDay(date, { done: d.done ? null : plannedSession(date) }); render(); break; }
+    case "sesspick": OV = { t: "sess", date, back: OV && OV.t === "day" ? OV : null }; render(); break;
+    case "setsess": { const w = weekObj(weekStart(date), true); w.train[parseDs(date).getDay()] = b.dataset.sid; saveLocal(); if (OV && OV.t === "sess") closeOv(); toast(`${sessMeta(b.dataset.sid).name} on ${DAYNAMES[parseDs(date).getDay()]}`); render(); break; }
+    case "savetpl": { const ws = curWs(); S.settings.trainTpl = [...Array(7)].map((_, i) => plannedSession(addDays(ws, i))); saveLocal(); toast("Saved as your default week"); render(); break; }
+    case "resettrain": { const w = weekObj(curWs(), true); w.train = {}; saveLocal(); render(); break; }
+    case "startlog": {
+      const d = getDay(date);
+      if (!d.wlog) { const sid = b.dataset.sid || plannedSession(date); setDay(date, { wlog: { sid, start: Date.now(), ex: {} } }); if (sid === "H" && sessMeta(plannedSession(date)).kind === "rest") { /* home workout on a rest day */ } }
+      OV = { t: "log", date, back: OV && OV.t === "day" ? OV : null }; render(); break;
+    }
+    case "openlog": OV = { t: "log", date, back: OV && OV.t === "day" ? OV : null }; render(); break;
+    case "setok": {
+      const d = getDay(OV.date), wl = { ...d.wlog, ex: { ...(d.wlog.ex || {}) } }, id = b.dataset.ex, i = +b.dataset.i;
+      const it = logItems(wl.sid).find(x => x.id === id), arr = (wl.ex[id] || []).slice(), c = { ...(arr[i] || {}) };
+      c.ok = !c.ok;
+      if (c.ok) {
+        const prev = prevSets(id, OV.date), ps = prev && prev.sets.length ? (prev.sets[i] || prev.sets[prev.sets.length - 1]) : null;
+        if (it && it.weight && (c.w == null || c.w === "") && ps && ps.w) c.w = ps.w;
+        if (it && it.reps && (c.r == null || c.r === "")) c.r = ps && ps.r ? ps.r : String(topReps(it.rx) || "");
+        const rest = +b.dataset.rest || 90;
+        const last = i === it.sets - 1;
+        RESTT = last && it.sets > 1 ? null : { end: Date.now() + rest * 1000, total: rest };
+      }
+      arr[i] = c; wl.ex[id] = arr; setDay(OV.date, { wlog: wl }); render(); tick(); break;
+    }
+    case "restplus": if (RESTT) { RESTT.end += 30000; RESTT.total += 30; RESTT.buzzed = false; } tick(); break;
+    case "restskip": RESTT = null; tick(); break;
+    case "finishlog": {
+      const d = getDay(OV.date), wl = { ...d.wlog, end: Date.now() }, stt = wlogStats(wl);
+      setDay(OV.date, { wlog: wl, done: wl.sid }); RESTT = null;
+      toast(`Workout saved: ${stt.sets} sets${stt.vol ? `, ${stt.vol.toLocaleString()} lb lifted` : ""}`); closeOv(); render(); break;
+    }
+    case "discardlog": if (confirm("Delete this workout log?")) { const d = getDay(OV.date); setDay(OV.date, { wlog: null, done: d.wlog && d.done === d.wlog.sid ? null : d.done }); RESTT = null; closeOv(); render(); } break;
+
+    /* Today basics */
     case "stamp": setDay(t, { [b.dataset.k]: nowHHMM() }); render(); break;
     case "water": { const d = getDay(t); setDay(t, { water: Math.max(0, (d.water || 0) + +b.dataset.val) }); render(); break; }
-    case "meal": { const d = getDay(t); const m = { ...(d.meals || {}) }; m[b.dataset.id] = !m[b.dataset.id]; const patch = { meals: m }; if (m[b.dataset.id] && S.settings.fastOn && !d.eatStart) patch.eatStart = nowHHMM(); setDay(t, patch); render(); break; }
-    case "extra": { const d = getDay(t); const v = +b.dataset.val; setDay(t, { extraP: v === 0 ? 0 : (d.extraP || 0) + v }); render(); break; }
-    case "opensession": e.preventDefault(); openSet.add("s-" + b.dataset.sid); go("train", "s-" + b.dataset.sid); break;
-    case "openrecipe": e.preventDefault(); openSet.add("r-" + b.dataset.id); go("eat", "r-" + b.dataset.id); break;
-    case "got": { const id = b.dataset.id; S.groc2[id] = { ...(S.groc2[id] || {}), got: !(S.groc2[id] && S.groc2[id].got) }; persist("profile"); render(); break; }
-    case "clearlist": Object.keys(S.groc2).forEach(id => { S.groc2[id] = { ...S.groc2[id], got: false }; }); persist("profile"); render(); break;
-    case "ing": { const P = plan(), id = b.dataset.id; if (P.off[id]) delete P.off[id]; else P.off[id] = true; PLANMSG = ""; persist("profile"); render(); break; }
-    case "flav": { const P = plan(); P.flav[b.dataset.id] = !P.flav[b.dataset.id]; PLANMSG = ""; persist("profile"); render(); break; }
-    case "pick": {
-      const P = plan(), slot = b.dataset.slot, id = b.dataset.id, arr = P.picks[slot], def = SLOTS.find(x => x[0] === slot);
-      if (arr.includes(id)) { P.picks[slot] = arr.filter(x => x !== id); Object.values(P.over).forEach(o => { if (o[slot] === id) delete o[slot]; }); PLANMSG = ""; }
-      else if (arr.length >= def[2]) PLANMSG = `You can pick up to ${def[2]} ${def[1].toLowerCase()}. Remove one first.`;
-      else { arr.push(id); PLANMSG = ""; }
-      persist("profile"); render(); break;
+
+    /* meals on days */
+    case "eat": {
+      const d = getDay(date), eaten = { ...(d.eaten || {}) }, s = b.dataset.slot; eaten[s] = !eaten[s];
+      const patch = { eaten };
+      if (eaten[s] && date === t && S.settings.fastOn && !d.eatStart) patch.eatStart = nowHHMM();
+      setDay(date, patch); render(); break;
     }
-    case "resetweek": plan().over = {}; persist("profile"); render(); break;
-    case "adjust": { const v = +b.dataset.val; S.settings.kcal += v; S.settings.c = Math.max(100, S.settings.c + Math.round(v / 4)); persist("profile"); render(); break; }
+    case "choose": OV = { t: "choose", date, slot: b.dataset.slot, q: "", back: OV && OV.t === "day" ? OV : null }; render(); break;
+    case "pickmeal": { const r = R(b.dataset.id); assignSlot(OV.date, OV.slot, b.dataset.id); toast(`${r.short || r.name} for ${SLOTNAME[OV.slot].toLowerCase()}`); closeOv(); render(); break; }
+    case "clearslot": assignSlot(OV.date, OV.slot, null); closeOv(); render(); break;
+    case "preset": { const p = PRESETS[+b.dataset.i], d = getDay(date); setDay(date, { extras: [...(d.extras || []), { name: p.name, k: p.k, p: p.p, f: p.f, c: p.c }] }); toast(`Added: ${p.name}`); render(); break; }
+    case "addfood": ADDFOOD = b.dataset.date || null; render(); if (ADDFOOD) setTimeout(() => { const el = $("#xf-name"); if (el) el.focus(); }, 30); break;
+    case "saveextra": {
+      const v = id => { const n = parseFloat(($(id) || {}).value); return isNaN(n) ? 0 : Math.round(n); };
+      const x = { name: (($("#xf-name") || {}).value || "").trim().slice(0, 60), k: v("#xf-k"), p: v("#xf-p"), f: v("#xf-f"), c: v("#xf-c") };
+      if (!x.k && !x.p) { alert("Enter at least calories or protein."); return; }
+      if (!x.k) x.k = x.p * 4 + x.f * 9 + x.c * 4;
+      const d = getDay(date); setDay(date, { extras: [...(d.extras || []), x] }); ADDFOOD = null; render(); break;
+    }
+    case "delextra": { const d = getDay(date), xs = (d.extras || []).slice(); xs.splice(+b.dataset.i, 1); setDay(date, { extras: xs }); render(); break; }
+
+    /* recipes and menu */
+    case "recipe": OV = { t: "recipe", id: b.dataset.id, back: OV }; render(); break;
+    case "menuadd": { const w = weekObj(curWs(), true), id = b.dataset.id; w.menu[id] = (w.menu[id] || 0) + 1; saveLocal(); toast(`${R(id).short || R(id).name}: ×${w.menu[id]} on this week’s menu`); render(); break; }
+    case "serv": {
+      const ws = curWs(), w = weekObj(ws, true), id = b.dataset.id, used = menuUsed(ws)[id] || 0;
+      let n = (w.menu[id] || 0) + +b.dataset.val;
+      if (n < used) { n = used; toast(`It’s on ${used} of your days. Clear it from a day first.`); }
+      if (n <= 0) delete w.menu[id]; else w.menu[id] = n;
+      saveLocal(); render(); break;
+    }
+    case "copymenu": { const ws = curWs(), prev = weekObj(addDays(ws, -7)); weekObj(ws, true).menu = clone(prev.menu); saveLocal(); toast("Copied last week’s menu"); render(); break; }
+    case "rate": { const id = b.dataset.id, v = +b.dataset.val; if (v) S.rate[id] = v; else delete S.rate[id]; saveLocal(); if (v === -1) toast("Hidden. Find it under “Recipes you hid.”"); render(); break; }
+    case "delmine": if (confirm("Delete this recipe?")) { delete S.myRecipes[b.dataset.id]; Object.values(S.weeks).forEach(w => { delete w.menu[b.dataset.id]; }); saveLocal(); closeOv(); render(); } break;
+    case "rbkind": RB.kind = b.dataset.val; render(); break;
+    case "rbflav": RB.flav = b.dataset.val; render(); break;
+    case "rbfav": RB.fav = !RB.fav; render(); break;
+    case "rbhidden": RB.hidden = !RB.hidden; render(); break;
+    case "ing": { const id = b.dataset.id; if (S.plan.off[id]) delete S.plan.off[id]; else S.plan.off[id] = true; saveLocal(); render(); break; }
+    case "flav": { const k = b.dataset.id; S.plan.flav[k] = S.plan.flav[k] === false; saveLocal(); render(); break; }
+    case "got": { const id = b.dataset.id; S.groc2[id] = { ...(S.groc2[id] || {}), got: !(S.groc2[id] && S.groc2[id].got) }; saveLocal(); render(); break; }
+    case "clearlist": Object.keys(S.groc2).forEach(id => { S.groc2[id] = { ...S.groc2[id], got: false }; }); saveLocal(); render(); break;
+    case "copyfeedback": {
+      const names = f => allIds().filter(f).map(id => R(id).name);
+      const txt = `Recipe feedback from my Summit app\nFavorites: ${names(isFav).join("; ") || "none"}\nNot for me: ${names(isHidden).join("; ") || "none"}\nMy own recipes: ${Object.values(S.myRecipes).map(r => `${r.name} (${r.ing.map(([i, a]) => ingLine(i, a)).join(", ")})`).join("; ") || "none"}`;
+      (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(() => { toast("Copied. Paste it into your chat with Claude."); render(); }).catch(() => window.prompt("Copy this:", txt));
+      break;
+    }
+
+    /* builder */
+    case "build": OV = { t: "build", items: {}, slot: OV && OV.t === "choose" ? (slotKind(OV.slot)) : "main", name: "", back: OV }; render(); break;
+    case "bslot": OV.slot = b.dataset.val; render(); break;
+    case "badd": { const id = b.dataset.id; if (OV.items[id] > 0) delete OV.items[id]; else OV.items[id] = defAmt(id); render(); break; }
+    case "bstep": { const id = b.dataset.id, n = Math.round(((OV.items[id] || 0) + +b.dataset.val * stepOf(id)) * 100) / 100; if (n <= 0) delete OV.items[id]; else OV.items[id] = n; render(); break; }
+    case "bsave": {
+      const entries = Object.entries(OV.items).filter(([, x]) => x > 0); if (!entries.length) return;
+      const nameEl = $("#b-name"), name = ((nameEl && nameEl.value) || buildName(OV.items)).trim().slice(0, 70);
+      const { flav } = buildStyle(OV.items), id = "my" + Date.now().toString(36);
+      const r = { name, short: name.length > 24 ? name.slice(0, 22) + "…" : name, slots: OV.slot === "main" ? ["lunch", "dinner"] : [OV.slot], flavor: ["pr", "italian"].includes(flav) ? flav : flav === "bbq" ? "american" : "any",
+        ing: entries, steps: buildSteps(OV.items), family: "", mine: true, ...macrosOf(entries) };
+      S.myRecipes[id] = r;
+      const back = OV.back;
+      if (b.dataset.val === "menu") {
+        if (back && back.t === "choose") { assignSlot(back.date, back.slot, id); OV = back.back || null; toast(`Saved and added for ${SLOTNAME[back.slot].toLowerCase()}`); }
+        else { const w = weekObj(curWs(), true); w.menu[id] = (w.menu[id] || 0) + 1; OV = back || null; toast("Saved and added to this week’s menu"); }
+      } else { OV = back || null; toast("Saved to your recipes"); }
+      saveLocal(); render(); break;
+    }
+
+    /* settings, measurements, backups */
+    case "adjust": { const v = +b.dataset.val; S.settings.kcal += v; S.settings.c = Math.max(100, S.settings.c + Math.round(v / 4)); saveLocal(); render(); break; }
     case "addmeasure": {
       const waist = parseFloat($("#m-waist").value), neck = parseFloat($("#m-neck").value);
       if (!(waist > 20 && neck > 10)) { alert("Enter both waist and neck in inches."); return; }
       const w = getDay(t).w || null;
       S.measures = S.measures.filter(m => m.d !== t).concat([{ d: t, waist, neck, w }]);
-      persist("profile"); render(); break;
+      saveLocal(); render(); break;
     }
-    case "delmeasure": S.measures = S.measures.filter(m => m.d !== b.dataset.d); persist("profile"); render(); break;
+    case "delmeasure": S.measures = S.measures.filter(m => m.d !== b.dataset.d); saveLocal(); render(); break;
     case "addtest": {
       const val = id => { const v = $(id).value; return v === "" ? null : +v; };
       const rec = { d: t, pu: val("#t-pu"), pl: val("#t-pl"), sq: val("#t-sq"), sr: val("#t-sr") };
       if ([rec.pu, rec.pl, rec.sq, rec.sr].every(v => v == null)) return;
-      S.tests = S.tests.filter(x => x.d !== t).concat([rec]); persist("profile"); render(); break;
+      S.tests = S.tests.filter(x => x.d !== t).concat([rec]); saveLocal(); render(); break;
     }
     case "savesettings": {
       const n = (id, k) => { const v = parseFloat($(id).value); if (!isNaN(v) && v > 0) S.settings[k] = v; };
@@ -1128,7 +1811,7 @@ document.addEventListener("click", e => {
       const fv = +$("#s-fast").value; S.settings.fastOn = fv > 0; if (fv > 0) S.settings.fastHours = fv;
       const op = $("#s-open").value;
       if (op) { if (toMin(op) + (S.settings.fastHours || 8) * 60 <= 1440) S.settings.fastOpen = op; else alert("Your eating window has to close by midnight. Pick an earlier opening time."); }
-      persist("profile"); render();
+      saveLocal(); render();
       b.textContent = "Saved"; break;
     }
     case "export": {
@@ -1143,6 +1826,12 @@ document.addEventListener("click", e => {
   }
 });
 
+document.addEventListener("input", e => {
+  const el = e.target;
+  if (el.dataset.search === "rb") { RB.q = el.value; const l = $("#rb-list"); if (l) l.innerHTML = browserList(); }
+  else if (el.dataset.search === "ch" && OV) { OV.q = el.value; const l = $("#ch-list"); if (l) l.innerHTML = chooserList(); }
+});
+
 document.addEventListener("change", e => {
   const el = e.target, t = today();
   if (el.id === "restore-file") {
@@ -1151,45 +1840,34 @@ document.addEventListener("change", e => {
       const o = JSON.parse(txt);
       if (!o || typeof o !== "object" || !(o.settings || o.logs)) throw new Error("bad");
       if (!confirm("Replace the data on this phone with this backup?")) return;
-      S = { settings: normSettings(o.settings), grocery: o.grocery || {}, groc2: o.groc2 || {}, plan: o.plan || null, measures: o.measures || [], tests: o.tests || [], saved: o.saved || [], logs: o.logs || {} }; plan();
+      S = { ...o, settings: normSettings(o.settings) }; migrate();
       saveLocal(); render(); alert("Backup restored.");
     }).catch(() => alert("That file isn’t a Summit backup. Choose the .json file you saved from this app."));
     el.value = ""; return;
   }
-  if (el.dataset.ftime) { setDay(t, { [el.dataset.ftime]: el.value || null }); pendingRender = true; return; }
-  if (el.dataset.field === "w") { const v = parseFloat(el.value); setDay(t, { w: isNaN(v) ? null : round1(v) }); }
-  else if (el.dataset.lift) { const d = getDay(t); const l = { ...(d.lifts || {}) }; const v = el.value.trim().slice(0, 40); if (v) l[el.dataset.lift] = v; else delete l[el.dataset.lift]; setDay(t, { lifts: l }); }
-  else if (el.dataset.price) { const v = parseFloat(el.value); const id = el.dataset.price; S.groc2[id] = { ...(S.groc2[id] || {}), price: isNaN(v) ? null : v }; persist("profile"); pendingRender = true; }
-  else if (el.dataset.over) {
-    const [wd, slot] = el.dataset.over.split("|"), P = plan(), arr = P.picks[slot], def = arr[((+wd + 6) % 7) % arr.length];
-    const o = { ...(P.over[wd] || {}) };
-    if (el.value === def) delete o[slot]; else o[slot] = el.value;
-    if (Object.keys(o).length) P.over[wd] = o; else delete P.over[wd];
-    persist("profile"); render();
+  if (el.dataset.field === "w") { const v = parseFloat(el.value), dt = el.dataset.date || t; setDay(dt, { w: isNaN(v) ? null : round1(v) }); pendingRender = true; }
+  else if (el.dataset.ftime) { setDay(t, { [el.dataset.ftime]: el.value || null }); pendingRender = true; }
+  else if (el.dataset.price) { const v = parseFloat(el.value), id = el.dataset.price; S.groc2[id] = { ...(S.groc2[id] || {}), price: isNaN(v) ? null : v }; saveLocal(); pendingRender = true; }
+  else if (el.dataset.bname && OV && OV.t === "build") { OV.name = el.value; }
+  else if (el.dataset.ls && OV && OV.t === "log") {
+    const [id, i, k] = el.dataset.ls.split("|"), d = getDay(OV.date), wl = { ...d.wlog, ex: { ...(d.wlog.ex || {}) } }, arr = (wl.ex[id] || []).slice();
+    arr[+i] = { ...(arr[+i] || {}), [k]: el.value }; wl.ex[id] = arr; setDay(OV.date, { wlog: wl });
   }
 });
 
 document.addEventListener("toggle", e => {
   const d = e.target;
-  if (d.tagName === "DETAILS" && d.dataset.key) {
-    if (d.open) openSet.add(d.dataset.key); else openSet.delete(d.dataset.key);
-    if (d.open && d.dataset.lazy) { const body = d.querySelector(".dbody"); if (body && !body.innerHTML.trim()) safeRender(); }
-  }
+  if (d.tagName === "DETAILS" && d.dataset.key) { if (d.open) openSet.add(d.dataset.key); else openSet.delete(d.dataset.key); }
 }, true);
 
-/* ---------------- Routing ---------------- */
-const VALID = TABS.map(x => x[0]);
-function go(name, anchor) {
-  tab = name;
-  if (location.hash !== "#" + name) history.replaceState(null, "", "#" + name);
-  render();
-  if (anchor) { const el = document.getElementById(anchor); if (el) el.scrollIntoView({ block: "start", behavior: "smooth" }); }
-  else window.scrollTo(0, 0);
-}
-function fromHash() { const h = location.hash.slice(1); tab = VALID.includes(h) ? h : "today"; render(); window.scrollTo(0, 0); }
+/* ---------------- Routing and start-up ---------------- */
+const VALID = TABS.map(x => x[0]).concat(["more"]);
+function fromHash() { const h = location.hash.slice(1); if (VALID.includes(h)) { tab = h; OV = null; } else if (!h) tab = "today"; render(); if (VALID.includes(h)) window.scrollTo(0, 0); }
 window.addEventListener("hashchange", fromHash);
+migrate();
 fromHash();
 try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch (e) {}
+
 </script>
 </body>
 </html>
